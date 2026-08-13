@@ -1,1 +1,100 @@
-SEE_FILE
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071a33">
+<title>SONYMA Eligibility Explorer | Robert Castro</title>
+<style>
+:root{--navy:#071a33;--red:#c91f32;--green:#14804a;--amber:#a66a00;--ink:#17283e;--muted:#65758b;--paper:#f5f7f9;--line:#dfe5ec}
+*{box-sizing:border-box}
+html,body{margin:0;background:#071a33;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{min-height:100vh}
+.app{max-width:1100px;margin:auto;background:var(--paper);min-height:100vh}
+header{background:rgba(7,26,51,.97);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:20}
+.brand{font-weight:900;letter-spacing:1.4px;font-size:13px}
+.subbrand{font-size:10px;opacity:.7;margin-top:2px}
+.wrap{padding:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+.card h2{margin:0 0 12px;color:var(--navy);font-size:18px}
+label{display:block;font-size:13px;font-weight:800;color:var(--navy);margin:12px 0 5px}
+input,select{width:100%;padding:13px 12px;border:1px solid #cfd7e1;border-radius:10px;font-size:16px;background:#fff}
+button,.button{border:0;background:var(--red);color:#fff;font-weight:850;border-radius:11px;padding:14px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+.secondary{background:#eef2f6;color:var(--navy)}
+.rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rate{border:1px solid var(--line);border-radius:12px;padding:12px}
+.rate strong{font-size:11px;display:block}
+.rate .num{font-size:24px;font-weight:900;color:var(--red);margin:4px 0}
+.rate small{color:var(--muted);font-size:11px;line-height:1.3}
+.result{border-left:4px solid var(--green);background:#fff;border-radius:12px;padding:14px;margin:8px 0;border:1px solid var(--line)}
+.result.no{border-left-color:#c7ced7}
+.result.warn{border-left-color:#d99000}
+.result h3{margin:0 0 4px;color:var(--navy);font-size:16px}
+.result p{margin:3px 0;color:#526176;font-size:13px;line-height:1.4}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:850;background:#e8f6ef;color:var(--green)}
+.warnpill{background:#fff2d8;color:var(--amber)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+footer{padding:16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:center;line-height:1.4}
+.cinematic{background:#030b15;color:#fff;border-radius:16px;margin-bottom:12px;overflow:hidden}
+.cinematic-photo{background:#0a1a2e;line-height:0;position:relative;width:100%;height:220px;min-height:200px;max-height:380px;overflow:hidden}
+.cinematic-photo img{display:block;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.cinematic-content{padding:18px 16px 22px;background:linear-gradient(180deg,#071a33,#061321)}
+.cinematic-kicker{font-size:10px;letter-spacing:1.8px;font-weight:900;color:#ff5a68}
+.cinematic h1{font-size:34px;line-height:.92;letter-spacing:-1.2px;margin:8px 0}
+.cinematic .script{font-size:14px;line-height:1.45;color:#e6edf5}
+.cinematic .signature{margin-top:12px;font-size:13px;font-weight:800}
+.cinematic-actions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.cinematic-actions a{width:100%;justify-content:center}
+.story-grid{display:grid;gap:10px}
+.story-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.story-card .eyebrow{font-size:10px;color:var(--red);font-weight:900;letter-spacing:1px}
+.story-card h3{margin:4px 0;color:var(--navy);font-size:15px}
+.story-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+.rate-hero{display:grid;gap:10px;margin-top:12px}
+.stepbar{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-bottom:12px}
+.stepbar div{font-size:8px;text-align:center;font-weight:900;color:#8290a2;padding:8px 1px;border-radius:8px;background:#eef2f6}
+.stepbar .active{background:#c91f32;color:#fff}
+.qa-intro{background:linear-gradient(135deg,#071a33,#0c2b4d);color:#fff;border-radius:14px;padding:18px 14px;margin-bottom:10px}
+.qa-intro h2{margin:4px 0 6px;font-size:22px}
+.qa-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
+.qa-tabs button{white-space:nowrap;border:1px solid #dbe2e9;background:#fff;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:850}
+.qa-tabs button.active{background:#c91f32;color:#fff;border-color:#c91f32}
+.qa-item{background:#fff;border:1px solid #dfe5eb;border-radius:12px;margin-bottom:8px;overflow:hidden}
+.qa-q{width:100%;background:#fff;border:0;padding:14px;text-align:left;font-size:14px;font-weight:850;display:flex;justify-content:space-between;align-items:center}
+.qa-q span{color:#c91f32;font-size:18px}
+.qa-a{display:none;padding:0 14px 14px;color:#56677a;font-size:13px;line-height:1.45}
+.qa-item.open .qa-a{display:block}
+.notice{font-size:11px;color:#6a7789;line-height:1.4;margin:12px 0}
+@media(min-width:700px){
+  .story-grid{grid-template-columns:repeat(3,1fr)}
+  .rate-hero{grid-template-columns:1fr 1fr}
+  .cinematic-actions{flex-direction:row}
+  .cinematic-actions a{width:auto}
+  .cinematic h1{font-size:48px}
+  .wrap{padding:20px}
+  .cinematic-photo{height:340px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand">SONYMA • ELIGIBILITY EXPLORER</div>
+  <div class="subbrand">Prepared for Robert Castro • Movement Mortgage • NMLS #66194</div>
+</header>
+<div class="wrap">
+
+<section class="cinematic">
+  <div class="cinematic-photo"><img src="/robert.jpg" alt="Robert Castro, Senior Loan Officer"></div>
+  <div class="cinematic-content">
+    <div class="cinematic-kicker">NEW YORK STATE • SONYMA</div>
+    <h1>Your SONYMA Expert<br><span style="font-weight:500">Starts Here.</span></h1>
+    <div class="script">Buying a home in New York can feel out of reach. Let’s make SONYMA easier to understand — from eligibility and rates to down-payment assistance.</div>
+    <div class="signature">Robert Castro • Senior Loan Officer • Movement Mortgage</div>
+    <div class="cinematic-actions">
+      <a class="button" href="#explorer">Check Eligibility</a>
+      <a class="button secondary" href="tel:19148049889">Call Robert</a>
+    </div>
+  </div>
+</section>
+
