@@ -4,18 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071a33">
-<!-- Primary Meta Tags -->
 <meta name="title" content="SONYMA Eligibility Explorer | Robert A. Castro - Movement Mortgage">
 <meta name="description" content="Check NYS SONYMA eligibility in under 60 seconds. Discover 30-year fixed rates and up to $15,000 in Down Payment Assistance (DPAL).">
-
-<!-- Open Graph / Facebook / iMessage / WhatsApp -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sonyma-eligibility-explorer.vercel.app/">
 <meta property="og:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
 <meta property="og:description" content="Explore New York State homebuying assistance programs, current rates, and 0% interest down payment loans.">
 <meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/og-preview-card.png">
-
-<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://sonyma-eligibility-explorer.vercel.app/">
 <meta property="twitter:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
@@ -134,7 +129,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
     <div class="signature">Robert A. Castro • Senior Loan Officer • Movement Mortgage</div>
     <div class="cinematic-actions">
       <button type="button" class="button" id="openVideoBtn" aria-label="Meet Robert — Your SONYMA Expert">▶ Meet Robert — Your SONYMA Expert</button>
-      <a class="button secondary" href="#explorer">Check My SONYMA Eligibility →</a>
+      <a class="button secondary" href="#explorer">Check My SONYMA Options →</a>
       <a class="button ghost" href="tel:19148049889">Call Robert</a>
     </div>
   </div>
@@ -142,9 +137,9 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 
 <section class="transition-block">
   <h2>Could SONYMA help you buy a home?</h2>
-  <p>Answer a few questions to explore potential SONYMA options. Useful for buyers and realtors evaluating financing.</p>
+  <p>Answer a few questions to explore potential SONYMA options for your purchase.</p>
   <div class="transition-actions">
-    <a class="button" href="#explorer">🔎 Check My Eligibility</a>
+    <a class="button" href="#explorer">🔎 Check My SONYMA Options</a>
     <a class="button secondary" href="#rates">📊 Explore Programs & Rates</a>
   </div>
 </section>
@@ -193,6 +188,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 
 <section class="card" id="rates">
   <h2>Current SONYMA Rates</h2>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.4">Informational rates for common SONYMA programs. Always verify on the official HCR page.</p>
   <div class="rate-grid" id="ratesGrid"></div>
   <p style="font-size:11px;color:#7a8798;margin:12px 0 0;line-height:1.4">Rates shown are for informational purposes and may change. Final rate, terms and eligibility are subject to program guidelines and borrower qualification. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on the official HCR page</a>.</p>
 </section>
@@ -244,13 +240,21 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
     <option value="yes">Yes</option>
   </select>
   <div class="actions">
-    <button type="button" onclick="checkEligibility()">Check My Options</button>
+    <button type="button" onclick="checkEligibility()">Check My SONYMA Options →</button>
   </div>
 </section>
 
 <section class="card results" id="results">
-  <h2>Program Match</h2>
-  <p style="font-size:13px;color:var(--muted);margin:0">Enter the information above, then tap <b>Check My Options</b>.</p>
+  <h2>Your Potential SONYMA Options</h2>
+  <p style="font-size:13px;color:var(--muted);margin:0">Enter the information above, then tap <b>Check My SONYMA Options →</b>.</p>
+</section>
+
+<section class="contact-cta" style="margin-top:8px">
+  <h2>Want Help Understanding Your Results?</h2>
+  <img src="/IMG_8301.jpeg" alt="Robert A. Castro meeting with clients" style="width:100%;max-width:380px;border-radius:12px;margin:12px auto 14px;display:block;object-fit:cover;">
+  <p>I’m Robert Castro. I can walk you through what these results mean and help you determine what may actually fit your situation.</p>
+  <a class="phone" href="tel:19148049889">(914) 804-9889</a>
+  <a class="button" href="tel:19148049889" style="width:100%;max-width:320px;margin:8px auto 0;display:flex">Talk to Robert →</a>
 </section>
 
 <section class="contact-cta">
@@ -281,7 +285,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
       <div class="eyebrow">HOMEBUYER</div>
       <h3>I’m Buying a Home</h3>
       <p>Explore potential SONYMA options and see whether the program may be worth discussing for your purchase.</p>
-      <div style="margin-top:12px"><a class="button" href="#explorer" style="width:100%;justify-content:center">Check My Options →</a></div>
+      <div style="margin-top:12px"><a class="button" href="#explorer" style="width:100%;justify-content:center">Check My SONYMA Options →</a></div>
     </div>
     <div class="story-card">
       <div class="eyebrow">REALTOR</div>
@@ -340,15 +344,6 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 </div>
 
 <script>
-/* ============================================================
-   EASY VIDEO CONFIGURATION
-   When your video is ready, just replace the empty string below
-   with the full URL (YouTube, Vimeo, or MP4).
-   Example:
-   const SONYMA_VIDEO_URL = "https://www.youtube.com/watch?v=XXXXXXXXXXX";
-   or
-   const SONYMA_VIDEO_URL = "/robert-sonyma.mp4";
-   ============================================================ */
 const SONYMA_VIDEO_URL = "";
 
 const SONYMA_DATA = {
@@ -389,7 +384,7 @@ function checkEligibility(){
   add("Low Interest Rate Program",firstTimeOK,firstTimeOK?"Basic screening criteria look favorable based on the information provided.":"First-time buyer requirement not met from these inputs.",target==="unknown");
   const dpalMax=price?Math.max(3000,Math.min(price*0.03,15000)):0;
   add("Standard DPAL",firstTimeOK,firstTimeOK?(price?"Estimated DPAL assistance: <strong>"+money(dpalMax)+"</strong> (subject to program guidelines)":"Potential DPAL assistance available with an eligible first mortgage."):"Requires an eligible SONYMA first mortgage.");
-  let html=`<h2>Your SONYMA Possibilities</h2><p style="font-size:12px;color:#7a8798;margin:0 0 12px">Educational pre-screening only. Final eligibility is determined through a complete application and program guidelines.</p>`;
+  let html=`<h2>Your Potential SONYMA Options</h2><p style="font-size:12px;color:#7a8798;margin:0 0 12px">Educational pre-screening only. Final eligibility is determined through a complete application and program guidelines.</p>`;
   results.forEach(x=>{
     const cls=x.ok?(x.warn?"warn":""):"no";
     const pill=x.ok?'<span class="pill">POTENTIAL MATCH</span>':'<span class="pill warnpill">REVIEW NEEDED</span>';
