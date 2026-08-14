@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071a33">
+<meta name="description" content="Explore SONYMA eligibility, mortgage programs, down-payment assistance and current rates with Robert Castro.">
 <title>SONYMA Eligibility Explorer | Robert Castro</title>
 <style>
 :root{--navy:#071a33;--red:#c91f32;--green:#14804a;--amber:#a66a00;--ink:#17283e;--muted:#65758b;--paper:#f5f7f9;--line:#dfe5ec}
 *{box-sizing:border-box}
-html,body{margin:0;background:#071a33;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+html,body{margin:0;background:#071a33;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-text-size-adjust:100%}
 body{min-height:100vh}
-.app{max-width:1100px;margin:auto;background:var(--paper);min-height:100vh}
-header{background:rgba(7,26,51,.97);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:20}
+.app{max-width:1100px;margin:0 auto;background:var(--paper);min-height:100vh}
+header{background:rgba(7,26,51,.97);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:30}
 .brand{font-weight:900;letter-spacing:1.4px;font-size:13px}
 .subbrand{font-size:10px;opacity:.7;margin-top:2px}
 .wrap{padding:12px}
@@ -19,13 +20,14 @@ header{background:rgba(7,26,51,.97);color:#fff;padding:12px 16px;position:sticky
 .card h2{margin:0 0 12px;color:var(--navy);font-size:18px}
 label{display:block;font-size:13px;font-weight:800;color:var(--navy);margin:12px 0 5px}
 input,select{width:100%;padding:13px 12px;border:1px solid #cfd7e1;border-radius:10px;font-size:16px;background:#fff}
-button,.button{border:0;background:var(--red);color:#fff;font-weight:850;border-radius:11px;padding:14px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+button,.button{border:0;background:var(--red);color:#fff;font-weight:850;border-radius:11px;padding:14px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-size:15px;min-height:48px;gap:6px}
 .secondary{background:#eef2f6;color:var(--navy)}
+.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff}
 .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.rate{border:1px solid var(--line);border-radius:12px;padding:12px}
-.rate strong{font-size:11px;display:block}
-.rate .num{font-size:24px;font-weight:900;color:var(--red);margin:4px 0}
-.rate small{color:var(--muted);font-size:11px;line-height:1.3}
+.rate{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+.rate strong{font-size:11px;display:block;color:var(--muted);letter-spacing:.3px}
+.rate .num{font-size:26px;font-weight:900;color:var(--red);margin:6px 0 2px}
+.rate small{color:var(--muted);font-size:12px;line-height:1.35;display:block}
 .result{border-left:4px solid var(--green);background:#fff;border-radius:12px;padding:14px;margin:8px 0;border:1px solid var(--line)}
 .result.no{border-left-color:#c7ced7}
 .result.warn{border-left-color:#d99000}
@@ -34,45 +36,66 @@ button,.button{border:0;background:var(--red);color:#fff;font-weight:850;border-
 .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:850;background:#e8f6ef;color:var(--green)}
 .warnpill{background:#fff2d8;color:var(--amber)}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-footer{padding:16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:center;line-height:1.4}
+footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:center;line-height:1.45}
 .cinematic{background:#030b15;color:#fff;border-radius:16px;margin-bottom:12px;overflow:hidden}
 .cinematic-photo{background:#0a1a2e;line-height:0;position:relative;width:100%;height:220px;min-height:200px;max-height:380px;overflow:hidden}
 .cinematic-photo img{display:block;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .cinematic-content{padding:18px 16px 22px;background:linear-gradient(180deg,#071a33,#061321)}
 .cinematic-kicker{font-size:10px;letter-spacing:1.8px;font-weight:900;color:#ff5a68}
-.cinematic h1{font-size:34px;line-height:.92;letter-spacing:-1.2px;margin:8px 0}
-.cinematic .script{font-size:14px;line-height:1.45;color:#e6edf5}
-.cinematic .signature{margin-top:12px;font-size:13px;font-weight:800}
+.cinematic h1{font-size:32px;line-height:.95;letter-spacing:-1.1px;margin:8px 0 10px;font-weight:900}
+.cinematic .script{font-size:14px;line-height:1.5;color:#e6edf5;margin:0 0 10px}
+.cinematic .signature{margin-top:8px;font-size:13px;font-weight:800;color:#cfd8e3}
 .cinematic-actions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
-.cinematic-actions a{width:100%;justify-content:center}
+.cinematic-actions a,.cinematic-actions button{width:100%;justify-content:center}
+.transition-block{background:linear-gradient(135deg,#071a33,#0c2b4d);color:#fff;border-radius:16px;padding:22px 16px;margin-bottom:12px;text-align:center}
+.transition-block h2{margin:0 0 8px;font-size:22px;letter-spacing:-.3px}
+.transition-block p{margin:0 0 16px;font-size:14px;color:#c5d2e0;line-height:1.45}
+.transition-actions{display:flex;flex-direction:column;gap:8px}
 .story-grid{display:grid;gap:10px}
 .story-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
 .story-card .eyebrow{font-size:10px;color:var(--red);font-weight:900;letter-spacing:1px}
 .story-card h3{margin:4px 0;color:var(--navy);font-size:15px}
-.story-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.4}
-.rate-hero{display:grid;gap:10px;margin-top:12px}
+.story-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
 .stepbar{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-bottom:12px}
-.stepbar div{font-size:8px;text-align:center;font-weight:900;color:#8290a2;padding:8px 1px;border-radius:8px;background:#eef2f6}
+.stepbar div{font-size:9px;text-align:center;font-weight:900;color:#8290a2;padding:9px 2px;border-radius:8px;background:#eef2f6;line-height:1.25}
 .stepbar .active{background:#c91f32;color:#fff}
 .qa-intro{background:linear-gradient(135deg,#071a33,#0c2b4d);color:#fff;border-radius:14px;padding:18px 14px;margin-bottom:10px}
 .qa-intro h2{margin:4px 0 6px;font-size:22px}
-.qa-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
-.qa-tabs button{white-space:nowrap;border:1px solid #dbe2e9;background:#fff;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:850}
+.qa-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+.qa-tabs button{white-space:nowrap;border:1px solid #dbe2e9;background:#fff;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:850;min-height:40px;color:var(--navy)}
 .qa-tabs button.active{background:#c91f32;color:#fff;border-color:#c91f32}
 .qa-item{background:#fff;border:1px solid #dfe5eb;border-radius:12px;margin-bottom:8px;overflow:hidden}
-.qa-q{width:100%;background:#fff;border:0;padding:14px;text-align:left;font-size:14px;font-weight:850;display:flex;justify-content:space-between;align-items:center}
+.qa-q{width:100%;background:#fff;border:0;padding:14px;text-align:left;font-size:14px;font-weight:850;display:flex;justify-content:space-between;align-items:center;color:var(--navy);min-height:48px}
 .qa-q span{color:#c91f32;font-size:18px}
-.qa-a{display:none;padding:0 14px 14px;color:#56677a;font-size:13px;line-height:1.45}
+.qa-a{display:none;padding:0 14px 14px;color:#56677a;font-size:13px;line-height:1.5}
 .qa-item.open .qa-a{display:block}
-.notice{font-size:11px;color:#6a7789;line-height:1.4;margin:12px 0}
+.notice{font-size:11px;color:#6a7789;line-height:1.45;margin:12px 0}
+.contact-cta{background:linear-gradient(135deg,#071a33,#0c2b4d);color:#fff;border-radius:16px;padding:22px 16px;margin-bottom:12px;text-align:center}
+.contact-cta h2{margin:0 0 8px;font-size:20px}
+.contact-cta p{margin:0 0 14px;font-size:14px;color:#c5d2e0;line-height:1.45}
+.contact-cta .phone{font-size:22px;font-weight:900;letter-spacing:.5px;margin:8px 0 14px;display:block;color:#fff;text-decoration:none}
+.modal-overlay{position:fixed;inset:0;background:rgba(3,11,21,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:16px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.modal-overlay.open{display:flex}
+.modal{background:#0a1628;border-radius:16px;width:100%;max-width:640px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);position:relative}
+.modal-close{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);border:0;color:#fff;font-size:22px;font-weight:700;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center}
+.modal-body{padding:28px 20px 24px;color:#e8eef5;text-align:center}
+.modal-body h3{margin:0 0 8px;font-size:20px;color:#fff}
+.modal-body p{margin:0 0 18px;font-size:14px;color:#aeb9c7;line-height:1.5}
+.video-frame{position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:10px;overflow:hidden}
+.video-frame iframe,.video-frame video{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.coming-soon{padding:36px 16px;text-align:center}
+.coming-soon .icon{font-size:36px;margin-bottom:12px;opacity:.85}
+.coming-soon h3{margin:0 0 8px;font-size:18px;color:#fff}
+.coming-soon p{margin:0;font-size:14px;color:#aeb9c7;line-height:1.5}
 @media(min-width:700px){
   .story-grid{grid-template-columns:repeat(3,1fr)}
-  .rate-hero{grid-template-columns:1fr 1fr}
   .cinematic-actions{flex-direction:row}
-  .cinematic-actions a{width:auto}
-  .cinematic h1{font-size:48px}
+  .cinematic-actions a,.cinematic-actions button{width:auto}
+  .cinematic h1{font-size:46px}
   .wrap{padding:20px}
   .cinematic-photo{height:340px}
+  .transition-actions{flex-direction:row;justify-content:center}
+  .transition-actions a,.transition-actions button{width:auto;min-width:200px}
 }
 </style>
 </head>
@@ -85,55 +108,60 @@ footer{padding:16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:c
 <div class="wrap">
 
 <section class="cinematic">
-  <div class="cinematic-photo"><img src="/IMG_8291.jpeg" alt="Robert Castro, Senior Loan Officer"></div>
+  <div class="cinematic-photo">
+    <img src="/IMG_8291.jpeg" alt="Robert Castro, Senior Loan Officer, Movement Mortgage">
+  </div>
   <div class="cinematic-content">
     <div class="cinematic-kicker">NEW YORK STATE • SONYMA</div>
     <h1>Your SONYMA Expert<br><span style="font-weight:500">Starts Here.</span></h1>
-    <div class="script">Buying a home in New York can feel out of reach. Let’s make SONYMA easier to understand — from eligibility and rates to down-payment assistance.</div>
+    <div class="script">Buying a home in New York can feel out of reach. I’m here to make SONYMA easier to understand — from eligibility and rates to down-payment assistance.</div>
     <div class="signature">Robert Castro • Senior Loan Officer • Movement Mortgage</div>
     <div class="cinematic-actions">
-      <a class="button" href="#explorer">Check Eligibility</a>
-      <a class="button secondary" href="tel:19148049889">Call Robert</a>
+      <button type="button" class="button" id="openVideoBtn" aria-label="Meet Robert — Your SONYMA Expert">▶ Meet Robert — Your SONYMA Expert</button>
+      <a class="button secondary" href="#explorer">Check My SONYMA Eligibility →</a>
+      <a class="button ghost" href="tel:19148049889">Call Robert</a>
     </div>
+  </div>
+</section>
+
+<section class="transition-block">
+  <h2>Could SONYMA help you buy a home?</h2>
+  <p>Answer a few questions and explore potential SONYMA program options based on your situation.</p>
+  <div class="transition-actions">
+    <a class="button" href="#explorer">🔎 Check My Eligibility</a>
+    <a class="button secondary" href="#rates">📊 Explore Programs & Rates</a>
   </div>
 </section>
 
 <section class="card">
-  <div style="font-weight:800;color:var(--navy);margin-bottom:6px">Why SONYMA can matter</div>
-  <p style="font-size:13px;color:var(--muted);margin:0 0 12px">Three ideas every buyer and Realtor should understand.</p>
+  <h2>Why SONYMA Can Matter</h2>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.45">SONYMA can offer eligible New York buyers financing options and assistance that may make homeownership more attainable.</p>
   <div class="story-grid">
     <div class="story-card">
-      <div class="eyebrow">01 • ACHIEVING THE DREAM</div>
+      <div class="eyebrow">01 — COMPETITIVE FINANCING</div>
       <h3>Focus on the rate</h3>
-      <p>SONYMA’s lowest-interest-rate program with 30-year fixed financing and flexible down-payment options.</p>
+      <p>Depending on the program and borrower profile, SONYMA may offer competitive 30-year fixed-rate financing.</p>
     </div>
     <div class="story-card">
-      <div class="eyebrow">02 • DPAL</div>
+      <div class="eyebrow">02 — DOWN-PAYMENT ASSISTANCE</div>
       <h3>Focus on cash to close</h3>
-      <p>0% interest, no monthly payments. Generally $3,000 or 3% of the price up to $15,000.</p>
+      <p>Eligible borrowers may be able to use SONYMA Down Payment Assistance (DPAL) to help with required cash toward the purchase.</p>
     </div>
     <div class="story-card">
-      <div class="eyebrow">03 • TARGET AREAS</div>
+      <div class="eyebrow">03 — TARGET AREAS</div>
       <h3>Focus on opportunity</h3>
-      <p>Can waive the normal first-time buyer requirement and offer broader income and purchase-price limits.</p>
+      <p>Certain Target Areas may provide expanded eligibility or exceptions to the standard first-time-homebuyer requirement.</p>
     </div>
   </div>
-  <div class="rate-hero">
-    <div class="rate">
-      <strong>Achieving the Dream</strong>
-      <div class="num">5.700%</div>
-      <small>Without DPAL<br>6.100% with DPAL</small>
-    </div>
-    <div class="rate">
-      <strong>Low Interest Rate</strong>
-      <div class="num">6.100%</div>
-      <small>Without DPAL<br>6.500% with DPAL</small>
-    </div>
-  </div>
-  <p style="font-size:11px;color:#7a8798;margin:10px 0 0">Rates are a current snapshot and may change. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on the official HCR page</a>.</p>
 </section>
 
-<div class="stepbar">
+<section class="card" id="rates">
+  <h2>Current SONYMA Rates</h2>
+  <div class="rate-grid" id="ratesGrid"></div>
+  <p style="font-size:11px;color:#7a8798;margin:12px 0 0;line-height:1.4">Rates shown are for informational purposes and may change. Final rate, terms and eligibility are subject to program guidelines and borrower qualification. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on the official HCR page</a>.</p>
+</section>
+
+<div class="stepbar" id="stepbar">
   <div class="active">1<br>YOU</div>
   <div>2<br>INCOME</div>
   <div>3<br>HOME</div>
@@ -142,19 +170,20 @@ footer{padding:16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:c
 </div>
 
 <section class="card" id="explorer">
-  <h2>Buyer & Property</h2>
-  <label>County</label>
+  <h2>Let’s See If SONYMA Could Be a Fit</h2>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.45">This quick pre-screening tool helps you explore potential SONYMA options. It is not a loan approval or guarantee of eligibility.</p>
+  <label for="county">County</label>
   <select id="county"></select>
-  <label>Household size</label>
+  <label for="hh">Household size</label>
   <select id="hh">
     <option value="1">1–2 people</option>
     <option value="3">3+ people</option>
   </select>
-  <label>Total household income</label>
+  <label for="income">Total household income</label>
   <input id="income" type="number" inputmode="numeric" placeholder="e.g. 120000">
-  <label>Purchase price</label>
+  <label for="price">Purchase price</label>
   <input id="price" type="number" inputmode="numeric" placeholder="e.g. 500000">
-  <label>Property type</label>
+  <label for="property">Property type</label>
   <select id="property">
     <option value="1">1-family / condo</option>
     <option value="2">2-family</option>
@@ -162,35 +191,37 @@ footer{padding:16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:c
     <option value="4">4-family</option>
     <option value="coop">Co-op</option>
   </select>
-  <label>Target Area status</label>
+  <label for="target">Target Area status</label>
   <select id="target">
     <option value="unknown">Not checked</option>
     <option value="yes">Yes — Target Area</option>
     <option value="no">No</option>
   </select>
-  <label>First-time homebuyer?</label>
+  <label for="first">First-time homebuyer?</label>
   <select id="first">
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
-  <label>Eligible military veteran?</label>
+  <label for="vet">Eligible military veteran?</label>
   <select id="vet">
     <option value="no">No</option>
     <option value="yes">Yes</option>
   </select>
   <div class="actions">
-    <button onclick="checkEligibility()">Check My Options</button>
+    <button type="button" onclick="checkEligibility()">Check My Options</button>
   </div>
-</section>
-
-<section class="card">
-  <h2>Current SONYMA Rates</h2>
-  <div id="rates" class="rate-grid"></div>
 </section>
 
 <section class="card results" id="results">
   <h2>Program Match</h2>
-  <p>Enter the information above, then tap <b>Check My Options</b>.</p>
+  <p style="font-size:13px;color:var(--muted);margin:0">Enter the information above, then tap <b>Check My Options</b>.</p>
+</section>
+
+<section class="contact-cta">
+  <h2>Have Questions About Your Results?</h2>
+  <p>SONYMA eligibility can be complicated. That’s where I can help.</p>
+  <a class="phone" href="tel:19148049889">(914) 804-9889</a>
+  <a class="button" href="tel:19148049889">Let’s Talk About Your Options</a>
 </section>
 
 <section class="card">
@@ -199,100 +230,142 @@ footer{padding:16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-align:c
     <h2>Let’s clear things up</h2>
   </div>
   <div class="qa-tabs">
-    <button class="active" onclick="filterQA('all',this)">All</button>
-    <button onclick="filterQA('money',this)">DPAL & Money</button>
-    <button onclick="filterQA('eligibility',this)">Eligibility</button>
-    <button onclick="filterQA('tax',this)">Recapture</button>
+    <button type="button" class="active" onclick="filterQA('all',this)">All</button>
+    <button type="button" onclick="filterQA('money',this)">DPAL & Money</button>
+    <button type="button" onclick="filterQA('eligibility',this)">Eligibility</button>
+    <button type="button" onclick="filterQA('tax',this)">Recapture</button>
   </div>
   <div class="qa-list">
     <div class="qa-item" data-cat="money">
-      <button class="qa-q" onclick="toggleQA(this)">What is DPAL?<span>+</span></button>
-      <div class="qa-a">DPAL is SONYMA’s Down Payment Assistance Loan. It carries <b>0% interest and no monthly payment</b>, subject to program terms.</div>
+      <button type="button" class="qa-q" onclick="toggleQA(this)">What is DPAL?<span>+</span></button>
+      <div class="qa-a">DPAL is SONYMA’s Down Payment Assistance Loan. It carries <b>0% interest and no monthly payment</b>, subject to program terms. Eligible borrowers may use it to help with required cash toward the purchase.</div>
     </div>
     <div class="qa-item" data-cat="money">
-      <button class="qa-q" onclick="toggleQA(this)">How much can DPAL provide?<span>+</span></button>
-      <div class="qa-a">Standard DPAL is generally <b>3% of the purchase price up to $15,000, or $3,000 — whichever is higher</b>.</div>
+      <button type="button" class="qa-q" onclick="toggleQA(this)">How much can DPAL provide?<span>+</span></button>
+      <div class="qa-a">Standard DPAL is generally <b>3% of the purchase price up to $15,000, or $3,000 — whichever is higher</b>, subject to program guidelines and borrower qualification.</div>
     </div>
     <div class="qa-item" data-cat="eligibility">
-      <button class="qa-q" onclick="toggleQA(this)">Is SONYMA only for first-time buyers?<span>+</span></button>
-      <div class="qa-a">Not always. Certain <b>Target Areas</b> and eligible veterans can be exceptions to the first-time buyer rule.</div>
+      <button type="button" class="qa-q" onclick="toggleQA(this)">Is SONYMA only for first-time buyers?<span>+</span></button>
+      <div class="qa-a">Not always. Certain <b>Target Areas</b> and eligible military veterans may provide exceptions to the standard first-time homebuyer requirement.</div>
     </div>
     <div class="qa-item" data-cat="tax">
-      <button class="qa-q" onclick="toggleQA(this)">What is recapture tax?<span>+</span></button>
-      <div class="qa-a">Federal recapture tax is a possible tax if the home is sold within 9 years, there is a profit, and income exceeds the IRS limit at the time of sale. Most buyers do not pay it.</div>
+      <button type="button" class="qa-q" onclick="toggleQA(this)">What is recapture tax?<span>+</span></button>
+      <div class="qa-a">Federal mortgage revenue bond recapture tax can apply in certain circumstances when a home financed through a qualifying program is sold within the applicable period. Whether a borrower actually owes recapture tax depends on factors including sale circumstances, gain and income. Buyers should consult their tax professional for tax advice.</div>
     </div>
-  </div>
-  <div class="actions" style="margin-top:14px">
-    <a class="button" href="#explorer">Check Eligibility</a>
-    <a class="button secondary" href="tel:19148049889">Call Robert</a>
   </div>
 </section>
 
-<div class="notice"><b>Important:</b> This is an educational pre-screening tool only — not a loan approval, commitment, or guarantee of eligibility.</div>
+<div class="notice"><b>Important:</b> This tool is for educational and preliminary screening purposes only. It is not a loan approval, commitment, or guarantee of eligibility. Final eligibility, rates, terms and program availability are subject to program guidelines and borrower qualification.</div>
 </div>
 <footer>
   Robert Castro • Senior Loan Officer • Movement Mortgage • NMLS #66194<br>
-  (914) 804-9889
+  <a href="tel:19148049889" style="color:#bfcbd9;text-decoration:none">(914) 804-9889</a>
 </footer>
 </div>
 
+<div class="modal-overlay" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button type="button" class="modal-close" id="closeVideoBtn" aria-label="Close video">×</button>
+    <div class="modal-body" id="modalContent"></div>
+  </div>
+</div>
+
 <script>
+/* ============================================================
+   EASY VIDEO CONFIGURATION
+   When your video is ready, just replace the empty string below
+   with the full URL (YouTube, Vimeo, or MP4).
+   Example:
+   const SONYMA_VIDEO_URL = "https://www.youtube.com/watch?v=XXXXXXXXXXX";
+   or
+   const SONYMA_VIDEO_URL = "/robert-sonyma.mp4";
+   ============================================================ */
+const SONYMA_VIDEO_URL = "";
+
 const SONYMA_DATA = {
-  "Albany": {"region":"CAPITAL","atd":{"income1_non":98480,"income1_target":118170,"income3_non":113250,"income3_target":137870},"lir":{"income1_non":123100,"income1_target":147720,"income3_non":141565,"income3_target":172340}},
-  "Westchester": {"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
-  "Putnam": {"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
-  "Dutchess": {"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
-  "Orange": {"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
-  "Rockland": {"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
-  "Suffolk": {"region":"LONG ISLAND","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
-  "Nassau": {"region":"LONG ISLAND","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}}
+  "Albany":{"region":"CAPITAL","atd":{"income1_non":98480,"income1_target":118170,"income3_non":113250,"income3_target":137870},"lir":{"income1_non":123100,"income1_target":147720,"income3_non":141565,"income3_target":172340}},
+  "Westchester":{"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
+  "Putnam":{"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
+  "Dutchess":{"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
+  "Orange":{"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
+  "Rockland":{"region":"HUDSON VALLEY","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
+  "Suffolk":{"region":"LONG ISLAND","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}},
+  "Nassau":{"region":"LONG ISLAND","atd":{"income1_non":162810,"income1_target":162810,"income3_non":189950,"income3_target":189950},"lir":{"income1_non":203520,"income1_target":203520,"income3_non":237440,"income3_target":237440}}
 };
 const SONYMA_RATES = {atd:{noDpal:5.7,withDpal:6.1},lir:{noDpal:6.1,withDpal:6.5}};
 
-function toggleQA(btn){ btn.closest(".qa-item").classList.toggle("open"); }
-function filterQA(cat, btn){
-  document.querySelectorAll(".qa-tabs button").forEach(b => b.classList.remove("active"));
+function toggleQA(btn){btn.closest(".qa-item").classList.toggle("open")}
+function filterQA(cat,btn){
+  document.querySelectorAll(".qa-tabs button").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
-  document.querySelectorAll(".qa-item").forEach(i => {
-    i.style.display = (cat === "all" || i.dataset.cat === cat) ? "block" : "none";
-  });
+  document.querySelectorAll(".qa-item").forEach(i=>{i.style.display=(cat==="all"||i.dataset.cat===cat)?"block":"none"});
 }
-const sel = document.getElementById("county");
-Object.keys(SONYMA_DATA).sort().forEach(c => {
-  const o = document.createElement("option");
-  o.value = c; o.textContent = c; sel.appendChild(o);
-});
-sel.value = "Westchester";
-
-function money(n){ return n ? n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}) : "—"; }
-function renderRates(r){
-  document.getElementById("rates").innerHTML = `
-    <div class="rate"><strong>Achieving the Dream</strong><div class="num">${(r.atd.noDpal||5.7).toFixed(3)}%</div><small>With DPAL: ${(r.atd.withDpal||6.1).toFixed(3)}%</small></div>
-    <div class="rate"><strong>Low Interest Rate</strong><div class="num">${(r.lir.noDpal||6.1).toFixed(3)}%</div><small>With DPAL: ${(r.lir.withDpal||6.5).toFixed(3)}%</small></div>`;
+function money(n){return n?n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}):"—"}
+function renderRates(){
+  const r=SONYMA_RATES;
+  document.getElementById("ratesGrid").innerHTML=`
+    <div class="rate"><strong>Achieving the Dream</strong><div class="num">${(r.atd.noDpal).toFixed(3)}%</div><small>With DPAL: ${(r.atd.withDpal).toFixed(3)}%</small></div>
+    <div class="rate"><strong>Low Interest Rate</strong><div class="num">${(r.lir.noDpal).toFixed(3)}%</div><small>With DPAL: ${(r.lir.withDpal).toFixed(3)}%</small></div>`;
 }
-renderRates(SONYMA_RATES);
-
 function checkEligibility(){
-  const first = document.getElementById("first").value === "yes";
-  const vet = document.getElementById("vet").value === "yes";
-  const target = document.getElementById("target").value;
-  const isTarget = target === "yes";
-  const firstTimeOK = first || vet || isTarget;
-  const price = Number(document.getElementById("price").value || 0);
-  const results = [];
-  function add(name, ok, notes, warn=false){ results.push({name, ok, notes, warn}); }
-  add("Achieving the Dream", firstTimeOK, firstTimeOK ? "Basic screening criteria look favorable." : "First-time buyer requirement not met from these inputs.", target==="unknown");
-  add("Low Interest Rate Program", firstTimeOK, firstTimeOK ? "Basic screening criteria look favorable." : "First-time buyer requirement not met from these inputs.", target==="unknown");
-  const dpalMax = price ? Math.max(3000, Math.min(price * 0.03, 15000)) : 0;
-  add("Standard DPAL", firstTimeOK, firstTimeOK ? (price ? "Potential assistance: " + money(dpalMax) : "Potential assistance available with an eligible first mortgage.") : "Requires an eligible SONYMA first mortgage.");
-  let html = "<h2>Your SONYMA possibilities</h2><p style='font-size:12px;color:#7a8798'>This is a pre-screening tool only. Final eligibility requires a full application.</p>";
-  results.forEach(x => {
-    const cls = x.ok ? (x.warn ? "warn" : "") : "no";
-    const pill = x.ok ? '<span class="pill">POTENTIAL MATCH</span>' : '<span class="pill warnpill">REVIEW NEEDED</span>';
-    html += `<div class="result ${cls}"><h3>${x.name} ${pill}</h3><p>${x.notes}</p></div>`;
+  const first=document.getElementById("first").value==="yes";
+  const vet=document.getElementById("vet").value==="yes";
+  const target=document.getElementById("target").value;
+  const isTarget=target==="yes";
+  const firstTimeOK=first||vet||isTarget;
+  const price=Number(document.getElementById("price").value||0);
+  const results=[];
+  function add(name,ok,notes,warn=false){results.push({name,ok,notes,warn})}
+  add("Achieving the Dream",firstTimeOK,firstTimeOK?"Basic screening criteria look favorable based on the information provided.":"First-time buyer requirement not met from these inputs.",target==="unknown");
+  add("Low Interest Rate Program",firstTimeOK,firstTimeOK?"Basic screening criteria look favorable based on the information provided.":"First-time buyer requirement not met from these inputs.",target==="unknown");
+  const dpalMax=price?Math.max(3000,Math.min(price*0.03,15000)):0;
+  add("Standard DPAL",firstTimeOK,firstTimeOK?(price?"Potential assistance: "+money(dpalMax):"Potential assistance available with an eligible first mortgage."):"Requires an eligible SONYMA first mortgage.");
+  let html=`<h2>Your SONYMA Possibilities</h2><p style="font-size:12px;color:#7a8798;margin:0 0 12px">This is an educational pre-screening only. Final eligibility is determined through a complete application and program guidelines.</p>`;
+  results.forEach(x=>{
+    const cls=x.ok?(x.warn?"warn":""):"no";
+    const pill=x.ok?'<span class="pill">POTENTIAL MATCH</span>':'<span class="pill warnpill">REVIEW NEEDED</span>';
+    html+=`<div class="result ${cls}"><h3>${x.name} ${pill}</h3><p>${x.notes}</p></div>`;
   });
-  document.getElementById("results").innerHTML = html;
+  document.getElementById("results").innerHTML=html;
+  document.getElementById("results").scrollIntoView({behavior:"smooth",block:"start"});
 }
+function getVideoEmbed(url){
+  if(!url)return null;
+  const yt=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if(yt)return `<div class="video-frame"><iframe src="https://www.youtube.com/embed/${yt[1]}?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Meet Robert — Your SONYMA Expert"></iframe></div>`;
+  const vm=url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if(vm)return `<div class="video-frame"><iframe src="https://player.vimeo.com/video/${vm[1]}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Meet Robert — Your SONYMA Expert"></iframe></div>`;
+  if(url.match(/\.(mp4|webm|ogg)(\?|$)/i)||url.startsWith("/"))return `<div class="video-frame"><video controls playsinline src="${url}" title="Meet Robert — Your SONYMA Expert"></video></div>`;
+  return null;
+}
+function openVideoModal(){
+  const modal=document.getElementById("videoModal");
+  const content=document.getElementById("modalContent");
+  const embed=getVideoEmbed(SONYMA_VIDEO_URL);
+  if(embed){
+    content.innerHTML=`<h3 id="modalTitle">Meet Robert — Your SONYMA Expert</h3><p style="margin-bottom:14px">A personal introduction to SONYMA and how I can help.</p>${embed}`;
+  }else{
+    content.innerHTML=`<div class="coming-soon"><div class="icon">▶</div><h3 id="modalTitle">Meet Robert — Your SONYMA Expert</h3><p>Robert’s SONYMA video is coming soon.<br>Check back shortly, or explore the Eligibility Explorer below.</p></div>`;
+  }
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeVideoModal(){
+  document.getElementById("videoModal").classList.remove("open");
+  document.body.style.overflow="";
+  const frame=document.querySelector("#modalContent iframe, #modalContent video");
+  if(frame){if(frame.tagName==="IFRAME")frame.src=frame.src;else frame.pause()}
+}
+(function init(){
+  const sel=document.getElementById("county");
+  Object.keys(SONYMA_DATA).sort().forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;sel.appendChild(o)});
+  sel.value="Westchester";
+  renderRates();
+  document.getElementById("openVideoBtn").addEventListener("click",openVideoModal);
+  document.getElementById("closeVideoBtn").addEventListener("click",closeVideoModal);
+  document.getElementById("videoModal").addEventListener("click",function(e){if(e.target===this)closeVideoModal()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeVideoModal()});
+})();
 </script>
 </body>
 </html>
