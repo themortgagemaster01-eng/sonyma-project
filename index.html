@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071a33">
 <meta name="description" content="Explore SONYMA eligibility, mortgage programs, down-payment assistance and current rates with Robert A. Castro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sonyma-eligibility-explorer.vercel.app/">
+<meta property="og:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
+<meta property="og:description" content="Quick pre-screening tool for SONYMA programs, rates, and Down Payment Assistance. Built for New York buyers and realtors.">
+<meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8291.jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
+<meta name="twitter:description" content="Quick pre-screening tool for SONYMA programs, rates, and Down Payment Assistance. Built for New York buyers and realtors.">
+<meta name="twitter:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8291.jpeg">
 <title>SONYMA Eligibility Explorer | Robert A. Castro</title>
 <style>
 :root{--navy:#071a33;--red:#c91f32;--green:#14804a;--amber:#a66a00;--ink:#17283e;--muted:#65758b;--paper:#f5f7f9;--line:#dfe5ec}
@@ -114,7 +125,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
   <div class="cinematic-content">
     <div class="cinematic-kicker">NEW YORK STATE • SONYMA</div>
     <h1>Your SONYMA Expert<br><span style="font-weight:500">Starts Here.</span></h1>
-    <div class="script">Buying a home in New York can feel out of reach. I’m here to make SONYMA easier to understand — from eligibility and rates to down-payment assistance.</div>
+    <div class="script">Buying a home in New York can feel out of reach. I’m here to make SONYMA clearer for buyers and the realtors who help them — from eligibility and rates to down-payment assistance.</div>
     <div class="signature">Robert A. Castro • Senior Loan Officer • Movement Mortgage</div>
     <div class="cinematic-actions">
       <button type="button" class="button" id="openVideoBtn" aria-label="Meet Robert — Your SONYMA Expert">▶ Meet Robert — Your SONYMA Expert</button>
@@ -126,7 +137,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 
 <section class="transition-block">
   <h2>Could SONYMA help you buy a home?</h2>
-  <p>Answer a few questions and explore potential SONYMA program options based on your situation.</p>
+  <p>Answer a few questions to explore potential SONYMA options. Useful for buyers and realtors evaluating financing.</p>
   <div class="transition-actions">
     <a class="button" href="#explorer">🔎 Check My Eligibility</a>
     <a class="button secondary" href="#rates">📊 Explore Programs & Rates</a>
@@ -219,7 +230,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 
 <section class="contact-cta">
   <h2>Have Questions About Your Results?</h2>
-  <p>SONYMA eligibility can be complicated. That’s where I can help.</p>
+  <p>SONYMA eligibility can be complicated. Whether you’re a buyer or a realtor, I’m here to help.</p>
   <a class="phone" href="tel:19148049889">(914) 804-9889</a>
   <a class="button" href="tel:19148049889">Let’s Talk About Your Options</a>
 </section>
@@ -319,8 +330,8 @@ function checkEligibility(){
   add("Achieving the Dream",firstTimeOK,firstTimeOK?"Basic screening criteria look favorable based on the information provided.":"First-time buyer requirement not met from these inputs.",target==="unknown");
   add("Low Interest Rate Program",firstTimeOK,firstTimeOK?"Basic screening criteria look favorable based on the information provided.":"First-time buyer requirement not met from these inputs.",target==="unknown");
   const dpalMax=price?Math.max(3000,Math.min(price*0.03,15000)):0;
-  add("Standard DPAL",firstTimeOK,firstTimeOK?(price?"Potential assistance: "+money(dpalMax):"Potential assistance available with an eligible first mortgage."):"Requires an eligible SONYMA first mortgage.");
-  let html=`<h2>Your SONYMA Possibilities</h2><p style="font-size:12px;color:#7a8798;margin:0 0 12px">This is an educational pre-screening only. Final eligibility is determined through a complete application and program guidelines.</p>`;
+  add("Standard DPAL",firstTimeOK,firstTimeOK?(price?"Estimated DPAL assistance: <strong>"+money(dpalMax)+"</strong> (subject to program guidelines)":"Potential DPAL assistance available with an eligible first mortgage."):"Requires an eligible SONYMA first mortgage.");
+  let html=`<h2>Your SONYMA Possibilities</h2><p style="font-size:12px;color:#7a8798;margin:0 0 12px">Educational pre-screening only. Final eligibility is determined through a complete application and program guidelines.</p>`;
   results.forEach(x=>{
     const cls=x.ok?(x.warn?"warn":""):"no";
     const pill=x.ok?'<span class="pill">POTENTIAL MATCH</span>':'<span class="pill warnpill">REVIEW NEEDED</span>';
