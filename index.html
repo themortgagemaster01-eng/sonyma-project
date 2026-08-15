@@ -259,11 +259,6 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
-  <label for="vet">Eligible military veteran?</label>
-  <select id="vet">
-    <option value="no">No</option>
-    <option value="yes">Yes</option>
-  </select>
   <div class="actions">
     <button type="button" onclick="checkEligibility()">Check My SONYMA Options →</button>
   </div>
@@ -343,7 +338,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
     </div>
     <div class="qa-item" data-cat="eligibility">
       <button type="button" class="qa-q" onclick="toggleQA(this)">Is SONYMA only for first-time buyers?<span>+</span></button>
-      <div class="qa-a">Not always. Certain <b>Target Areas</b> and eligible military veterans may provide exceptions to the standard first-time homebuyer requirement.</div>
+      <div class="qa-a">Not always. Certain <b>Target Areas</b> may provide exceptions to the standard first-time homebuyer requirement.</div>
     </div>
     <div class="qa-item" data-cat="tax">
       <button type="button" class="qa-q" onclick="toggleQA(this)">What is recapture tax?<span>+</span></button>
@@ -399,10 +394,9 @@ function renderRates(){
 }
 function checkEligibility(){
   const first=document.getElementById("first").value==="yes";
-  const vet=document.getElementById("vet").value==="yes";
   const target=document.getElementById("target").value;
   const isTarget=target==="yes";
-  const firstTimeOK=first||vet||isTarget;
+  const firstTimeOK=first||isTarget;
   const price=Number(document.getElementById("price").value||0);
   const results=[];
   function add(name,ok,notes,warn=false){results.push({name,ok,notes,warn})}
