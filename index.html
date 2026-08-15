@@ -35,10 +35,10 @@ button,.button{border:0;background:var(--red);color:#fff;font-weight:850;border-
 .secondary{background:#eef2f6;color:var(--navy)}
 .ghost{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff}
 .rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.rate{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
-.rate strong{font-size:11px;display:block;color:var(--muted);letter-spacing:.3px}
-.rate .num{font-size:26px;font-weight:900;color:var(--red);margin:6px 0 2px}
-.rate small{color:var(--muted);font-size:12px;line-height:1.35;display:block}
+.rate{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;box-shadow:0 1px 3px rgba(7,26,51,.04)}
+.rate strong{font-size:11px;display:block;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+.rate .num{font-size:28px;font-weight:900;color:var(--red);margin:8px 0 4px;letter-spacing:-.5px}
+.rate small{color:var(--muted);font-size:12px;line-height:1.4;display:block}
 .result{border-left:4px solid var(--green);background:#fff;border-radius:12px;padding:14px;margin:8px 0;border:1px solid var(--line)}
 .result.no{border-left-color:#c7ced7}
 .result.warn{border-left-color:#d99000}
@@ -188,7 +188,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 
 <section class="card" id="rates">
   <h2>Current SONYMA Rates</h2>
-  <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.4">Informational rates for common SONYMA programs. Always verify on the official HCR page.</p>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.4">Current informational rates for common SONYMA programs. Always verify on the official HCR page before making decisions.</p>
   <div class="rate-grid" id="ratesGrid"></div>
   <p style="font-size:11px;color:#7a8798;margin:12px 0 0;line-height:1.4">Rates shown are for informational purposes and may change. Final rate, terms and eligibility are subject to program guidelines and borrower qualification. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on the official HCR page</a>.</p>
 </section>
