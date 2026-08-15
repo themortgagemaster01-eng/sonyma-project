@@ -44,6 +44,13 @@
     <p class="section-sub">Share a clear, co-branded path: SONYMA overview, current rates, eligibility snapshot, FAQs — and a direct line to Robert.</p>
   </section>
 
+  <section class="card" style="text-align:center;border:1px solid #c9daf0;background:#f8fbff">
+    <div class="eyebrow">Marketing template</div>
+    <h2 class="section-title" style="font-size:18px">Co-branded SONYMA flyer</h2>
+    <p class="section-sub">Print-ready 8.5×11 flyer inspired by the official Achieving the Dream design — Robert + your branding, with a QR code to the Eligibility Explorer.</p>
+    <a class="button block" href="/co-brand-flyer.html">Open Co-Branded Flyer Template →</a>
+  </section>
+
   <div class="grid-2">
     <div class="story-card">
       <div class="eyebrow">01</div>
@@ -110,6 +117,7 @@
   <section class="card">
     <h2 class="section-title" style="font-size:18px">Share these now</h2>
     <ul style="margin:0;padding-left:18px;line-height:1.7;font-size:15px">
+      <li><a href="/co-brand-flyer.html"><b>Co-branded flyer template</b></a> — print / PDF with QR to eligibility</li>
       <li><a href="/eligible.html">Eligibility Explorer</a> — quick client pre-screen</li>
       <li><a href="/why-sonyma.html">Why SONYMA</a> — rates, DPAL, locks, property types</li>
       <li><a href="/faq.html">FAQ</a> — answers buyers actually ask</li>
@@ -158,8 +166,6 @@ function submitRealtor(e){
     'Notes: '+(data.notes||'—')+'\n'
   );
   const subject = encodeURIComponent('Co-branded SONYMA page request — '+data.name);
-  document.getElementById('mailLink').href = 'mailto:robert@movement.com?subject='+subject+'&body='+body;
-  // Prefer Movement LO page contact if email unknown — still open mail with body for user to send
   document.getElementById('mailLink').href = 'mailto:?subject='+subject+'&body='+body;
   f.style.display = 'none';
   document.getElementById('realtorThanks').style.display = 'block';
