@@ -15,6 +15,11 @@
 <meta property="twitter:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
 <meta property="twitter:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8291.jpeg">
 <link rel="stylesheet" href="/styles.css">
+<style>
+.path-step{text-decoration:none;color:inherit;display:flex;transition:border-color .15s,box-shadow .15s}
+.path-step:active,.path-step:hover{border-color:#c91f32;box-shadow:0 2px 8px rgba(201,31,50,.12)}
+.path-step strong{color:var(--navy)}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -68,12 +73,24 @@
   <section class="card">
     <div class="eyebrow">Quick path</div>
     <h2 class="section-title">New to SONYMA? Start here.</h2>
-    <p class="section-sub">A simple path from “What is this?” to “Could this work for me?”</p>
+    <p class="section-sub">A simple path from “What is this?” to “Could this work for me?” Tap any step to go there.</p>
     <div class="path-steps">
-      <div class="path-step"><div class="path-num">1</div><div><strong>Learn what SONYMA is</strong><div class="muted">Plain-English overview of the program</div></div></div>
-      <div class="path-step"><div class="path-num">2</div><div><strong>See why it may help</strong><div class="muted">Rates, DPAL, and lock periods</div></div></div>
-      <div class="path-step"><div class="path-num">3</div><div><strong>Check your eligibility</strong><div class="muted">Quick pre-screening snapshot</div></div></div>
-      <div class="path-step"><div class="path-num">4</div><div><strong>Talk with Robert</strong><div class="muted">Get clear next steps for your situation</div></div></div>
+      <a class="path-step" href="/what-is-sonyma.html">
+        <div class="path-num">1</div>
+        <div><strong>Learn what SONYMA is</strong><div class="muted">Plain-English overview of the program</div></div>
+      </a>
+      <a class="path-step" href="/why-sonyma.html">
+        <div class="path-num">2</div>
+        <div><strong>See why it may help</strong><div class="muted">Rates, DPAL, and lock periods</div></div>
+      </a>
+      <a class="path-step" href="/eligible.html">
+        <div class="path-num">3</div>
+        <div><strong>Check your eligibility</strong><div class="muted">Quick pre-screening snapshot</div></div>
+      </a>
+      <a class="path-step" href="/meet-robert.html">
+        <div class="path-num">4</div>
+        <div><strong>Talk with Robert</strong><div class="muted">Get clear next steps for your situation</div></div>
+      </a>
     </div>
     <a class="button block" href="/what-is-sonyma.html">Start Here →</a>
   </section>
