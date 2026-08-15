@@ -10,13 +10,37 @@
 <meta property="og:url" content="https://sonyma-eligibility-explorer.vercel.app/">
 <meta property="og:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
 <meta property="og:description" content="Explore New York State homebuying assistance programs, current rates, and 0% interest down payment loans.">
-<meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/og-preview-card.png">
+<meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8291.jpeg">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://sonyma-eligibility-explorer.vercel.app/">
 <meta property="twitter:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
 <meta property="twitter:description" content="Explore New York State homebuying assistance programs, current rates, and 0% interest down payment loans.">
-<meta property="twitter:image" content="https://sonyma-eligibility-explorer.vercel.app/og-preview-card.png">
+<meta property="twitter:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8291.jpeg">
 <title>SONYMA Eligibility Explorer | Robert A. Castro - Movement Mortgage</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "SONYMA Mortgage Financing & DPAL Assistance",
+  "description": "Exploration tool for New York State SONYMA mortgage programs, down payment assistance loans, and target area qualification.",
+  "provider": {
+    "@type": "Person",
+    "name": "Robert A. Castro",
+    "jobTitle": "Senior Loan Officer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Movement Mortgage"
+    },
+    "identifier": "NMLS #66194",
+    "telephone": "+1-914-804-9889",
+    "url": "https://movement.com/lo/robert-castro"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "New York"
+  }
+}
+</script>
 <style>
 :root{--navy:#071a33;--red:#c91f32;--green:#14804a;--amber:#a66a00;--ink:#17283e;--muted:#65758b;--paper:#f5f7f9;--line:#dfe5ec}
 *{box-sizing:border-box}
@@ -188,7 +212,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
 
 <section class="card" id="rates">
   <h2>Current SONYMA Rates</h2>
-  <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.4">Current informational rates for common SONYMA programs. Always verify on the official HCR page before making decisions.</p>
+  <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.4">Rates shown for common SONYMA programs (as of August 2026). Always verify on the official HCR page before making decisions.</p>
   <div class="rate-grid" id="ratesGrid"></div>
   <p style="font-size:11px;color:#7a8798;margin:12px 0 0;line-height:1.4">Rates shown are for informational purposes and may change. Final rate, terms and eligibility are subject to program guidelines and borrower qualification. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on the official HCR page</a>.</p>
 </section>
@@ -223,7 +247,7 @@ footer{padding:18px 16px;background:#050f1d;color:#bfcbd9;font-size:11px;text-al
     <option value="4">4-family</option>
     <option value="coop">Co-op</option>
   </select>
-  <label for="target">Target Area status</label>
+  <label for="target">Target Area status <span style="font-weight:600;color:#64748b;font-size:11px">(?) Target Areas may allow higher limits and waive first-time buyer requirement</span></label>
   <select id="target">
     <option value="unknown">Not checked</option>
     <option value="yes">Yes — Target Area</option>
