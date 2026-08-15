@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071a33">
+<title>SONYMA Realtor Toolkit | Co-Branded Buyer Pages | Robert A. Castro</title>
+<meta name="description" content="Give your buyers a clear SONYMA experience. Request a co-branded page with rates, eligibility tools, and Robert’s guidance.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-block">
+      <div class="brand">SONYMA • YOUR EXPERT</div>
+      <div class="subbrand">Robert A. Castro • Movement Mortgage • NMLS #66194</div>
+    </div>
+    <nav class="nav-desktop" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/meet-robert.html">Meet Robert</a>
+      <a href="/what-is-sonyma.html">What Is SONYMA?</a>
+      <a href="/why-sonyma.html">Why SONYMA?</a>
+      <a href="/eligible.html">Am I Eligible?</a>
+      <a href="/realtors.html" class="active">For Realtors</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="nav-cta" href="/eligible.html">Check My Eligibility →</a>
+    </nav>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="/">Home</a>
+    <a href="/realtors.html">For Realtors</a>
+    <a href="/eligible.html">Am I Eligible?</a>
+    <a href="/ask-robert.html">Ask Robert (AI)</a>
+    <a href="/faq.html">FAQ</a>
+    <a class="nav-cta-m" href="/eligible.html">Check My Eligibility →</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div class="eyebrow">Realtor toolkit</div>
+    <h1 class="section-title" style="font-size:24px">Give your buyers a better SONYMA experience</h1>
+    <p class="section-sub">Share a clear, co-branded path: SONYMA overview, current rates, eligibility snapshot, FAQs — and a direct line to Robert.</p>
+  </section>
+
+  <div class="grid-2">
+    <div class="story-card">
+      <div class="eyebrow">01</div>
+      <h3>Co-branded buyer page</h3>
+      <p>Your name + brokerage alongside Robert. Buyers see one professional experience you can text or email.</p>
+    </div>
+    <div class="story-card">
+      <div class="eyebrow">02</div>
+      <h3>Eligibility Explorer</h3>
+      <p>Give clients a simple pre-screening tool so conversations start with better questions.</p>
+    </div>
+    <div class="story-card">
+      <div class="eyebrow">03</div>
+      <h3>Buyer resources</h3>
+      <p>Plain-English SONYMA info: DPAL, Target Areas, homebuyer education, and recapture tax.</p>
+    </div>
+    <div class="story-card">
+      <div class="eyebrow">04</div>
+      <h3>Direct path to Robert</h3>
+      <p>When a buyer is ready, they can call or connect with Robert without friction.</p>
+    </div>
+  </div>
+
+  <section class="card">
+    <div class="eyebrow">Request</div>
+    <h2 class="section-title" style="font-size:18px">Create my co-branded SONYMA page</h2>
+    <p class="section-sub">Fill this out and Robert will follow up to set up your personalized page (e.g. /your-name).</p>
+
+    <form id="realtorForm" onsubmit="return submitRealtor(event)">
+      <label for="rname">Your full name</label>
+      <input id="rname" name="name" required placeholder="Sarah Smith">
+
+      <label for="rbroker">Brokerage</label>
+      <input id="rbroker" name="brokerage" required placeholder="ABC Realty">
+
+      <label for="rphone">Phone</label>
+      <input id="rphone" name="phone" type="tel" required placeholder="(555) 555-5555">
+
+      <label for="remail">Email</label>
+      <input id="remail" name="email" type="email" required placeholder="you@brokerage.com">
+
+      <label for="rweb">Website (optional)</label>
+      <input id="rweb" name="website" placeholder="https://...">
+
+      <label for="rsocial">Instagram / social (optional)</label>
+      <input id="rsocial" name="social" placeholder="@handle or URL">
+
+      <label for="rnotes">Anything else we should know?</label>
+      <input id="rnotes" name="notes" placeholder="Markets you serve, preferred branding, etc.">
+
+      <div style="margin-top:16px">
+        <button type="submit" class="button block">Request Co-Branded Page →</button>
+      </div>
+    </form>
+    <div id="realtorThanks" style="display:none;margin-top:14px" class="notice">
+      <b>Thanks!</b> Your request is ready to send. Tap below to email Robert with your details, or call him directly.
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+        <a class="button" id="mailLink" href="#">Email request to Robert →</a>
+        <a class="button secondary" href="tel:19148049889">Call Robert →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title" style="font-size:18px">Share these now</h2>
+    <ul style="margin:0;padding-left:18px;line-height:1.7;font-size:15px">
+      <li><a href="/eligible.html">Eligibility Explorer</a> — quick client pre-screen</li>
+      <li><a href="/why-sonyma.html">Why SONYMA</a> — rates, DPAL, locks, property types</li>
+      <li><a href="/faq.html">FAQ</a> — answers buyers actually ask</li>
+      <li><a href="/ask-robert.html">Ask Robert’s AI Assistant</a> — educational Q&A</li>
+      <li><a href="https://se.nyhomes.org/SONYMAUtilities/Index" target="_blank" rel="noopener">Target Area Locator</a> — official address lookup</li>
+    </ul>
+  </section>
+
+  <section class="cta-band">
+    <h2>Prefer to talk first?</h2>
+    <p>Happy to walk through how co-branding works for your team.</p>
+    <a class="phone-lg" href="tel:19148049889">(914) 804-9889</a>
+    <a class="button" href="tel:19148049889" style="max-width:280px;margin:12px auto 0">Call Robert →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">Robert A. Castro • Movement Mortgage • NMLS #66194 · Equal Housing Opportunity</div>
+  </div>
+</footer>
+<script>
+document.getElementById('menuBtn').addEventListener('click',function(){
+  document.getElementById('navMobile').classList.toggle('open');
+});
+function submitRealtor(e){
+  e.preventDefault();
+  const f = e.target;
+  const data = {
+    name: f.name.value.trim(),
+    brokerage: f.brokerage.value.trim(),
+    phone: f.phone.value.trim(),
+    email: f.email.value.trim(),
+    website: f.website.value.trim(),
+    social: f.social.value.trim(),
+    notes: f.notes.value.trim()
+  };
+  const body = encodeURIComponent(
+    'Co-branded SONYMA page request\n\n'+
+    'Name: '+data.name+'\n'+
+    'Brokerage: '+data.brokerage+'\n'+
+    'Phone: '+data.phone+'\n'+
+    'Email: '+data.email+'\n'+
+    'Website: '+(data.website||'—')+'\n'+
+    'Social: '+(data.social||'—')+'\n'+
+    'Notes: '+(data.notes||'—')+'\n'
+  );
+  const subject = encodeURIComponent('Co-branded SONYMA page request — '+data.name);
+  document.getElementById('mailLink').href = 'mailto:robert@movement.com?subject='+subject+'&body='+body;
+  // Prefer Movement LO page contact if email unknown — still open mail with body for user to send
+  document.getElementById('mailLink').href = 'mailto:?subject='+subject+'&body='+body;
+  f.style.display = 'none';
+  document.getElementById('realtorThanks').style.display = 'block';
+  return false;
+}
+</script>
+</body>
+</html>
