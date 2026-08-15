@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071a33">
+<title>SONYMA Eligibility Explorer | Am I Eligible? | Robert A. Castro</title>
+<meta name="description" content="Answer a few questions for an initial SONYMA eligibility snapshot. Explore rates, DPAL, and next steps with Robert A. Castro.">
+<meta property="og:title" content="SONYMA Eligibility Explorer | Am I Eligible?">
+<meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8291.jpeg">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-block">
+      <div class="brand">SONYMA • YOUR EXPERT</div>
+      <div class="subbrand">Robert A. Castro • Movement Mortgage • NMLS #66194</div>
+    </div>
+    <nav class="nav-desktop" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/meet-robert.html">Meet Robert</a>
+      <a href="/what-is-sonyma.html">What Is SONYMA?</a>
+      <a href="/why-sonyma.html">Why SONYMA?</a>
+      <a href="/eligible.html" class="active">Am I Eligible?</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/recapture.html">Recapture Tax</a>
+      <a class="nav-cta" href="/eligible.html">Check My Eligibility →</a>
+    </nav>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="/">Home</a>
+    <a href="/meet-robert.html">Meet Robert</a>
+    <a href="/what-is-sonyma.html">What Is SONYMA?</a>
+    <a href="/why-sonyma.html">Why SONYMA?</a>
+    <a href="/eligible.html">Am I Eligible?</a>
+    <a href="/education.html">Homebuyer Education</a>
+    <a href="/recapture.html">Recapture Tax</a>
+    <a href="/faq.html">FAQ</a>
+    <a class="nav-cta-m" href="/eligible.html">Check My Eligibility →</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div class="eyebrow">Tool</div>
+    <h1 class="section-title" style="font-size:26px">Am I eligible for SONYMA?</h1>
+    <p class="section-sub">Answer a few questions to get an initial SONYMA eligibility snapshot. This is educational guidance only — not a loan approval or final determination.</p>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">Today’s rates (illustrative)</div>
+    <h2 class="section-title" style="font-size:18px;margin-bottom:12px">SONYMA program rates</h2>
+    <div class="rate-grid" id="rates">
+      <div class="rate"><strong>Achieving the Dream</strong><div class="num">5.700%</div><small>Without DPAL<br>With DPAL: 6.100%</small></div>
+      <div class="rate"><strong>Low Interest Rate</strong><div class="num">6.100%</div><small>Without DPAL<br>With DPAL: 6.500%</small></div>
+    </div>
+    <p class="notice" style="margin-top:10px">Rates shown are a recent snapshot and are subject to change. Your actual rate depends on qualification, program, market conditions, and other factors. Always verify current rates with your lender.</p>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title" style="font-size:18px">Quick eligibility snapshot</h2>
+    <div class="stepbar" id="stepbar">
+      <div class="active">You</div>
+      <div>Income</div>
+      <div>Home</div>
+      <div>Area</div>
+      <div>Results</div>
+    </div>
+
+    <label for="first">First-time homebuyer? <span style="font-weight:500;color:var(--muted)">(no ownership interest in a principal residence in the last 3 years)</span></label>
+    <select id="first">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="target">Is the property in a SONYMA Target Area?</label>
+    <select id="target">
+      <option value="unknown">Not sure yet</option>
+      <option value="yes">Yes — verified Target Area</option>
+      <option value="no">No — verified non-Target Area</option>
+    </select>
+    <p class="muted" style="margin:6px 0 0;font-size:13px">Look up any address on the official map: <a href="https://se.nyhomes.org" target="_blank" rel="noopener">se.nyhomes.org</a></p>
+
+    <label for="county">County</label>
+    <select id="county"></select>
+
+    <label for="hh">Household size</label>
+    <select id="hh">
+      <option value="1">1–2 people</option>
+      <option value="3">3+ people</option>
+    </select>
+
+    <label for="income">Approximate annual household income ($)</label>
+    <input type="number" id="income" placeholder="e.g. 95000" inputmode="numeric">
+
+    <label for="price">Expected purchase price ($)</label>
+    <input type="number" id="price" placeholder="e.g. 450000" inputmode="numeric">
+
+    <label for="property">Property type</label>
+    <select id="property">
+      <option value="1">1-unit (single-family / condo / co-op)</option>
+      <option value="2">2-unit</option>
+      <option value="3">3-unit</option>
+      <option value="4">4-unit</option>
+    </select>
+
+    <div style="margin-top:18px">
+      <button type="button" class="button block" onclick="checkEligibility()">Check My SONYMA Options →</button>
+    </div>
+  </section>
+
+  <section id="results" class="card" style="display:none">
+    <div class="eyebrow">Results</div>
+    <h2 class="section-title" style="font-size:20px">Your SONYMA snapshot</h2>
+    <p class="notice" style="margin-bottom:12px"><b>INITIAL GUIDANCE ONLY</b> — Not a loan approval or final eligibility determination. Final eligibility is determined through the full SONYMA and lender underwriting process.</p>
+    <div id="resultsBody"></div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Want me to take a closer look?</h2>
+    <p>Talk with Robert about your situation. We can review the numbers together and clarify next steps.</p>
+    <a class="phone-lg" href="tel:19148049889">(914) 804-9889</a>
+    <div style="display:flex;flex-direction:column;gap:8px;max-width:320px;margin:0 auto">
+      <a class="button" href="tel:19148049889">Contact Robert →</a>
+      <a class="button secondary" href="/meet-robert.html">Meet Robert</a>
+    </div>
+  </section>
+
+  <p class="notice"><b>Important:</b> This website is an educational resource and is not affiliated with or operated by SONYMA or New York State. Eligibility information shown by this tool is for educational purposes only and does not constitute a loan approval, commitment to lend, or final determination of SONYMA eligibility. Program guidelines, income limits, purchase-price limits, rates and requirements are subject to change.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      Robert A. Castro • Senior Loan Officer • Movement Mortgage • NMLS #66194<br>
+      Equal Housing Opportunity • Educational tool only
+    </div>
+  </div>
+</footer>
+
+<script src="/data.js"></script>
+<script>
+document.getElementById('menuBtn').addEventListener('click',function(){
+  document.getElementById('navMobile').classList.toggle('open');
+});
+
+const D = window.SONYMA_DATA || {};
+const R = window.SONYMA_RATES || {atd:{noDpal:5.7,withDpal:6.1},lir:{noDpal:6.1,withDpal:6.5}};
+
+function money(n){ return n ? n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}) : "—"; }
+
+function renderRates(){
+  const r = R;
+  document.getElementById("rates").innerHTML = `
+    <div class="rate"><strong>Achieving the Dream</strong><div class="num">${(r.atd && r.atd.noDpal ? r.atd.noDpal : 5.7).toFixed(3)}%</div><small>Without DPAL<br>With DPAL: ${(r.atd && r.atd.withDpal ? r.atd.withDpal : 6.1).toFixed(3)}%</small></div>
+    <div class="rate"><strong>Low Interest Rate</strong><div class="num">${(r.lir && r.lir.noDpal ? r.lir.noDpal : 6.1).toFixed(3)}%</div><small>Without DPAL<br>With DPAL: ${(r.lir && r.lir.withDpal ? r.lir.withDpal : 6.5).toFixed(3)}%</small></div>`;
+}
+renderRates();
+
+const sel = document.getElementById("county");
+const counties = Object.keys(D).sort();
+if(counties.length){
+  counties.forEach(c => {
+    const o = document.createElement("option");
+    o.value = c; o.textContent = c; sel.appendChild(o);
+  });
+  if(D["Westchester"]) sel.value = "Westchester";
+  else if(D["Putnam"]) sel.value = "Putnam";
+  else sel.value = counties[0];
+} else {
+  ["Westchester","Putnam","Dutchess","Orange","Rockland","Nassau","Suffolk","Albany"].forEach(c=>{
+    const o=document.createElement("option"); o.value=c; o.textContent=c; sel.appendChild(o);
+  });
+  sel.value="Westchester";
+}
+
+function checkEligibility(){
+  const first = document.getElementById("first").value === "yes";
+  const target = document.getElementById("target").value;
+  const isTarget = target === "yes";
+  const targetUnknown = target === "unknown";
+  const firstTimeOK = first || isTarget;
+  const c = sel.value;
+  const d = D[c] || null;
+  const income = Number(document.getElementById("income").value || 0);
+  const price = Number(document.getElementById("price").value || 0);
+  const hh = document.getElementById("hh").value;
+  const prop = document.getElementById("property").value;
+
+  const results = [];
+  function add(name, ok, notes, warn=false){ results.push({name, ok, notes, warn}); }
+
+  // ATD
+  let atdOk = true, atdNotes = [];
+  if(!firstTimeOK){ atdOk=false; atdNotes.push("First-time buyer requirement is not met based on the answers provided (Target Area can change this)."); }
+  if(d){
+    const suffix = isTarget ? "target" : "non";
+    const atdInc = hh==="1" ? (d.atd["income1_"+suffix] || d.atd.income1_non) : (d.atd["income3_"+suffix] || d.atd.income3_non);
+    if(income && atdInc && income > atdInc){ atdOk=false; atdNotes.push("Income appears above the current county/program limit used for this screening."); }
+    const ppKey = "pp"+prop+"_"+suffix;
+    const atdPP = d.atd[ppKey];
+    if(price && atdPP && price > atdPP){ atdOk=false; atdNotes.push("Purchase price appears above the current limit for this property type/county."); }
+  }
+  if(targetUnknown) atdNotes.push("Target Area status is not verified — limits may be higher in a Target Area.");
+  add("Achieving the Dream", atdOk, atdNotes.join(" ") || "Basic screening criteria look favorable based on the information entered.", targetUnknown);
+
+  // LIR
+  let lirOk = true, lirNotes = [];
+  if(!firstTimeOK){ lirOk=false; lirNotes.push("First-time buyer requirement is not met based on the answers provided."); }
+  if(d){
+    const suffix = isTarget ? "target" : "non";
+    const lirInc = hh==="1" ? (d.lir["income1_"+suffix] || d.lir.income1_non) : (d.lir["income3_"+suffix] || d.lir.income3_non);
+    if(income && lirInc && income > lirInc){ lirOk=false; lirNotes.push("Income appears above the current county/program limit used for this screening."); }
+  }
+  if(targetUnknown) lirNotes.push("Target Area status is not verified.");
+  add("Low Interest Rate Program", lirOk, lirNotes.join(" ") || "Basic screening criteria look favorable based on the information entered.", targetUnknown);
+
+  // Standard DPAL
+  const dpalMax = price ? Math.max(3000, Math.min(price * 0.03, 15000)) : 0;
+  add("Standard DPAL", firstTimeOK,
+    firstTimeOK
+      ? (price ? "Potential assistance (illustrative): " + money(dpalMax) + ". Actual amount and eligibility subject to program rules." : "Potential assistance available with an eligible SONYMA first mortgage.")
+      : "Requires an eligible SONYMA first mortgage and meeting first-time/Target Area rules.");
+
+  // DPAL Plus (simplified)
+  let dpOk = firstTimeOK && price > 0 && price <= 500000;
+  let dpNotes = [];
+  if(!firstTimeOK) dpNotes.push("First-time/Target Area requirement not met from these inputs.");
+  if(price > 500000) dpNotes.push("Purchase price exceeds the illustrative $500,000 DPAL PLUS limit.");
+  if(d && d.dpalPlus){
+    const suffix = isTarget ? "target" : "non";
+    const dpInc = hh==="1" ? d.dpalPlus["income1_"+suffix] : d.dpalPlus["income3_"+suffix];
+    if(income && dpInc && income > dpInc){ dpOk=false; dpNotes.push("Income appears above the current DPAL PLUS screening limit."); }
+  }
+  add("DPAL PLUS (limited)", dpOk, dpNotes.join(" ") || "Potential match based on current screening inputs. Funding is limited and first-come, first-served.");
+
+  let html = "";
+  results.forEach(x => {
+    const cls = x.ok ? (x.warn ? "warn" : "") : "no";
+    const pill = x.ok ? '<span class="pill">POTENTIAL MATCH</span>' : '<span class="pill warnpill">REVIEW NEEDED</span>';
+    html += `<div class="result ${cls}"><h3>${x.name} ${pill}</h3><p>${x.notes}</p></div>`;
+  });
+  html += `<div class="notice" style="margin-top:12px"><b>County used:</b> ${c}${d ? " • Region " + (d.region||"") : ""}. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify current rates & limits on SONYMA’s site</a>.</div>`;
+  html += `<p style="font-size:13px;margin-top:10px;line-height:1.5"><b>Next steps to discuss with a lender:</b> full income documentation, credit, property details, Target Area confirmation, and current program availability.</p>`;
+
+  document.getElementById("resultsBody").innerHTML = html;
+  document.getElementById("results").style.display = "block";
+  document.getElementById("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+</script>
+</body>
+</html>
