@@ -3,450 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SONYMA Co-Branded Flyer · Editable for Realtors</title>
+<title>SONYMA Co-Branded Flyer · 8.5×11</title>
 <style>
-  :root {
-    --navy: #0a1f3d;
-    --navy2: #0d2b52;
-    --gold: #c9a227;
-    --gold-bg: #e8b923;
-    --ink: #1a2744;
-    --muted: #5a6a85;
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
     background: #c8d4e6;
-    color: var(--ink);
-    line-height: 1.35;
     min-height: 100vh;
-    padding-bottom: 72px;
   }
   .toolbar {
     position: sticky; top: 0; z-index: 100;
-    background: var(--navy); color: #fff;
-    padding: 10px 14px;
-    display: flex; flex-wrap: wrap; gap: 8px;
+    background: #0a1f3d; color: #fff;
+    padding: 12px 16px;
+    display: flex; flex-wrap: wrap; gap: 10px;
     align-items: center; justify-content: space-between;
     box-shadow: 0 4px 20px rgba(0,0,0,.25);
   }
-  .toolbar-left { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
-  .toolbar-title { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .toolbar-sub { font-size: 11px; opacity: 0.75; }
-  .toolbar-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .toolbar-title { font-size: 14px; font-weight: 700; }
+  .toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
   .toolbar a, .toolbar button {
     color: #fff; background: rgba(255,255,255,.12);
     border: 1px solid rgba(255,255,255,.28); border-radius: 8px;
-    padding: 8px 12px; text-decoration: none; cursor: pointer;
-    font: inherit; font-size: 12px; font-weight: 600; white-space: nowrap;
+    padding: 9px 14px; text-decoration: none; cursor: pointer;
+    font: inherit; font-size: 13px; font-weight: 600;
   }
-  .toolbar button:hover, .toolbar a:hover { background: rgba(255,255,255,.22); }
-  .toolbar .btn-primary { background: #1a56b0; border-color: #2b6cb0; }
-  .toolbar .btn-gold { background: var(--gold-bg); color: #1a1a1a; border-color: #b8941a; }
-  .desktop-only { display: inline-flex; }
-  .mobile-only { display: none; }
-  .editor-panel {
-    background: #f0f4fa;
-    border-bottom: 1px solid #c5d0e0;
-    padding: 14px 16px;
-    display: none;
+  .toolbar button.primary { background: #1a56b0; border-color: #2b6cb0; }
+  .page-wrap {
+    padding: 20px 12px 40px;
+    display: flex; justify-content: center;
   }
-  .editor-panel.open { display: block; }
-  .editor-grid {
-    max-width: 900px; margin: 0 auto;
-    display: grid; grid-template-columns: 120px 1fr 1fr;
-    gap: 12px 16px; align-items: start;
-  }
-  .photo-upload { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .photo-preview {
-    width: 96px; height: 96px; border-radius: 10px;
-    background: #dce4f0; border: 2px dashed #8a9bb5;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; cursor: pointer; position: relative;
-  }
-  .photo-preview img { width: 100%; height: 100%; object-fit: cover; }
-  .photo-preview .placeholder-text { font-size: 11px; color: #6a7a95; text-align: center; padding: 6px; line-height: 1.3; }
-  .photo-preview input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-  .field-group { display: flex; flex-direction: column; gap: 8px; }
-  .field-group label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #4a5a75; }
-  .field-group input {
-    padding: 10px 12px; border: 1px solid #b8c4d8; border-radius: 7px;
-    font: inherit; font-size: 15px; background: #fff; width: 100%;
-  }
-  .field-group input:focus { outline: 2px solid #1a56b0; border-color: #1a56b0; }
-  .editor-hint { grid-column: 1 / -1; font-size: 12px; color: #5a6a85; margin-top: 2px; }
-  .btn-clear {
-    font-size: 11px; padding: 4px 10px; border-radius: 6px;
-    border: 1px solid #b8c4d8; background: #fff; cursor: pointer;
-  }
-  .page-wrap { padding: 16px 8px 24px; display: flex; justify-content: center; }
   .page {
-    width: 8.5in; height: 11in; background: #fff;
+    width: 8.5in;
+    max-width: 100%;
+    background: #fff;
     box-shadow: 0 16px 50px rgba(15, 23, 42, 0.22);
-    position: relative; overflow: hidden;
+    line-height: 0;
   }
-  .flyer-base {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: top center; display: block;
+  .page img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
-  .cobrand-overlay {
-    position: absolute;
-    left: 53.0%;
-    top: 89.0%;
-    width: 45.0%;
-    height: 6.5%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 8px 4px 6px;
-    z-index: 20;
-    background: #f4f6f9;
-    border: 1.5px dashed #8a9bb5;
-    border-radius: 4px;
+  .note {
+    max-width: 8.5in;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+    font-size: 13px;
+    color: #4a5a75;
+    text-align: center;
   }
-  .cobrand-overlay.filled {
-    background: linear-gradient(135deg, #0d2b52 0%, #0a1f3d 100%);
-    border: 1.5px solid #0a1f3d;
-  }
-  .cobrand-photo {
-    width: 44px; height: 44px; min-width: 44px; border-radius: 6px;
-    background: rgba(10,31,61,0.08);
-    border: 1.5px dashed #8a9bb5;
-    overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .cobrand-overlay.filled .cobrand-photo {
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(255,255,255,0.45);
-  }
-  .cobrand-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .cobrand-photo .empty {
-    font-size: 7px; color: #6a7a95; text-align: center; line-height: 1.15; padding: 2px;
-    font-weight: 600;
-  }
-  .cobrand-overlay.filled .cobrand-photo .empty { color: rgba(255,255,255,0.7); }
-  .cobrand-text {
-    flex: 1; min-width: 0;
-    color: var(--navy);
-    display: flex; flex-direction: column; justify-content: center; gap: 0;
-  }
-  .cobrand-overlay.filled .cobrand-text { color: #fff; }
-  .cobrand-name {
-    font-size: 11px; font-weight: 800; letter-spacing: 0.02em;
-    text-transform: uppercase; line-height: 1.15;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .cobrand-title {
-    font-size: 8.5px; font-weight: 600; opacity: 0.9; line-height: 1.15;
-  }
-  .cobrand-company {
-    font-size: 8.5px; font-weight: 500; opacity: 0.85; line-height: 1.15;
-  }
-  .cobrand-contact {
-    font-size: 8px; opacity: 0.88; line-height: 1.2; margin-top: 1px;
-  }
-  .cobrand-contact span { display: inline; }
-  .cobrand-contact span:not(:last-child)::after { content: " · "; opacity: 0.6; }
-  .cobrand-overlay.is-empty .cobrand-name { opacity: 0.5; font-weight: 600; }
-  .cobrand-overlay.is-empty .cobrand-title,
-  .cobrand-overlay.is-empty .cobrand-company,
-  .cobrand-overlay.is-empty .cobrand-contact { opacity: 0.4; }
-  .edit-note {
-    max-width: 8.5in; margin: 0 auto 20px; padding: 0 14px;
-    font-size: 12px; color: #4a5a75; text-align: center;
-  }
-  .mobile-bar {
-    display: none;
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-    background: var(--navy);
-    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-    box-shadow: 0 -6px 24px rgba(0,0,0,.3);
-    gap: 8px;
-  }
-  .mobile-bar button {
-    flex: 1; border: none; border-radius: 10px;
-    padding: 14px 12px; font: inherit; font-size: 14px; font-weight: 700;
-    cursor: pointer;
-  }
-  .mobile-bar .mb-edit { background: var(--gold-bg); color: #1a1a1a; }
-  .mobile-bar .mb-print { background: #1a56b0; color: #fff; }
   @page { size: letter portrait; margin: 0; }
   @media print {
     html, body {
       background: #fff !important;
-      padding: 0 !important;
       margin: 0 !important;
-      height: auto !important;
+      padding: 0 !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
-      color-adjust: exact !important;
     }
-    .toolbar, .editor-panel, .edit-note, .no-print, .mobile-bar { display: none !important; visibility: hidden !important; }
-    .page-wrap {
-      padding: 0 !important;
-      margin: 0 !important;
-      display: block !important;
-    }
+    .toolbar, .note, .no-print { display: none !important; }
+    .page-wrap { padding: 0 !important; margin: 0 !important; }
     .page {
-      margin: 0 auto !important;
       box-shadow: none !important;
       width: 8.5in !important;
-      height: 11in !important;
       max-width: none !important;
-      overflow: hidden !important;
-      page-break-after: avoid !important;
-      page-break-inside: avoid !important;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-      transform: none !important;
+      margin: 0 !important;
     }
-    .flyer-base, .cobrand-overlay, .cobrand-photo, .cobrand-text {
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
+    .page img {
+      width: 8.5in !important;
+      max-width: 8.5in !important;
+      height: 11in !important;
+      object-fit: cover;
+      object-position: top center;
     }
   }
   @media (max-width: 900px) {
-    body { padding-bottom: 76px; }
-    .desktop-only { display: none !important; }
-    .mobile-only { display: inline-flex; }
-    .toolbar { padding: 8px 10px; }
-    .toolbar-title { font-size: 12px; }
-    .toolbar-sub { display: none; }
-    .toolbar a, .toolbar button { padding: 7px 10px; font-size: 11px; }
-    .page-wrap { padding: 8px 0 16px; overflow: visible; padding-bottom: 28px; }
-    .page {
-      width: 100%; max-width: 100vw;
-      height: auto; aspect-ratio: 8.5 / 11;
-      box-shadow: 0 4px 20px rgba(0,0,0,.15);
-      overflow: visible;
-    }
-    .cobrand-name { font-size: 9px; }
-    .cobrand-title, .cobrand-company { font-size: 7px; }
-    .cobrand-contact { font-size: 6.5px; }
-    .cobrand-photo { width: 34px; height: 34px; min-width: 34px; }
-    .cobrand-overlay { gap: 4px; padding: 3px 5px; }
-    .editor-grid { grid-template-columns: 1fr; gap: 12px; }
-    .photo-upload { flex-direction: row; align-items: center; gap: 12px; }
-    .photo-preview { width: 72px; height: 72px; flex-shrink: 0; }
-    .field-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .field-group > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
-    .editor-hint { font-size: 11px; }
-    .edit-note { font-size: 11px; margin-bottom: 12px; }
-    .mobile-bar { display: flex; }
-  }
-  @media (max-width: 480px) {
-    .field-group { grid-template-columns: 1fr; }
-    .field-group > div:last-child:nth-child(odd) { grid-column: auto; }
+    .page-wrap { padding: 8px 0 32px; }
+    .toolbar { padding: 10px 12px; }
+    .toolbar-title { font-size: 13px; }
   }
 </style>
 </head>
 <body>
   <div class="toolbar no-print">
-    <div class="toolbar-left">
-      <div class="toolbar-title">SONYMA Co-Branded Flyer · 8.5×11</div>
-      <div class="toolbar-sub">Edit realtor fields → then Print / Save PDF</div>
-    </div>
+    <div class="toolbar-title">SONYMA Co-Branded Flyer · 8.5×11</div>
     <div class="toolbar-actions">
-      <button type="button" class="btn-gold desktop-only" id="btnToggleEditor">✎ Edit Co-Branding</button>
-      <button type="button" class="btn-primary desktop-only" id="btnPrintDesktop">Print / Save PDF</button>
-      <a href="/eligible.html" class="desktop-only">Eligibility Explorer</a>
-      <a href="/" class="desktop-only">Realtor Toolkit</a>
-      <a href="/eligible.html" class="mobile-only">Eligibility</a>
-      <a href="/" class="mobile-only">Toolkit</a>
-    </div>
-  </div>
-
-  <div class="editor-panel no-print" id="editorPanel">
-    <div class="editor-grid">
-      <div class="photo-upload">
-        <div class="photo-preview" id="photoPreview" title="Click to upload photo">
-          <div class="placeholder-text" id="photoPlaceholder">Click to<br>upload photo</div>
-          <img id="photoImg" style="display:none" alt="Realtor photo">
-          <input type="file" id="photoInput" accept="image/*">
-        </div>
-        <button type="button" class="btn-clear" id="btnClearPhoto">Clear photo</button>
-      </div>
-      <div class="field-group">
-        <div><label for="fName">Your Name</label><input type="text" id="fName" placeholder="e.g. Jane Smith" autocomplete="name"></div>
-        <div><label for="fTitle">Title / Designation</label><input type="text" id="fTitle" placeholder="REALTOR®" value="REALTOR®"></div>
-        <div><label for="fCompany">Company / Brokerage</label><input type="text" id="fCompany" placeholder="e.g. ABC Realty"></div>
-      </div>
-      <div class="field-group">
-        <div><label for="fPhone">Phone</label><input type="tel" id="fPhone" placeholder="555.555.5555" autocomplete="tel"></div>
-        <div><label for="fEmail">Email</label><input type="email" id="fEmail" placeholder="you@yourdomain.com" autocomplete="email"></div>
-        <div><label for="fWeb">Website</label><input type="text" id="fWeb" placeholder="yourwebsite.com"></div>
-      </div>
-      <p class="editor-hint">Your details appear live in the <strong>CO-BRANDING SPACE</strong> box at the bottom of the flyer. When finished → <strong>Print / Save PDF</strong> (Letter, margins: None).</p>
+      <button type="button" class="primary" onclick="window.print()">Print / Save PDF</button>
+      <a href="/eligible.html">Eligibility Explorer</a>
+      <a href="/">Realtor Toolkit</a>
     </div>
   </div>
 
   <div class="page-wrap">
-    <div class="page" id="flyerPage">
-      <img class="flyer-base" src="https://lh3.googleusercontent.com/d/1qG_LxmhLg78Bmb2ZyurXTBk5hF7NcN9s" alt="SONYMA Co-Branded Flyer">
-      <div class="cobrand-overlay is-empty" id="cobrandOverlay">
-        <div class="cobrand-photo" id="cobrandPhoto">
-          <div class="empty" id="cobrandPhotoEmpty">YOUR<br>LOGO</div>
-          <img id="cobrandPhotoImg" style="display:none" alt="">
-        </div>
-        <div class="cobrand-text">
-          <div class="cobrand-name" id="outName">YOUR NAME</div>
-          <div class="cobrand-title" id="outTitle">REALTOR®</div>
-          <div class="cobrand-company" id="outCompany">YOUR COMPANY</div>
-          <div class="cobrand-contact" id="outContact">
-            <span id="outPhone">555.555.5555</span>
-            <span id="outEmail">you@yourdomain.com</span>
-            <span id="outWeb">yourwebsite.com</span>
-          </div>
-        </div>
-      </div>
+    <div class="page">
+      <img src="https://lh3.googleusercontent.com/d/1qG_LxmhLg78Bmb2ZyurXTBk5hF7NcN9s" alt="SONYMA Co-Branded Flyer">
     </div>
   </div>
 
-  <p class="edit-note no-print">Scroll to the bottom of the flyer for the co-branding box. Fill fields, upload a logo/headshot, then tap <strong>Print / Save PDF</strong>. On iPhone use the print sheet → <strong>Save as PDF</strong> (or Share → Print).</p>
-
-  <div class="mobile-bar no-print" id="mobileBar">
-    <button type="button" class="mb-edit" id="btnMobileEdit">✎ Edit Co-Brand</button>
-    <button type="button" class="mb-print" id="btnPrintMobile">Print / Save PDF</button>
-  </div>
-
-<script>
-(function () {
-  function $(id) { return document.getElementById(id); }
-  var panel = $('editorPanel');
-  var btn = $('btnToggleEditor');
-  var btnMobile = $('btnMobileEdit');
-  var overlay = $('cobrandOverlay');
-
-  function setEditorOpen(open) {
-    if (!panel) return;
-    if (open) panel.classList.add('open');
-    else panel.classList.remove('open');
-    if (btn) btn.textContent = open ? '✕ Close Editor' : '✎ Edit Co-Branding';
-    if (btnMobile) btnMobile.textContent = open ? '✕ Close Editor' : '✎ Edit Co-Brand';
-  }
-
-  if (btn) {
-    btn.addEventListener('click', function () {
-      setEditorOpen(!panel.classList.contains('open'));
-    });
-  }
-  if (btnMobile) {
-    btnMobile.addEventListener('click', function () {
-      var willOpen = !panel.classList.contains('open');
-      setEditorOpen(willOpen);
-      if (willOpen) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  function doPrint() {
-    setEditorOpen(false);
-    setTimeout(function () {
-      try { window.print(); }
-      catch (err) {
-        alert('To save as PDF on iPhone: tap Share (square with arrow), then Print, then Save to Files.');
-      }
-    }, 200);
-  }
-  var printDesktop = $('btnPrintDesktop');
-  var printMobile = $('btnPrintMobile');
-  if (printDesktop) printDesktop.addEventListener('click', doPrint);
-  if (printMobile) printMobile.addEventListener('click', doPrint);
-
-  var isMobile = window.matchMedia('(max-width: 900px)').matches;
-  setEditorOpen(!isMobile);
-
-  var fields = [
-    { input: 'fName', out: 'outName', fallback: 'YOUR NAME' },
-    { input: 'fTitle', out: 'outTitle', fallback: 'REALTOR®' },
-    { input: 'fCompany', out: 'outCompany', fallback: 'YOUR COMPANY' },
-    { input: 'fPhone', out: 'outPhone', fallback: '555.555.5555' },
-    { input: 'fEmail', out: 'outEmail', fallback: 'you@yourdomain.com' },
-    { input: 'fWeb', out: 'outWeb', fallback: 'yourwebsite.com' }
-  ];
-
-  function updateEmptyState() {
-    var name = ($('fName') && $('fName').value.trim()) || '';
-    var hasContent = !!(name || ($('fCompany') && $('fCompany').value.trim()) ||
-      ($('fPhone') && $('fPhone').value.trim()) || ($('fEmail') && $('fEmail').value.trim()));
-    var photoImg = $('cobrandPhotoImg');
-    var hasPhoto = photoImg && photoImg.style.display !== 'none' && photoImg.src;
-    var empty = !hasContent && !hasPhoto;
-    if (overlay) {
-      overlay.classList.toggle('is-empty', empty);
-      overlay.classList.toggle('filled', !empty);
-    }
-  }
-
-  fields.forEach(function (f) {
-    var el = $(f.input);
-    var target = $(f.out);
-    if (!el || !target) return;
-    el.addEventListener('input', function () {
-      var v = el.value.trim();
-      target.textContent = v || f.fallback;
-      updateEmptyState();
-    });
-  });
-
-  var photoInput = $('photoInput');
-  var photoImg = $('photoImg');
-  var photoPlaceholder = $('photoPlaceholder');
-  var cobrandImg = $('cobrandPhotoImg');
-  var cobrandEmpty = $('cobrandPhotoEmpty');
-
-  function setPhoto(dataUrl) {
-    if (dataUrl) {
-      if (photoImg) { photoImg.src = dataUrl; photoImg.style.display = 'block'; }
-      if (photoPlaceholder) photoPlaceholder.style.display = 'none';
-      if (cobrandImg) { cobrandImg.src = dataUrl; cobrandImg.style.display = 'block'; }
-      if (cobrandEmpty) cobrandEmpty.style.display = 'none';
-    } else {
-      if (photoImg) { photoImg.src = ''; photoImg.style.display = 'none'; }
-      if (photoPlaceholder) photoPlaceholder.style.display = 'block';
-      if (cobrandImg) { cobrandImg.src = ''; cobrandImg.style.display = 'none'; }
-      if (cobrandEmpty) cobrandEmpty.style.display = 'block';
-    }
-    updateEmptyState();
-  }
-
-  if (photoInput) {
-    photoInput.addEventListener('change', function (e) {
-      var file = e.target.files && e.target.files[0];
-      if (!file) return;
-      var reader = new FileReader();
-      reader.onload = function () { setPhoto(reader.result); };
-      reader.readAsDataURL(file);
-    });
-  }
-
-  var clearBtn = $('btnClearPhoto');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function () {
-      if (photoInput) photoInput.value = '';
-      setPhoto(null);
-    });
-  }
-
-  var cobrandPhoto = $('cobrandPhoto');
-  if (cobrandPhoto) {
-    cobrandPhoto.style.cursor = 'pointer';
-    cobrandPhoto.addEventListener('click', function () {
-      setEditorOpen(true);
-      if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (photoInput) photoInput.click();
-    });
-  }
-
-  if (overlay) {
-    overlay.style.cursor = 'pointer';
-    overlay.addEventListener('click', function (e) {
-      if (e.target.closest && e.target.closest('#cobrandPhoto')) return;
-      setEditorOpen(true);
-      if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  updateEmptyState();
-})();
-</script>
+  <p class="note no-print">
+    Use <strong>Print / Save PDF</strong> for a clean Letter-size flyer.
+    Chrome / Safari → Destination: Save as PDF → Paper size: Letter → Margins: None.
+  </p>
 </body>
 </html>
