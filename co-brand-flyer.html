@@ -91,10 +91,10 @@
   }
   .cobrand-overlay {
     position: absolute;
-    left: 52.5%;
-    top: 88.2%;
-    width: 45.5%;
-    height: 7.2%;
+    left: 53.0%;
+    top: 89.0%;
+    width: 45.0%;
+    height: 6.5%;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -171,10 +171,38 @@
   .mobile-bar .mb-print { background: #1a56b0; color: #fff; }
   @page { size: letter portrait; margin: 0; }
   @media print {
-    body { background: #fff; padding-bottom: 0; }
-    .toolbar, .editor-panel, .edit-note, .no-print, .mobile-bar { display: none !important; }
-    .page-wrap { padding: 0; }
-    .page { margin: 0; box-shadow: none; width: 8.5in; height: 11in; }
+    html, body {
+      background: #fff !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      height: auto !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    .toolbar, .editor-panel, .edit-note, .no-print, .mobile-bar { display: none !important; visibility: hidden !important; }
+    .page-wrap {
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+    }
+    .page {
+      margin: 0 auto !important;
+      box-shadow: none !important;
+      width: 8.5in !important;
+      height: 11in !important;
+      max-width: none !important;
+      overflow: hidden !important;
+      page-break-after: avoid !important;
+      page-break-inside: avoid !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      transform: none !important;
+    }
+    .flyer-base, .cobrand-overlay, .cobrand-photo, .cobrand-text {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
   }
   @media (max-width: 900px) {
     body { padding-bottom: 76px; }
@@ -184,11 +212,12 @@
     .toolbar-title { font-size: 12px; }
     .toolbar-sub { display: none; }
     .toolbar a, .toolbar button { padding: 7px 10px; font-size: 11px; }
-    .page-wrap { padding: 8px 0 16px; }
+    .page-wrap { padding: 8px 0 16px; overflow: visible; padding-bottom: 28px; }
     .page {
       width: 100%; max-width: 100vw;
       height: auto; aspect-ratio: 8.5 / 11;
       box-shadow: 0 4px 20px rgba(0,0,0,.15);
+      overflow: visible;
     }
     .cobrand-name { font-size: 9px; }
     .cobrand-title, .cobrand-company { font-size: 7px; }
@@ -272,7 +301,7 @@
     </div>
   </div>
 
-  <p class="edit-note no-print">Scroll to the bottom of the flyer to see the co-branding box. Fill fields above, upload a logo/headshot, then use <strong>Print / Save PDF</strong>.</p>
+  <p class="edit-note no-print">Scroll to the bottom of the flyer for the co-branding box. Fill fields, upload a logo/headshot, then tap <strong>Print / Save PDF</strong>. On iPhone use the print sheet → <strong>Save as PDF</strong> (or Share → Print).</p>
 
   <div class="mobile-bar no-print" id="mobileBar">
     <button type="button" class="mb-edit" id="btnMobileEdit">✎ Edit Co-Brand</button>
@@ -308,10 +337,19 @@
     });
   }
 
+  function doPrint() {
+    setEditorOpen(false);
+    setTimeout(function () {
+      try { window.print(); }
+      catch (err) {
+        alert('To save as PDF on iPhone: tap Share (square with arrow), then Print, then Save to Files.');
+      }
+    }, 200);
+  }
   var printDesktop = $('btnPrintDesktop');
   var printMobile = $('btnPrintMobile');
-  if (printDesktop) printDesktop.addEventListener('click', function () { window.print(); });
-  if (printMobile) printMobile.addEventListener('click', function () { window.print(); });
+  if (printDesktop) printDesktop.addEventListener('click', doPrint);
+  if (printMobile) printMobile.addEventListener('click', doPrint);
 
   var isMobile = window.matchMedia('(max-width: 900px)').matches;
   setEditorOpen(!isMobile);
