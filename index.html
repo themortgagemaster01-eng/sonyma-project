@@ -3,238 +3,500 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#071a33">
+<meta name="theme-color" content="#0f2744">
 <title>SONYMA Eligibility Explorer | Robert A. Castro - Movement Mortgage</title>
-<meta name="description" content="Check NYS SONYMA eligibility in under 60 seconds. Learn about rates, DPAL, Target Areas, and talk with Robert A. Castro.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sonyma-eligibility-explorer.vercel.app/">
+<meta name="description" content="Check NYS SONYMA eligibility in under 2 minutes. Rates, DPAL, Target Areas, and talk with Robert A. Castro.">
 <meta property="og:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
-<meta property="og:description" content="Explore New York State homebuying assistance programs, current rates, and 0% interest down payment loans.">
 <meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8227.jpeg">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
-<meta property="twitter:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8227.jpeg">
 <link rel="stylesheet" href="/styles.css">
 <style>
-.path-step{text-decoration:none;color:inherit;display:flex;transition:border-color .15s,box-shadow .15s}
-.path-step:active,.path-step:hover{border-color:#c91f32;box-shadow:0 2px 8px rgba(201,31,50,.12)}
-.path-step strong{color:var(--navy)}
-.video-placeholder{background:linear-gradient(135deg,#0a2744,#071a33);border-radius:16px;padding:28px 20px;text-align:center;color:#fff;margin:0 0 18px}
-.video-placeholder .play{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.35);font-size:22px;margin-bottom:12px}
-.video-placeholder h3{margin:0 0 6px;font-size:18px;font-weight:700}
-.video-placeholder p{margin:0 0 14px;opacity:.85;font-size:14px;line-height:1.45}
-.path-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0}
-@media(max-width:520px){.path-split{grid-template-columns:1fr}}
-.path-split a{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px 14px;transition:border-color .15s,box-shadow .15s}
-.path-split a:hover{border-color:#c91f32;box-shadow:0 2px 10px rgba(201,31,50,.1)}
-.path-split strong{display:block;font-size:15px;color:var(--navy);margin-bottom:4px}
-.path-split span{font-size:13px;color:var(--muted);line-height:1.4}
-.dpal-plus{background:linear-gradient(135deg,#fff7ed,#fff);border:1px solid #fdba74;border-radius:16px;padding:18px 16px;margin:0 0 18px}
-.dpal-plus .tag{display:inline-block;background:#ea580c;color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:999px;margin-bottom:8px}
-.hero-photo{overflow:hidden}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.btn-apply{background:#c91f32!important;color:#fff!important;border:0!important}
-.btn-apply:hover{background:#a81828!important}
+:root {
+  --navy: #0f2744;
+  --navy2: #1a3a5c;
+  --blue: #2563eb;
+  --green: #059669;
+  --green-btn: #10b981;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --paper: #f1f5f9;
+  --card: #ffffff;
+  --line: #e2e8f0;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+a { color: var(--blue); text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1120px; margin: 0 auto;
+  padding: 12px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 800; font-size: 15px; color: var(--navy);
+  text-decoration: none; white-space: nowrap;
+}
+.logo-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--navy); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.nav-links { display: none; align-items: center; gap: 4px; }
+.nav-links a {
+  color: var(--muted); font-size: 13px; font-weight: 600;
+  padding: 8px 10px; border-radius: 8px;
+}
+.nav-links a:hover { color: var(--navy); background: #f1f5f9; }
+.btn-nav {
+  background: var(--green) !important; color: #fff !important;
+  padding: 10px 16px !important; border-radius: 10px !important;
+  font-weight: 700 !important; font-size: 13px !important;
+  white-space: nowrap;
+}
+.menu-btn {
+  background: transparent; border: 1.5px solid var(--line);
+  border-radius: 9px; padding: 10px 12px; font-weight: 700;
+  font-size: 13px; cursor: pointer; color: var(--navy);
+}
+.nav-mobile {
+  display: none; background: #fff; border-top: 1px solid var(--line);
+  padding: 8px 18px 16px;
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+  display: block; padding: 12px 8px; color: var(--ink);
+  font-weight: 600; font-size: 14px; border-bottom: 1px solid #f1f5f9;
+}
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 20px 16px 40px; }
+.layout { display: grid; gap: 20px; }
+@media (min-width: 900px) {
+  .layout { grid-template-columns: 1.35fr 1fr; align-items: start; }
+  .nav-links { display: flex; }
+  .menu-btn { display: none; }
+}
+
+.hero-row {
+  display: grid; gap: 14px;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(15,39,68,.04);
+}
+@media (min-width: 640px) {
+  .hero-row { grid-template-columns: 280px 1fr; }
+}
+.expert-card {
+  background: linear-gradient(160deg, #0f2744 0%, #1a3a5c 100%);
+  color: #fff; padding: 22px 18px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+}
+.expert-card img {
+  width: 96px; height: 96px; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 3px solid rgba(255,255,255,.35);
+}
+.expert-card .label { font-size: 11px; opacity: .75; font-weight: 600; letter-spacing: .03em; }
+.expert-card h2 { font-size: 18px; font-weight: 800; margin: 0; }
+.expert-card .title { font-size: 12px; opacity: .85; line-height: 1.4; }
+.expert-card .nmls { font-size: 11px; opacity: .7; }
+.btn-outline {
+  display: inline-block; margin-top: 6px;
+  border: 1.5px solid rgba(255,255,255,.45); color: #fff;
+  padding: 9px 16px; border-radius: 9px; font-size: 13px; font-weight: 700;
+}
+.btn-outline:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+.hero-copy { padding: 22px 20px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+.hero-copy h1 {
+  font-size: 26px; font-weight: 800; color: var(--navy);
+  letter-spacing: -.02em; line-height: 1.15;
+}
+@media (min-width: 640px) { .hero-copy h1 { font-size: 30px; } }
+.hero-copy p { color: var(--muted); font-size: 14px; }
+.btn-green {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--green); color: #fff !important;
+  padding: 13px 20px; border-radius: 11px;
+  font-weight: 700; font-size: 15px;
+  box-shadow: 0 4px 12px rgba(5,150,105,.25);
+  width: fit-content;
+}
+.btn-green:hover { background: #047857; }
+.hero-paths { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.hero-paths a {
+  font-size: 12px; color: var(--muted); background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px;
+}
+.hero-paths a:hover { border-color: #cbd5e1; color: var(--navy); }
+
+.card {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 16px; padding: 18px;
+  box-shadow: 0 1px 2px rgba(15,39,68,.03);
+}
+.card h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+.eyebrow {
+  font-size: 11px; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+}
+
+.rate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.rate-box {
+  background: #f8fafc; border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px;
+}
+.rate-box strong { display: block; font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.rate-box .num { font-size: 28px; font-weight: 900; color: var(--blue); letter-spacing: -.03em; margin: 4px 0; }
+.rate-box small { font-size: 11px; color: var(--muted); line-height: 1.35; display: block; }
+.rate-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+.dpal {
+  background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+  border: 1px solid #a7f3d0; border-radius: 14px; padding: 16px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.dpal-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.dpal .tag {
+  display: inline-block; background: var(--green); color: #fff;
+  font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+  margin-bottom: 4px; letter-spacing: .04em;
+}
+.dpal h4 { font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+.dpal p { font-size: 13px; color: var(--ink); margin-bottom: 8px; }
+.dpal a { font-size: 13px; font-weight: 700; color: var(--green); }
+
+.path-row {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+}
+@media (min-width: 640px) { .path-row { grid-template-columns: repeat(4, 1fr); } }
+.path-step {
+  background: #f8fafc; border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 12px; text-align: center;
+  color: inherit; display: block;
+  transition: border-color .15s, box-shadow .15s;
+}
+.path-step:hover { border-color: #94a3b8; box-shadow: 0 2px 8px rgba(15,39,68,.06); }
+.path-step .icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: #e0f2fe; color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px; font-size: 16px; font-weight: 800;
+}
+.path-step strong { display: block; font-size: 13px; color: var(--navy); margin-bottom: 2px; }
+.path-step span { font-size: 11px; color: var(--muted); line-height: 1.3; }
+
+.explore-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+@media (min-width: 640px) { .explore-grid { grid-template-columns: repeat(4, 1fr); } }
+.explore-card {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px;
+  color: inherit; display: block;
+  transition: border-color .15s, box-shadow .15s;
+}
+.explore-card:hover { border-color: #94a3b8; box-shadow: 0 2px 8px rgba(15,39,68,.06); }
+.explore-card .num {
+  font-size: 11px; font-weight: 800; color: var(--blue);
+  margin-bottom: 4px;
+}
+.explore-card strong { display: block; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
+.explore-card p { font-size: 12px; color: var(--muted); line-height: 1.35; margin: 0; }
+
+.side-card {
+  background: #fffbeb; border: 1px solid #fde68a;
+  border-radius: 14px; padding: 16px; margin-bottom: 12px;
+}
+.side-card.realtor { background: #f0f9ff; border-color: #bae6fd; }
+.side-card strong { display: block; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+.side-card p { font-size: 13px; color: var(--muted); margin: 0; }
+
+.side-explore {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 16px; padding: 18px; margin-bottom: 12px;
+}
+.side-explore h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+.side-list { display: grid; gap: 8px; }
+.side-list a {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px; border-radius: 10px; border: 1px solid var(--line);
+  color: inherit; background: #f8fafc;
+}
+.side-list a:hover { border-color: #94a3b8; background: #fff; }
+.side-list .n {
+  width: 22px; height: 22px; border-radius: 6px;
+  background: #e0f2fe; color: var(--blue);
+  font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.side-list strong { display: block; font-size: 13px; color: var(--navy); }
+.side-list span { font-size: 11px; color: var(--muted); }
+
+.cta-band {
+  background: linear-gradient(135deg, #0f2744, #1a3a5c);
+  color: #fff; border-radius: 16px; padding: 22px 18px;
+  text-align: center;
+}
+.cta-band h3 { font-size: 17px; margin-bottom: 6px; }
+.cta-band .phone {
+  font-size: 24px; font-weight: 900; color: #fff;
+  display: block; margin: 8px 0 12px; text-decoration: none;
+}
+.cta-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.btn-white {
+  background: #fff; color: var(--navy) !important;
+  padding: 11px 16px; border-radius: 10px; font-weight: 700; font-size: 13px;
+}
+.btn-green-sm {
+  background: var(--green); color: #fff !important;
+  padding: 11px 16px; border-radius: 10px; font-weight: 700; font-size: 13px;
+}
+
+.site-footer {
+  background: #0a1a2e; color: #94a3b8; font-size: 12px;
+  padding: 28px 16px; margin-top: 24px;
+}
+.footer-inner { max-width: 1120px; margin: 0 auto; }
+.footer-grid { display: grid; gap: 18px; margin-bottom: 18px; }
+@media (min-width: 700px) {
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+.footer-col strong { display: block; color: #fff; font-size: 13px; margin-bottom: 8px; }
+.footer-col a { color: #94a3b8; display: block; padding: 3px 0; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 14px; text-align: center; font-size: 11px; line-height: 1.5;
+}
+.notice {
+  font-size: 11px; color: var(--muted); line-height: 1.45;
+  margin: 16px 0 0; padding: 0 4px;
+}
 </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand-block">
-      <div class="brand">SONYMA • YOUR EXPERT</div>
-      <div class="subbrand">Robert A. Castro • Movement Mortgage • NMLS #66194</div>
-    </div>
-    <nav class="nav-desktop" aria-label="Main">
-      <a href="/" class="active">Home</a>
-      <a href="/meet-robert.html">Meet Robert</a>
-      <a href="/what-is-sonyma.html">What Is SONYMA?</a>
-      <a href="/why-sonyma.html">Why SONYMA?</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="/">
+      <span class="logo-icon">⌂</span>
+      SONYMA Eligibility Explorer
+    </a>
+    <nav class="nav-links" aria-label="Main">
       <a href="/eligible.html">Am I Eligible?</a>
+      <a href="/why-sonyma.html">Rates</a>
+      <a href="/what-is-sonyma.html">Programs</a>
+      <a href="/ask-robert.html">Ask Robert</a>
       <a href="/realtors.html">For Realtors</a>
       <a href="/faq.html">FAQ</a>
-      <a class="nav-cta" href="/eligible.html">Check My Eligibility →</a>
+      <a class="btn-nav" href="/eligible.html">Check My Eligibility →</a>
     </nav>
-    <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+    <button type="button" class="menu-btn" id="menuBtn">Menu</button>
   </div>
-  <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
-    <a href="/">Home</a>
-    <a href="/meet-robert.html">Meet Robert</a>
-    <a href="/what-is-sonyma.html">What Is SONYMA?</a>
-    <a href="/why-sonyma.html">Why SONYMA?</a>
+  <nav class="nav-mobile" id="navMobile">
     <a href="/eligible.html">Am I Eligible?</a>
+    <a href="/why-sonyma.html">Rates & Benefits</a>
+    <a href="/what-is-sonyma.html">Programs</a>
     <a href="/ask-robert.html">Ask Robert (AI)</a>
     <a href="/realtors.html">For Realtors</a>
-    <a href="/education.html">Homebuyer Education</a>
-    <a href="/recapture.html">Recapture Tax</a>
     <a href="/faq.html">FAQ</a>
-    <a class="nav-cta-m" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application →</a>
+    <a href="/meet-robert.html">Meet Robert</a>
+    <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a>
   </nav>
 </header>
 
 <main class="wrap">
-  <section class="hero">
-    <div class="hero-photo">
-      <img src="/IMG_8227.jpeg" alt="Robert A. Castro, Senior Loan Officer, Movement Mortgage">
-    </div>
-    <div class="hero-body">
-      <div class="hero-kicker">NEW YORK STATE • SONYMA</div>
-      <h1>Your SONYMA Expert<br><span style="font-weight:500">Starts Here.</span></h1>
-      <p class="lede">A digital SONYMA resource powered by Robert’s expertise — learn the programs, check current rates, explore eligibility, and connect when you’re ready.</p>
-      <div class="hero-actions">
-        <a class="button" href="/eligible.html">Check My SONYMA Options →</a>
-        <a class="button btn-apply" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start My Application →</a>
-        <a class="button secondary" href="/what-is-sonyma.html">Learn How SONYMA Works →</a>
-        <a class="button ghost" href="tel:19148049889">Call Robert</a>
+  <div class="layout">
+
+    <div class="main-col">
+
+      <div class="hero-row">
+        <div class="expert-card">
+          <div class="label">Your SONYMA Expert Starts Here.</div>
+          <img src="/IMG_8227.jpeg" alt="Robert A. Castro">
+          <h2>Robert A. Castro</h2>
+          <div class="title">Sr. Loan Officer · Movement Mortgage</div>
+          <div class="nmls">NMLS #66194 · NY · CT · NJ · FL</div>
+          <a class="btn-outline" href="tel:19148049889">Talk with Robert</a>
+        </div>
+        <div class="hero-copy">
+          <h1>Let’s See If SONYMA Can Help You Get Home.</h1>
+          <p>Find your potential options in about 2 minutes — or start a formal application when you’re ready.</p>
+          <a class="btn-green" href="/eligible.html">Start Your Eligibility Snapshot (2 mins)</a>
+          <div class="hero-paths">
+            <a href="/what-is-sonyma.html">🏠 I’m buying a home</a>
+            <a href="/realtors.html">🤝 I’m a realtor</a>
+            <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a>
+          </div>
+        </div>
       </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="eyebrow">Current Rates · 30-Year Fixed</div>
+        <h3>SONYMA Program Rates</h3>
+        <div class="rate-grid">
+          <div class="rate-box">
+            <strong>Achieving the Dream</strong>
+            <div class="num">5.700%</div>
+            <small>Without DPAL<br>With DPAL: <b>6.100%</b></small>
+          </div>
+          <div class="rate-box">
+            <strong>Low Interest Rate</strong>
+            <div class="num">6.100%</div>
+            <small>Without DPAL<br>With DPAL: <b>6.500%</b></small>
+          </div>
+        </div>
+        <p class="rate-note">
+          Official SONYMA rates · 120-day locks available.
+          <a href="/why-sonyma.html">See full benefits →</a> ·
+          <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on SONYMA site</a>
+        </p>
+      </div>
+
+      <div class="dpal" style="margin-top:14px">
+        <div class="dpal-icon">✓</div>
+        <div>
+          <span class="tag">NEW · DPAL PLUS 2026</span>
+          <h4>Enhanced down-payment assistance</h4>
+          <p>Eligible buyers may access enhanced assistance (up to $30,000 in some cases under current guidelines) for down payment and closing costs — subject to funding and program rules.</p>
+          <a href="/why-sonyma.html">Learn about DPAL →</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="eyebrow">Quick Path</div>
+        <h3>New to SONYMA? Start Here.</h3>
+        <div class="path-row">
+          <a class="path-step" href="/what-is-sonyma.html">
+            <div class="icon">1</div>
+            <strong>Learn what SONYMA is</strong>
+            <span>Plain-English overview</span>
+          </a>
+          <a class="path-step" href="/why-sonyma.html">
+            <div class="icon">2</div>
+            <strong>See why it may help</strong>
+            <span>Rates, DPAL, locks</span>
+          </a>
+          <a class="path-step" href="/eligible.html">
+            <div class="icon">3</div>
+            <strong>Check your eligibility</strong>
+            <span>2-minute snapshot</span>
+          </a>
+          <a class="path-step" href="/meet-robert.html">
+            <div class="icon">4</div>
+            <strong>Talk with Robert</strong>
+            <span>Clear next steps</span>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top:18px">
+        <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px">What You Can Explore</h3>
+        <div class="explore-grid">
+          <a class="explore-card" href="/eligible.html">
+            <div class="num">1 · Tool</div>
+            <strong>Eligibility Snapshot</strong>
+            <p>Answer a few questions to see potential options.</p>
+          </a>
+          <a class="explore-card" href="/why-sonyma.html">
+            <div class="num">2 · Benefits</div>
+            <strong>Why Buyers Explore SONYMA</strong>
+            <p>Lower rates, lower down payment, DPAL, locks.</p>
+          </a>
+          <a class="explore-card" href="/recapture.html">
+            <div class="num">3 · Clarity</div>
+            <strong>Recapture Tax Explained</strong>
+            <p>What it is, when it applies, and when it doesn’t.</p>
+          </a>
+          <a class="explore-card" href="/education.html">
+            <div class="num">4 · Education</div>
+            <strong>Homebuyer Class</strong>
+            <p>When education may be required and what it covers.</p>
+          </a>
+        </div>
+      </div>
+
     </div>
-  </section>
 
-  <div class="video-placeholder" id="meetVideo">
-    <div class="play">▶</div>
-    <h3>Meet Robert — Your SONYMA Expert</h3>
-    <p>~18–30 sec intro video coming soon.<br>Robert’s message: “Let’s see if SONYMA can help you get home.”</p>
-    <a class="button secondary" href="/meet-robert.html" style="max-width:280px;margin:0 auto;display:block">Meet Robert →</a>
-  </div>
-
-  <section class="card" style="text-align:center">
-    <div class="eyebrow">Main action</div>
-    <h2 class="section-title" style="font-size:22px">Could SONYMA help you buy a home?</h2>
-    <p class="section-sub">Find out in about 2 minutes with a quick eligibility snapshot — or start a formal application when you’re ready.</p>
-    <a class="button block" href="/eligible.html">Check My SONYMA Options →</a>
-    <a class="button block btn-apply" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener" style="margin-top:8px">Start My Application →</a>
-    <div class="path-split">
-      <a href="/what-is-sonyma.html">
+    <div class="side-col">
+      <a class="side-card" href="/what-is-sonyma.html" style="display:block;color:inherit;text-decoration:none">
         <strong>🏠 I’m buying a home</strong>
-        <span>Overview, rates, eligibility, and FAQs</span>
+        <p>Overview, rates, and FAQs — find your potential options.</p>
       </a>
-      <a href="/realtors.html">
+      <a class="side-card realtor" href="/realtors.html" style="display:block;color:inherit;text-decoration:none">
         <strong>🤝 I’m a realtor</strong>
-        <span>Toolkit & co-branded buyer pages</span>
+        <p>Toolkit & co-branded buyer pages for your clients.</p>
       </a>
-    </div>
-  </section>
 
-  <section class="card">
-    <div class="eyebrow">Current rates · 30-year fixed</div>
-    <h2 class="section-title" style="font-size:20px;margin-bottom:12px">SONYMA program rates</h2>
-    <div class="rate-grid">
-      <div class="rate">
-        <strong>Achieving the Dream</strong>
-        <div class="num">5.700%</div>
-        <small>Without DPAL<br>With DPAL: <b>6.100%</b></small>
+      <div class="side-explore">
+        <h3>What You Can Explore</h3>
+        <div class="side-list">
+          <a href="/why-sonyma.html">
+            <span class="n">1</span>
+            <div><strong>Benefits</strong><span>Why buyers explore SONYMA</span></div>
+          </a>
+          <a href="/recapture.html">
+            <span class="n">2</span>
+            <div><strong>Recapture Tax</strong><span>What it is and when it applies</span></div>
+          </a>
+          <a href="/education.html">
+            <span class="n">3</span>
+            <div><strong>Homebuyer Class</strong><span>When education may be required</span></div>
+          </a>
+          <a href="/faq.html">
+            <span class="n">4</span>
+            <div><strong>Common Questions</strong><span>DPAL, condos, Target Areas</span></div>
+          </a>
+          <a href="/realtors.html">
+            <span class="n">5</span>
+            <div><strong>For Realtors</strong><span>Co-branded pages & toolkit</span></div>
+          </a>
+          <a href="/ask-robert.html">
+            <span class="n">6</span>
+            <div><strong>Ask Robert (AI)</strong><span>Plain-English SONYMA answers</span></div>
+          </a>
+        </div>
       </div>
-      <div class="rate">
-        <strong>Low Interest Rate</strong>
-        <div class="num">6.100%</div>
-        <small>Without DPAL<br>With DPAL: <b>6.500%</b></small>
+
+      <div class="cta-band">
+        <h3>Want help understanding your options?</h3>
+        <a class="phone" href="tel:19148049889">(914) 804-9889</a>
+        <div class="cta-actions">
+          <a class="btn-white" href="tel:19148049889">Talk with Robert</a>
+          <a class="btn-green-sm" href="/eligible.html">Check My Eligibility →</a>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn-green-sm" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener" style="display:inline-block">Start My Application →</a>
+        </div>
       </div>
     </div>
-    <p class="notice" style="margin-top:12px">
-      Official SONYMA short-term lock-in rates · 0 points · 120-day locks available.<br>
-      <a href="/why-sonyma.html">See full benefits →</a> · <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify on SONYMA site</a>
-    </p>
-  </section>
 
-  <div class="dpal-plus">
-    <div class="tag">NEW · DPAL PLUS 2026</div>
-    <h3 style="margin:0 0 6px;font-size:17px;color:var(--navy)">Enhanced down-payment assistance</h3>
-    <p style="margin:0 0 12px;font-size:14px;line-height:1.5;color:var(--ink)">Eligible low-income buyers may access enhanced assistance (up to $30,000 in some cases under current guidelines) to help with down payment, closing costs, and related costs — subject to funding and program rules.</p>
-    <a class="button secondary" href="/why-sonyma.html" style="display:inline-block;width:auto;padding:10px 16px;font-size:14px">Learn about DPAL & DPAL PLUS →</a>
   </div>
 
-  <section class="card">
-    <div class="eyebrow">Quick path</div>
-    <h2 class="section-title">New to SONYMA? Start here.</h2>
-    <p class="section-sub">A simple path from “What is this?” to “Could this work for me?” Tap any step.</p>
-    <div class="path-steps">
-      <a class="path-step" href="/what-is-sonyma.html">
-        <div class="path-num">1</div>
-        <div><strong>Learn what SONYMA is</strong><div class="muted">Plain-English overview of the program</div></div>
-      </a>
-      <a class="path-step" href="/why-sonyma.html">
-        <div class="path-num">2</div>
-        <div><strong>See why it may help</strong><div class="muted">Rates, DPAL, locks, property types</div></div>
-      </a>
-      <a class="path-step" href="/eligible.html">
-        <div class="path-num">3</div>
-        <div><strong>Check your eligibility</strong><div class="muted">Quick pre-screening snapshot</div></div>
-      </a>
-      <a class="path-step" href="/meet-robert.html">
-        <div class="path-num">4</div>
-        <div><strong>Talk with Robert</strong><div class="muted">Get clear next steps for your situation</div></div>
-      </a>
-    </div>
-    <a class="button block" href="/eligible.html">Check My SONYMA Options →</a>
-  </section>
-
-  <section class="card" style="text-align:center">
-    <div class="eyebrow">AI assistant</div>
-    <h2 class="section-title" style="font-size:20px">Have a SONYMA question?</h2>
-    <p class="section-sub">Ask Robert’s AI Assistant for plain-English explanations — then use the Eligibility Explorer or talk with Robert directly.</p>
-    <a class="button" href="/ask-robert.html" style="max-width:320px;margin:0 auto">💬 Ask Robert’s AI Assistant →</a>
-  </section>
-
-  <section>
-    <h2 class="section-title">What you can explore</h2>
-    <p class="section-sub">Educational tools designed to make SONYMA easier to understand.</p>
-    <div class="grid-3">
-      <a class="story-card" href="/eligible.html" style="text-decoration:none;color:inherit">
-        <div class="eyebrow">Tool</div>
-        <h3>Eligibility snapshot</h3>
-        <p>Answer a few questions for an initial look at potential SONYMA options.</p>
-      </a>
-      <a class="story-card" href="/why-sonyma.html" style="text-decoration:none;color:inherit">
-        <div class="eyebrow">Benefits</div>
-        <h3>Why buyers explore SONYMA</h3>
-        <p>Lower rates, lower down payment, DPAL, and longer lock periods.</p>
-      </a>
-      <a class="story-card" href="/recapture.html" style="text-decoration:none;color:inherit">
-        <div class="eyebrow">Clarity</div>
-        <h3>Recapture tax explained</h3>
-        <p>What it is, when it can apply, and why it often doesn’t.</p>
-      </a>
-      <a class="story-card" href="/education.html" style="text-decoration:none;color:inherit">
-        <div class="eyebrow">Education</div>
-        <h3>Homebuyer class</h3>
-        <p>When education may be required and what it covers.</p>
-      </a>
-      <a class="story-card" href="/faq.html" style="text-decoration:none;color:inherit">
-        <div class="eyebrow">Answers</div>
-        <h3>Common questions</h3>
-        <p>First-time buyer rules, DPAL, condos, Target Areas, and more.</p>
-      </a>
-      <a class="story-card" href="/realtors.html" style="text-decoration:none;color:inherit">
-        <div class="eyebrow">Partners</div>
-        <h3>For realtors</h3>
-        <p>Co-branded buyer pages and a simple SONYMA toolkit.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="card">
-    <div class="eyebrow">Realtors</div>
-    <h2 class="section-title" style="font-size:20px">Give your buyers a better SONYMA experience</h2>
-    <p class="section-sub">Create a co-branded SONYMA page for your clients — rates, eligibility tool, FAQs, and a clear path to Robert.</p>
-    <a class="button block" href="/realtors.html">🤝 Create My Co-Branded Page →</a>
-  </section>
-
-  <section class="cta-band">
-    <h2>Want help understanding your options?</h2>
-    <p>I’m Robert A. Castro, Sr. Loan Officer at Movement Mortgage. I help buyers and realtors sort through SONYMA in plain English.</p>
-    <a class="phone-lg" href="tel:19148049889">(914) 804-9889</a>
-    <p style="margin:0 0 12px;font-size:14px;color:#c5d2e0">
-      <a href="mailto:robert.castro@movement.com" style="color:#fff">robert.castro@movement.com</a><br>
-      115 Stevens Ave, Ste 107 · Valhalla, NY 10595
-    </p>
-    <div style="display:flex;flex-direction:column;gap:8px;max-width:320px;margin:0 auto">
-      <a class="button btn-apply" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start My Application →</a>
-      <a class="button" href="tel:19148049889">Talk with Robert →</a>
-      <a class="button secondary" href="/eligible.html">Check My SONYMA Options →</a>
-      <a class="button secondary" href="https://movement.com/lo/robert-castro/" target="_blank" rel="noopener" style="font-size:13px">Official Movement Page →</a>
-    </div>
-  </section>
-
-  <p class="notice"><b>Important:</b> This website is an educational resource and is not affiliated with or operated by SONYMA or New York State. Information is for educational purposes only and does not constitute a loan approval, commitment to lend, or final determination of eligibility. Program guidelines, rates, and requirements are subject to change. NMLS #66194 · Movement Mortgage NMLS #39179.</p>
+  <p class="notice">
+    <b>Important:</b> This website is an educational resource and is not affiliated with or operated by SONYMA or New York State.
+    Information does not constitute a loan approval or final eligibility determination.
+    NMLS #66194 · Movement Mortgage NMLS #39179 · Licensed in NY, CT, NJ, FL.
+  </p>
 </main>
 
 <footer class="site-footer">
@@ -246,8 +508,7 @@
         NMLS #66194 · Company NMLS #39179<br>
         <a href="tel:19148049889">(914) 804-9889</a>
         <a href="mailto:robert.castro@movement.com">robert.castro@movement.com</a>
-        115 Stevens Ave, Ste 107<br>
-        Valhalla, NY 10595<br>
+        115 Stevens Ave, Ste 107 · Valhalla, NY 10595<br>
         <a href="https://movement.com/lo/robert-castro/" target="_blank" rel="noopener">Official Movement Page</a>
         <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a>
       </div>
@@ -279,8 +540,9 @@
     </div>
   </div>
 </footer>
+
 <script>
-document.getElementById('menuBtn').addEventListener('click',function(){
+document.getElementById('menuBtn').addEventListener('click', function () {
   document.getElementById('navMobile').classList.toggle('open');
 });
 </script>
