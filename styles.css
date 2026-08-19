@@ -35,8 +35,8 @@ img{max-width:100%;height:auto;display:block}
 .story-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
 .story-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
 .hero{background:linear-gradient(180deg,#071a33,#061321);color:#fff;border-radius:16px;overflow:hidden;margin-bottom:16px}
-.hero-photo{position:relative;width:100%;height:220px;background:#0a1a2e;overflow:hidden}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-photo{position:relative;width:100%;height:260px;background:#0a1a2e;overflow:hidden}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%}
 .hero-body{padding:20px 16px 24px}
 .hero-kicker{font-size:10px;letter-spacing:1.8px;font-weight:900;color:#ff5a68}
 .hero h1{font-size:32px;line-height:.95;letter-spacing:-1px;margin:8px 0 10px;font-weight:900}
@@ -94,7 +94,7 @@ input,select{width:100%;padding:13px 12px;border:1px solid #cfd7e1;border-radius
   .menu-btn{display:none}
   .grid-2{grid-template-columns:1fr 1fr}
   .grid-3{grid-template-columns:repeat(3,1fr)}
-  .hero-photo{height:340px}
+  .hero-photo{height:380px}
   .hero h1{font-size:44px}
   .hero-actions{flex-direction:row}
   .hero-actions .button{width:auto}
