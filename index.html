@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f2744">
+<meta name="theme-color" content="#c91f32">
 <title>SONYMA Eligibility Explorer | Robert A. Castro - Movement Mortgage</title>
 <meta name="description" content="Check NYS SONYMA eligibility in under 2 minutes. Rates, DPAL, Target Areas, and talk with Robert A. Castro.">
 <meta property="og:title" content="SONYMA Eligibility Explorer | Robert A. Castro">
@@ -13,14 +13,16 @@
 :root {
   --navy: #0f2744;
   --navy2: #1a3a5c;
-  --blue: #2563eb;
-  --green: #059669;
-  --green-btn: #10b981;
+  --red: #c91f32;
+  --red-dark: #a81828;
+  --blue: #c91f32;
+  --green: #c91f32;
+  --green-btn: #c91f32;
   --ink: #1e293b;
   --muted: #64748b;
-  --paper: #f1f5f9;
+  --paper: #f8f9fb;
   --card: #ffffff;
-  --line: #e2e8f0;
+  --line: #e5e7eb;
   --radius: 14px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,12 +33,12 @@ body {
   line-height: 1.5;
   min-height: 100vh;
 }
-a { color: var(--blue); text-decoration: none; }
+a { color: #c91f32; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 .topbar {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -52,7 +54,7 @@ img { max-width: 100%; display: block; }
 }
 .logo-icon {
   width: 28px; height: 28px; border-radius: 8px;
-  background: var(--navy); color: #fff;
+  background: #c91f32; color: #fff;
   display: flex; align-items: center; justify-content: center; font-size: 14px;
 }
 .nav-links { display: none; align-items: center; gap: 4px; }
@@ -62,7 +64,7 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a:hover { color: var(--navy); background: #f1f5f9; }
 .btn-nav {
-  background: var(--green) !important; color: #fff !important;
+  background: #c91f32 !important; color: #fff !important;
   padding: 10px 16px !important; border-radius: 10px !important;
   font-weight: 700 !important; font-size: 13px !important;
   white-space: nowrap;
@@ -129,13 +131,13 @@ img { max-width: 100%; display: block; }
 .hero-copy p { color: var(--muted); font-size: 14px; }
 .btn-green {
   display: inline-flex; align-items: center; justify-content: center;
-  background: var(--green); color: #fff !important;
+  background: #c91f32; color: #fff !important;
   padding: 13px 20px; border-radius: 11px;
   font-weight: 700; font-size: 15px;
-  box-shadow: 0 4px 12px rgba(5,150,105,.25);
+  box-shadow: 0 4px 12px rgba(201,31,50,.25);
   width: fit-content;
 }
-.btn-green:hover { background: #047857; }
+.btn-green:hover { background: #a81828; }
 .hero-paths { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .hero-paths a {
   font-size: 12px; color: var(--muted); background: #f8fafc;
@@ -160,29 +162,29 @@ img { max-width: 100%; display: block; }
   border-radius: 12px; padding: 14px;
 }
 .rate-box strong { display: block; font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
-.rate-box .num { font-size: 28px; font-weight: 900; color: var(--blue); letter-spacing: -.03em; margin: 4px 0; }
+.rate-box .num { font-size: 28px; font-weight: 900; color: #c91f32; letter-spacing: -.03em; margin: 4px 0; }
 .rate-box small { font-size: 11px; color: var(--muted); line-height: 1.35; display: block; }
 .rate-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
 
 .dpal {
-  background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
-  border: 1px solid #a7f3d0; border-radius: 14px; padding: 16px;
+  background: linear-gradient(135deg, #fef2f2, #fff5f5);
+  border: 1px solid #fecaca; border-radius: 14px; padding: 16px;
   display: flex; gap: 12px; align-items: flex-start;
 }
 .dpal-icon {
   width: 40px; height: 40px; border-radius: 50%;
-  background: var(--green); color: #fff;
+  background: #c91f32; color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: 18px; flex-shrink: 0;
 }
 .dpal .tag {
-  display: inline-block; background: var(--green); color: #fff;
+  display: inline-block; background: #c91f32; color: #fff;
   font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
   margin-bottom: 4px; letter-spacing: .04em;
 }
 .dpal h4 { font-size: 15px; color: var(--navy); margin-bottom: 4px; }
 .dpal p { font-size: 13px; color: var(--ink); margin-bottom: 8px; }
-.dpal a { font-size: 13px; font-weight: 700; color: var(--green); }
+.dpal a { font-size: 13px; font-weight: 700; color: #c91f32; }
 
 .path-row {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
@@ -197,7 +199,7 @@ img { max-width: 100%; display: block; }
 .path-step:hover { border-color: #94a3b8; box-shadow: 0 2px 8px rgba(15,39,68,.06); }
 .path-step .icon {
   width: 36px; height: 36px; border-radius: 10px;
-  background: #e0f2fe; color: var(--blue);
+  background: #fee2e2; color: #c91f32;
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 8px; font-size: 16px; font-weight: 800;
 }
@@ -216,17 +218,17 @@ img { max-width: 100%; display: block; }
 }
 .explore-card:hover { border-color: #94a3b8; box-shadow: 0 2px 8px rgba(15,39,68,.06); }
 .explore-card .num {
-  font-size: 11px; font-weight: 800; color: var(--blue);
+  font-size: 11px; font-weight: 800; color: #c91f32;
   margin-bottom: 4px;
 }
 .explore-card strong { display: block; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
 .explore-card p { font-size: 12px; color: var(--muted); line-height: 1.35; margin: 0; }
 
 .side-card {
-  background: #fffbeb; border: 1px solid #fde68a;
+  background: #fef2f2; border: 1px solid #fecaca;
   border-radius: 14px; padding: 16px; margin-bottom: 12px;
 }
-.side-card.realtor { background: #f0f9ff; border-color: #bae6fd; }
+.side-card.realtor { background: #fff; border-color: #fecaca; }
 .side-card strong { display: block; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
 .side-card p { font-size: 13px; color: var(--muted); margin: 0; }
 
@@ -244,7 +246,7 @@ img { max-width: 100%; display: block; }
 .side-list a:hover { border-color: #94a3b8; background: #fff; }
 .side-list .n {
   width: 22px; height: 22px; border-radius: 6px;
-  background: #e0f2fe; color: var(--blue);
+  background: #fee2e2; color: #c91f32;
   font-size: 11px; font-weight: 800;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
@@ -267,7 +269,7 @@ img { max-width: 100%; display: block; }
   padding: 11px 16px; border-radius: 10px; font-weight: 700; font-size: 13px;
 }
 .btn-green-sm {
-  background: var(--green); color: #fff !important;
+  background: #c91f32; color: #fff !important;
   padding: 11px 16px; border-radius: 10px; font-weight: 700; font-size: 13px;
 }
 
