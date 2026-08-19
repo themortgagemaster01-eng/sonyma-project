@@ -10,6 +10,7 @@
     font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
     background: #c8d4e6;
     min-height: 100vh;
+    padding-bottom: 88px;
   }
   .toolbar {
     position: sticky; top: 0; z-index: 100;
@@ -27,9 +28,11 @@
     padding: 9px 14px; text-decoration: none; cursor: pointer;
     font: inherit; font-size: 13px; font-weight: 600;
   }
-  .toolbar button.primary { background: #1a56b0; border-color: #2b6cb0; }
+  .toolbar button.primary {
+    background: #c91f32; border-color: #a81828; color: #fff;
+  }
   .page-wrap {
-    padding: 20px 12px 40px;
+    padding: 20px 12px 24px;
     display: flex; justify-content: center;
   }
   .page {
@@ -46,11 +49,24 @@
   }
   .note {
     max-width: 8.5in;
-    margin: 0 auto 24px;
+    margin: 0 auto 16px;
     padding: 0 16px;
     font-size: 13px;
     color: #4a5a75;
     text-align: center;
+    line-height: 1.5;
+  }
+  .mobile-print-bar {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: #0a1f3d;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -6px 24px rgba(0,0,0,.3);
+  }
+  .mobile-print-bar button {
+    width: 100%; border: none; border-radius: 12px;
+    padding: 16px; font: inherit; font-size: 16px; font-weight: 800;
+    background: #c91f32; color: #fff; cursor: pointer;
   }
   @page { size: letter portrait; margin: 0; }
   @media print {
@@ -61,7 +77,7 @@
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
-    .toolbar, .note, .no-print { display: none !important; }
+    .toolbar, .note, .no-print, .mobile-print-bar { display: none !important; }
     .page-wrap { padding: 0 !important; margin: 0 !important; }
     .page {
       box-shadow: none !important;
@@ -75,12 +91,16 @@
       height: 11in !important;
       object-fit: cover;
       object-position: top center;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
   }
   @media (max-width: 900px) {
-    .page-wrap { padding: 8px 0 32px; }
+    .page-wrap { padding: 8px 0 16px; }
     .toolbar { padding: 10px 12px; }
     .toolbar-title { font-size: 13px; }
+    .toolbar .desktop-print { display: none; }
+    .mobile-print-bar { display: block; }
   }
 </style>
 </head>
@@ -88,21 +108,62 @@
   <div class="toolbar no-print">
     <div class="toolbar-title">SONYMA Co-Branded Flyer · 8.5×11</div>
     <div class="toolbar-actions">
-      <button type="button" class="primary" onclick="window.print()">Print / Save PDF</button>
-      <a href="/eligible.html">Eligibility Explorer</a>
-      <a href="/">Realtor Toolkit</a>
+      <button type="button" class="primary desktop-print" id="btnPrint">Print / Save PDF</button>
+      <a href="https://sonyma-eligibility-explorer.vercel.app/">Eligibility Explorer</a>
+      <a href="https://sonyma-project.vercel.app/">Realtor Toolkit</a>
     </div>
   </div>
 
   <div class="page-wrap">
-    <div class="page">
-      <img src="https://lh3.googleusercontent.com/d/1qG_LxmhLg78Bmb2ZyurXTBk5hF7NcN9s" alt="SONYMA Co-Branded Flyer">
+    <div class="page" id="flyerPage">
+      <img id="flyerImg" src="https://lh3.googleusercontent.com/d/1qG_LxmhLg78Bmb2ZyurXTBk5hF7NcN9s" alt="SONYMA Co-Branded Flyer" crossorigin="anonymous">
     </div>
   </div>
 
   <p class="note no-print">
-    Use <strong>Print / Save PDF</strong> for a clean Letter-size flyer.
-    Chrome / Safari → Destination: Save as PDF → Paper size: Letter → Margins: None.
+    Tap <strong>Print / Save PDF</strong> below.<br>
+    On iPhone: in the print sheet choose <strong>Save as PDF</strong> or Share → Print → Save to Files.<br>
+    Paper size: <strong>Letter</strong> · Margins: <strong>None</strong> if available.
   </p>
+
+  <div class="mobile-print-bar no-print">
+    <button type="button" id="btnPrintMobile">Print / Save PDF</button>
+  </div>
+
+<script>
+(function () {
+  function doPrint(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    // Give the browser a beat so the user gesture stays valid on iOS
+    setTimeout(function () {
+      try {
+        window.print();
+      } catch (err) {
+        alert('To save as PDF on iPhone:\n1. Tap the Share button (square with arrow)\n2. Tap Print\n3. Pinch the preview or choose Save as PDF / Save to Files');
+      }
+    }, 50);
+  }
+
+  var btn = document.getElementById('btnPrint');
+  var btnMobile = document.getElementById('btnPrintMobile');
+  if (btn) {
+    btn.addEventListener('click', doPrint, false);
+    btn.addEventListener('touchend', function (e) {
+      e.preventDefault();
+      doPrint(e);
+    }, false);
+  }
+  if (btnMobile) {
+    btnMobile.addEventListener('click', doPrint, false);
+    btnMobile.addEventListener('touchend', function (e) {
+      e.preventDefault();
+      doPrint(e);
+    }, false);
+  }
+})();
+</script>
 </body>
 </html>
