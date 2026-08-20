@@ -3,127 +3,222 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SONYMA Co-Branded Flyer · 8.5×11</title>
+<title>SONYMA Co-Branded Flyer · Print / Save PDF</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
-    background: #c8d4e6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #d6dde8;
     min-height: 100vh;
-    padding-bottom: 88px;
+    padding-bottom: 96px;
+    color: #0a1628;
   }
   .toolbar {
     position: sticky; top: 0; z-index: 100;
-    background: #0a1f3d; color: #fff;
+    background: #0a1628; color: #fff;
     padding: 12px 16px;
     display: flex; flex-wrap: wrap; gap: 10px;
     align-items: center; justify-content: space-between;
-    box-shadow: 0 4px 20px rgba(0,0,0,.25);
   }
-  .toolbar-title { font-size: 14px; font-weight: 700; }
+  .toolbar-title { font-size: 14px; font-weight: 800; }
   .toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
   .toolbar a, .toolbar button {
     color: #fff; background: rgba(255,255,255,.12);
     border: 1px solid rgba(255,255,255,.28); border-radius: 8px;
-    padding: 9px 14px; text-decoration: none; cursor: pointer;
-    font: inherit; font-size: 13px; font-weight: 600;
+    padding: 10px 14px; text-decoration: none; cursor: pointer;
+    font: inherit; font-size: 13px; font-weight: 700;
   }
-  .toolbar button.primary {
-    background: #c91f32; border-color: #a81828; color: #fff;
-  }
-  .page-wrap {
-    padding: 20px 12px 24px;
-    display: flex; justify-content: center;
-  }
+  .toolbar button.primary { background: #c91f32; border-color: #a81828; }
+  .page-wrap { padding: 20px 12px; display: flex; justify-content: center; }
   .page {
-    width: 8.5in;
-    max-width: 100%;
+    width: 8.5in; max-width: 100%;
+    min-height: 11in;
     background: #fff;
-    box-shadow: 0 16px 50px rgba(15, 23, 42, 0.22);
-    line-height: 0;
+    box-shadow: 0 16px 50px rgba(15,23,42,.22);
+    display: flex; flex-direction: column;
+    overflow: hidden;
   }
-  .page img {
-    width: 100%;
-    height: auto;
-    display: block;
+  .flyer-top {
+    background: linear-gradient(160deg, #0a1628 0%, #132337 100%);
+    color: #fff; padding: 28px 28px 24px; position: relative;
+  }
+  .flyer-brand {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+  }
+  .flyer-logo {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 2px solid #c91f32; color: #c91f32;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 12px;
+  }
+  .flyer-brand span { font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+  .flyer-top h1 {
+    font-size: 34px; font-weight: 900; letter-spacing: -.03em;
+    line-height: 1.05; margin-bottom: 8px;
+  }
+  .flyer-top .sub {
+    font-size: 15px; color: #c5d0dc; margin-bottom: 16px; max-width: 360px;
+  }
+  .flyer-meta {
+    font-size: 13px; color: #a8b8c8; line-height: 1.5;
+  }
+  .flyer-meta strong { color: #fff; }
+  .cobrand {
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    font-size: 13px;
+  }
+  .cobrand label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: #9aabbc; margin-bottom: 4px; }
+  .cobrand input {
+    width: 100%; max-width: 320px; background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.2); border-radius: 8px;
+    color: #fff; padding: 10px 12px; font-size: 15px; font-weight: 700;
+  }
+  .cobrand input::placeholder { color: rgba(255,255,255,.4); }
+  .flyer-body { padding: 24px 28px; flex: 1; }
+  .rate-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px;
+  }
+  .rate-box {
+    border: 1px solid #e3e8ee; border-radius: 12px; padding: 14px;
+    background: #f8f9fb;
+  }
+  .rate-box strong { display: block; font-size: 11px; color: #5b6b7c; text-transform: uppercase; letter-spacing: .04em; }
+  .rate-box .n { font-size: 26px; font-weight: 900; color: #c91f32; margin: 4px 0; }
+  .rate-box small { font-size: 11px; color: #5b6b7c; }
+  .feats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px;
+  }
+  .feat {
+    border: 1px solid #e3e8ee; border-radius: 10px; padding: 12px;
+  }
+  .feat strong { display: block; font-size: 13px; margin-bottom: 2px; }
+  .feat span { font-size: 12px; color: #5b6b7c; line-height: 1.35; }
+  .qr-row {
+    display: flex; gap: 16px; align-items: center;
+    background: #0a1628; color: #fff; border-radius: 14px;
+    padding: 16px; margin-top: 8px;
+  }
+  .qr-box {
+    width: 88px; height: 88px; background: #fff; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; overflow: hidden;
+  }
+  .qr-box img { width: 80px; height: 80px; }
+  .qr-copy strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .qr-copy span { font-size: 12px; color: #a8b8c8; line-height: 1.4; }
+  .flyer-foot {
+    padding: 14px 28px 18px; border-top: 1px solid #e3e8ee;
+    font-size: 10px; color: #5b6b7c; line-height: 1.45;
   }
   .note {
-    max-width: 8.5in;
-    margin: 0 auto 16px;
-    padding: 0 16px;
-    font-size: 13px;
-    color: #4a5a75;
-    text-align: center;
-    line-height: 1.5;
+    max-width: 8.5in; margin: 0 auto; padding: 0 16px 16px;
+    font-size: 13px; color: #4a5a75; text-align: center; line-height: 1.5;
   }
   .mobile-print-bar {
-    display: none;
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-    background: #0a1f3d;
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: #0a1628;
     padding: 12px 14px calc(12px + env(safe-area-inset-bottom, 0px));
-    box-shadow: 0 -6px 24px rgba(0,0,0,.3);
   }
   .mobile-print-bar button {
     width: 100%; border: none; border-radius: 12px;
     padding: 16px; font: inherit; font-size: 16px; font-weight: 800;
     background: #c91f32; color: #fff; cursor: pointer;
   }
-  @page { size: letter portrait; margin: 0; }
+  @page { size: letter portrait; margin: 0.4in; }
   @media print {
-    html, body {
-      background: #fff !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
+    html, body { background: #fff !important; margin: 0 !important; padding: 0 !important;
+      -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
     .toolbar, .note, .no-print, .mobile-print-bar { display: none !important; }
-    .page-wrap { padding: 0 !important; margin: 0 !important; }
-    .page {
-      box-shadow: none !important;
-      width: 8.5in !important;
-      max-width: none !important;
-      margin: 0 !important;
-    }
-    .page img {
-      width: 8.5in !important;
-      max-width: 8.5in !important;
-      height: 11in !important;
-      object-fit: cover;
-      object-position: top center;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
+    .page-wrap { padding: 0 !important; }
+    .page { box-shadow: none !important; width: 100% !important; min-height: auto; }
+    .cobrand input {
+      border: none !important; background: transparent !important;
+      padding: 0 !important; color: #fff !important;
     }
   }
   @media (max-width: 900px) {
-    .page-wrap { padding: 8px 0 16px; }
-    .toolbar { padding: 10px 12px; }
-    .toolbar-title { font-size: 13px; }
-    .toolbar .desktop-print { display: none; }
+    .toolbar .desktop-only { display: none; }
     .mobile-print-bar { display: block; }
+    .page { min-height: auto; }
+    .flyer-top h1 { font-size: 28px; }
   }
 </style>
 </head>
 <body>
   <div class="toolbar no-print">
-    <div class="toolbar-title">SONYMA Co-Branded Flyer · 8.5×11</div>
+    <div class="toolbar-title">SONYMA Co-Branded Flyer</div>
     <div class="toolbar-actions">
-      <button type="button" class="primary desktop-print" id="btnPrint">Print / Save PDF</button>
-      <a href="https://sonyma-eligibility-explorer.vercel.app/">Eligibility Explorer</a>
-      <a href="https://sonyma-project.vercel.app/">Realtor Toolkit</a>
+      <button type="button" class="primary" id="btnPrint">Print / Save PDF</button>
+      <a class="desktop-only" href="/realtors.html">← Realtor Hub</a>
+      <a href="/eligible.html">Eligibility Explorer</a>
     </div>
   </div>
 
   <div class="page-wrap">
     <div class="page" id="flyerPage">
-      <img id="flyerImg" src="https://lh3.googleusercontent.com/d/1qG_LxmhLg78Bmb2ZyurXTBk5hF7NcN9s" alt="SONYMA Co-Branded Flyer" crossorigin="anonymous">
+      <div class="flyer-top">
+        <div class="flyer-brand">
+          <div class="flyer-logo">MM</div>
+          <span>MOVEMENT MORTGAGE</span>
+        </div>
+        <h1>SONYMA<br>First-Time Homebuyer<br>Programs</h1>
+        <p class="sub">Helping New York buyers explore competitive rates, lower down payments, and potential assistance.</p>
+        <div class="flyer-meta">
+          <strong>Robert A. Castro</strong> · Sr. Loan Officer<br>
+          Movement Mortgage · NMLS #66194 · (914) 804-9889
+        </div>
+        <div class="cobrand no-print">
+          <label>Your name / brokerage (prints on flyer)</label>
+          <input id="cobrandName" type="text" placeholder="e.g. Sarah Smith · ABC Realty" maxlength="60">
+        </div>
+        <div class="cobrand" id="cobrandPrint" style="display:none">
+          <strong id="cobrandOut"></strong>
+        </div>
+      </div>
+
+      <div class="flyer-body">
+        <div class="rate-row">
+          <div class="rate-box">
+            <strong>Achieving the Dream</strong>
+            <div class="n">5.700%</div>
+            <small>w/ DPAL: 6.100% · 30-yr fixed · 0 pts</small>
+          </div>
+          <div class="rate-box">
+            <strong>Low Interest Rate</strong>
+            <div class="n">6.100%</div>
+            <small>w/ DPAL: 6.500% · 30-yr fixed · 0 pts</small>
+          </div>
+        </div>
+
+        <div class="feats">
+          <div class="feat"><strong>As low as 3% down</strong><span>On many SONYMA programs</span></div>
+          <div class="feat"><strong>DPAL assistance</strong><span>0% interest · no monthly payment</span></div>
+          <div class="feat"><strong>120-day locks</strong><span>Longer locks on existing homes</span></div>
+          <div class="feat"><strong>Target Area paths</strong><span>Flexible first-time rules in some areas</span></div>
+        </div>
+
+        <div class="qr-row">
+          <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fsonyma-eligibility-explorer.vercel.app%2Feligible.html" alt="QR to Eligibility Explorer" width="80" height="80">
+          </div>
+          <div class="qr-copy">
+            <strong>Scan to check SONYMA options</strong>
+            <span>Educational eligibility snapshot in about 2 minutes — not a loan approval.<br>sonyma-eligibility-explorer.vercel.app</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flyer-foot">
+        Educational resource only. Not affiliated with SONYMA or New York State. Rates are illustrative snapshots and subject to change.
+        Verify at hcr.ny.gov/current-rates. Not a commitment to lend. NMLS #66194 · Movement Mortgage NMLS #39179 · Equal Housing Opportunity.
+      </div>
     </div>
   </div>
 
   <p class="note no-print">
-    Tap <strong>Print / Save PDF</strong> below.<br>
-    On iPhone: in the print sheet choose <strong>Save as PDF</strong> or Share → Print → Save to Files.<br>
-    Paper size: <strong>Letter</strong> · Margins: <strong>None</strong> if available.
+    Tap <strong>Print / Save PDF</strong>. On iPhone: Print sheet → <strong>Save as PDF</strong> or Share → Print → Save to Files.<br>
+    Paper: <strong>Letter</strong> · Margins: default is fine.
   </p>
 
   <div class="mobile-print-bar no-print">
@@ -132,37 +227,44 @@
 
 <script>
 (function () {
-  function doPrint(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
+  var input = document.getElementById('cobrandName');
+  var printBlock = document.getElementById('cobrandPrint');
+  var out = document.getElementById('cobrandOut');
+
+  function syncCobrand() {
+    var v = (input && input.value || '').trim();
+    if (v) {
+      out.textContent = 'In partnership with ' + v;
+      printBlock.style.display = 'block';
+    } else {
+      out.textContent = '';
+      printBlock.style.display = 'none';
     }
-    // Give the browser a beat so the user gesture stays valid on iOS
+  }
+  if (input) input.addEventListener('input', syncCobrand);
+
+  function doPrint(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    syncCobrand();
+    if (input) input.closest('.cobrand').style.display = 'none';
     setTimeout(function () {
       try {
         window.print();
       } catch (err) {
-        alert('To save as PDF on iPhone:\n1. Tap the Share button (square with arrow)\n2. Tap Print\n3. Pinch the preview or choose Save as PDF / Save to Files');
+        alert('On iPhone: Share → Print → Save as PDF / Save to Files');
       }
-    }, 50);
+      setTimeout(function () {
+        if (input) input.closest('.cobrand').style.display = 'block';
+        syncCobrand();
+      }, 500);
+    }, 80);
   }
 
-  var btn = document.getElementById('btnPrint');
-  var btnMobile = document.getElementById('btnPrintMobile');
-  if (btn) {
-    btn.addEventListener('click', doPrint, false);
-    btn.addEventListener('touchend', function (e) {
-      e.preventDefault();
-      doPrint(e);
-    }, false);
-  }
-  if (btnMobile) {
-    btnMobile.addEventListener('click', doPrint, false);
-    btnMobile.addEventListener('touchend', function (e) {
-      e.preventDefault();
-      doPrint(e);
-    }, false);
-  }
+  ['btnPrint', 'btnPrintMobile'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('click', doPrint);
+  });
 })();
 </script>
 </body>
