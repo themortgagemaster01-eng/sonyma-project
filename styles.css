@@ -101,3 +101,48 @@ input,select{width:100%;padding:13px 12px;border:1px solid #cfd7e1;border-radius
   .footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}
   .cond-cards{grid-template-columns:repeat(3,1fr)}
 }
+
+/* Phase 4 — reusable rate + program cards */
+.rate-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rate-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 16px;
+  box-shadow:0 1px 4px rgba(7,26,51,.04)
+}
+.rate-card .tag{
+  display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--red);margin-bottom:6px
+}
+.rate-card h3{font-size:14px;font-weight:800;color:var(--navy);margin:0 0 4px}
+.rate-card .rate-num{
+  font-size:32px;font-weight:900;color:var(--red);letter-spacing:-.04em;line-height:1.1;margin:6px 0
+}
+.rate-card .rate-sub{font-size:12px;color:var(--muted);line-height:1.4}
+.rate-card .rate-meta{font-size:11px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.program-grid{display:grid;gap:12px}
+@media(min-width:700px){.program-grid{grid-template-columns:1fr 1fr}}
+.program-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;
+  display:flex;flex-direction:column;gap:8px
+}
+.program-card .pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.program-card .pc-icon{
+  width:36px;height:36px;border-radius:10px;background:#fef2f2;color:var(--red);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0
+}
+.program-card h3{font-size:16px;font-weight:900;color:var(--navy);margin:0}
+.program-card .pc-badge{
+  font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  background:#f0f3f6;color:var(--navy);padding:3px 8px;border-radius:999px;white-space:nowrap
+}
+.program-card p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+.program-card ul{margin:0;padding-left:16px;font-size:13px;color:var(--ink);line-height:1.55}
+.program-card .pc-rate{
+  margin-top:auto;padding-top:10px;border-top:1px solid var(--line);
+  font-size:13px;font-weight:700;color:var(--navy)
+}
+.program-card .pc-rate span{color:var(--red);font-size:18px;font-weight:900}
+.verify-bar{
+  background:#f8f9fb;border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;font-size:12px;color:var(--muted);line-height:1.45;margin-top:12px
+}
+.verify-bar a{font-weight:700}
