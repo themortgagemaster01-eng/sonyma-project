@@ -3,23 +3,83 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#071a33">
-<title>Ask Robert’s AI Assistant | SONYMA Questions | Robert A. Castro</title>
-<meta name="description" content="Robert’s digital assistant helps explain SONYMA in plain English. For personalized mortgage advice, connect directly with Robert.">
+<meta name="theme-color" content="#0a1628">
+<title>Ask Robert | SONYMA Questions | Robert A. Castro</title>
+<meta name="description" content="Plain-English answers to common SONYMA questions. Educational assistant — not a live chat or loan approval.">
 <link rel="stylesheet" href="/styles.css">
 <style>
-.chat-shell{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden}
-.chat-head{background:var(--navy);color:#fff;padding:14px 16px}
-.chat-head strong{display:block;font-size:15px}
-.chat-head span{font-size:12px;opacity:.8}
-.chat-body{padding:16px;min-height:220px}
-.bubble{max-width:92%;padding:10px 12px;border-radius:12px;font-size:14px;line-height:1.45;margin-bottom:10px}
-.bubble.ai{background:#f1f5f9;color:var(--ink)}
-.bubble.user{background:#e8f0fe;color:var(--navy);margin-left:auto}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
-.chips button{border:1px solid #d1d5db;background:#fff;border-radius:999px;padding:8px 12px;font-size:13px;cursor:pointer;color:var(--navy)}
-.chips button:hover{border-color:#c91f32;color:#c91f32}
-.chat-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.4}
+:root { --navy:#0a1628; --red:#c91f32; --ink:#1a2332; --muted:#5b6b7c; --line:#e3e8ee; }
+.page-top {
+  background: linear-gradient(160deg, #0a1628, #132337);
+  color: #fff; border-radius: 0 0 18px 18px;
+  padding: 24px 16px 28px; margin: -16px -16px 16px;
+}
+.page-top .eyebrow { color: #f87171; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.page-top h1 { font-size: 24px; font-weight: 900; margin: 6px 0 6px; letter-spacing: -.02em; }
+.page-top p { color: #c5d0dc; font-size: 14px; margin: 0; line-height: 1.45; max-width: 480px; }
+.chat-shell {
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  overflow: hidden; display: flex; flex-direction: column;
+  min-height: 420px; max-height: 70vh;
+}
+.chat-head {
+  background: var(--navy); color: #fff; padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.chat-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.25);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 14px; flex-shrink: 0;
+}
+.chat-head strong { display: block; font-size: 14px; }
+.chat-head span { font-size: 11px; opacity: .75; }
+.chat-body {
+  flex: 1; overflow-y: auto; padding: 16px;
+  background: #f8f9fb; min-height: 200px;
+}
+.bubble {
+  max-width: 92%; padding: 11px 13px; border-radius: 14px;
+  font-size: 14px; line-height: 1.5; margin-bottom: 10px;
+}
+.bubble.ai {
+  background: #fff; color: var(--ink);
+  border: 1px solid var(--line); border-bottom-left-radius: 4px;
+}
+.bubble.user {
+  background: var(--red); color: #fff;
+  margin-left: auto; border-bottom-right-radius: 4px;
+}
+.bubble a { font-weight: 700; }
+.bubble.user a { color: #fff; text-decoration: underline; }
+.chat-footer {
+  padding: 12px 14px 14px; border-top: 1px solid var(--line); background: #fff;
+}
+.chip-label {
+  font-size: 11px; font-weight: 800; color: var(--muted);
+  letter-spacing: .04em; text-transform: uppercase; margin-bottom: 8px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button {
+  border: 1.5px solid var(--line); background: #fff;
+  border-radius: 999px; padding: 9px 13px; font-size: 13px;
+  font-weight: 600; cursor: pointer; color: var(--navy);
+  font-family: inherit; transition: border-color .15s, color .15s;
+}
+.chips button:hover, .chips button:focus {
+  border-color: var(--red); color: var(--red); outline: none;
+}
+.chips button.used { opacity: .55; }
+.chat-note { font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
+.quick-cta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
+}
+.quick-cta a {
+  display: block; text-align: center; padding: 12px;
+  border-radius: 11px; font-weight: 800; font-size: 13px;
+}
+.quick-cta .primary { background: var(--red); color: #fff; }
+.quick-cta .secondary { background: #fff; color: var(--navy); border: 1.5px solid var(--line); }
 </style>
 </head>
 <body>
@@ -31,11 +91,9 @@
     </div>
     <nav class="nav-desktop" aria-label="Main">
       <a href="/">Home</a>
-      <a href="/meet-robert.html">Meet Robert</a>
-      <a href="/what-is-sonyma.html">What Is SONYMA?</a>
-      <a href="/why-sonyma.html">Why SONYMA?</a>
-      <a href="/eligible.html">Am I Eligible?</a>
-      <a href="/realtors.html">For Realtors</a>
+      <a href="/what-is-sonyma.html">SONYMA</a>
+      <a href="/eligible.html">Eligibility</a>
+      <a href="/ask-robert.html" class="active">Ask Robert</a>
       <a href="/faq.html">FAQ</a>
       <a class="nav-cta" href="/eligible.html">Check My Eligibility →</a>
     </nav>
@@ -43,86 +101,95 @@
   </div>
   <nav class="nav-mobile" id="navMobile">
     <a href="/">Home</a>
-    <a href="/meet-robert.html">Meet Robert</a>
-    <a href="/ask-robert.html">Ask Robert (AI)</a>
-    <a href="/eligible.html">Am I Eligible?</a>
-    <a href="/realtors.html">For Realtors</a>
+    <a href="/eligible.html">Eligibility</a>
+    <a href="/ask-robert.html">Ask Robert</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/why-sonyma.html">Why SONYMA?</a>
+    <a href="/meet-robert.html">Meet Robert</a>
     <a class="nav-cta-m" href="/eligible.html">Check My Eligibility →</a>
   </nav>
 </header>
 
 <main class="wrap">
-  <section class="card">
-    <div class="eyebrow">AI assistant</div>
-    <h1 class="section-title" style="font-size:24px">Meet Robert’s AI Assistant</h1>
-    <p class="section-sub">Robert’s digital assistant is trained to help explain SONYMA in plain English. For personalized mortgage advice or qualification, connect directly with Robert.</p>
-  </section>
+  <div class="page-top">
+    <div class="eyebrow">Educational assistant</div>
+    <h1>Ask Robert</h1>
+    <p>Tap a question for a plain-English answer about SONYMA. Not a live chat — and not a loan approval.</p>
+  </div>
 
-  <section class="card" style="padding:0;overflow:hidden">
-    <div class="chat-shell">
-      <div class="chat-head">
-        <strong>💬 SONYMA Questions? Ask Robert</strong>
-        <span>Educational assistant · Not a live chat with Robert</span>
-      </div>
-      <div class="chat-body" id="chatBody">
-        <div class="bubble ai">Hi — I’m Robert’s AI assistant. I can help explain SONYMA programs, DPAL, first-time buyer rules, Target Areas, rates, and more. What would you like to know?</div>
-      </div>
-      <div style="padding:0 16px 16px">
-        <div class="chips" id="chips">
-          <button type="button" data-q="How much do I need down?">How much do I need down?</button>
-          <button type="button" data-q="What is DPAL?">What is DPAL?</button>
-          <button type="button" data-q="What is DPAL PLUS?">What is DPAL PLUS?</button>
-          <button type="button" data-q="Am I a first-time buyer?">Am I a first-time buyer?</button>
-          <button type="button" data-q="What are current SONYMA rates?">Current rates?</button>
-          <button type="button" data-q="What is recapture tax?">Recapture tax?</button>
-          <button type="button" data-q="Do I need a homebuyer class?">Homebuyer class?</button>
-          <button type="button" data-q="Can I buy a condo or co-op?">Condo / co-op?</button>
-        </div>
-        <p class="chat-note">This is an educational helper with common SONYMA answers. It is not a live conversation with Robert and does not determine eligibility.</p>
+  <div class="chat-shell">
+    <div class="chat-head">
+      <div class="chat-avatar">RC</div>
+      <div>
+        <strong>Robert’s SONYMA Assistant</strong>
+        <span>Common answers · Educational only</span>
       </div>
     </div>
-  </section>
+    <div class="chat-body" id="chatBody">
+      <div class="bubble ai">Hi — I can help explain SONYMA programs, DPAL, first-time buyer rules, Target Areas, rates, and more. Tap a question below to get started.</div>
+    </div>
+    <div class="chat-footer">
+      <div class="chip-label">Popular questions</div>
+      <div class="chips" id="chips">
+        <button type="button" data-q="How much do I need down?">How much down?</button>
+        <button type="button" data-q="What is DPAL?">What is DPAL?</button>
+        <button type="button" data-q="What is DPAL PLUS?">DPAL PLUS?</button>
+        <button type="button" data-q="Am I a first-time buyer?">First-time buyer?</button>
+        <button type="button" data-q="What are current SONYMA rates?">Current rates?</button>
+        <button type="button" data-q="What is a Target Area?">Target Area?</button>
+        <button type="button" data-q="What is recapture tax?">Recapture tax?</button>
+        <button type="button" data-q="Do I need a homebuyer class?">Homebuyer class?</button>
+        <button type="button" data-q="Can I buy a condo or co-op?">Condo / co-op?</button>
+        <button type="button" data-q="How do I apply?">How do I apply?</button>
+      </div>
+      <p class="chat-note">Educational helper only. Does not determine eligibility. Guidelines change — verify with Robert or official SONYMA sources.</p>
+    </div>
+  </div>
 
-  <section class="card" style="text-align:center">
-    <h2 class="section-title" style="font-size:18px">Ready to check your numbers?</h2>
-    <p class="section-sub">Use the Eligibility Explorer for a quick pre-screening snapshot, then talk with Robert about next steps.</p>
-    <a class="button block" href="/eligible.html">Start Eligibility Explorer →</a>
-    <a class="button secondary block" href="tel:19148049889" style="margin-top:8px">Talk with Robert personally →</a>
-  </section>
+  <div class="quick-cta">
+    <a class="primary" href="/eligible.html">Check Options →</a>
+    <a class="secondary" href="tel:19148049889">Call Robert →</a>
+  </div>
 
-  <p class="notice"><b>Important:</b> Answers here are educational only and based on general SONYMA program concepts. They are not a loan approval, commitment, or final eligibility determination. Guidelines change — always verify with current official sources and a licensed loan officer.</p>
+  <p class="notice" style="margin-top:16px">
+    <b>Important:</b> Answers are educational and based on general SONYMA concepts.
+    They are not a loan approval, commitment, or final eligibility determination.
+  </p>
 </main>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-bottom">Robert A. Castro • Movement Mortgage • NMLS #66194 · Equal Housing Opportunity</div>
+    <div class="footer-bottom">Robert A. Castro · Movement Mortgage · NMLS #66194 · Equal Housing Opportunity</div>
   </div>
 </footer>
+
 <script>
-document.getElementById('menuBtn').addEventListener('click',function(){
+document.getElementById('menuBtn').addEventListener('click', function () {
   document.getElementById('navMobile').classList.toggle('open');
 });
 
 const answers = {
   "How much do I need down?": "Many SONYMA programs allow a down payment as low as 3% of the purchase price. Your minimum cash contribution is often 1% (3% for co-ops). You may also be able to use DPAL to help cover down payment and eligible closing costs. Exact requirements depend on property type and program.",
   "What is DPAL?": "DPAL is SONYMA’s Down Payment Assistance Loan. It’s typically 0% interest with no monthly payment, and is generally the greater of $3,000 or 3% of the purchase price (up to $15,000). Using standard DPAL usually increases the first-mortgage rate by about 0.40%. It’s forgiven over time if you stay in the home (subject to program rules).",
-  "What is DPAL PLUS?": "DPAL PLUS 2026 is an enhanced, limited down-payment assistance option for certain lower-income buyers. In some cases it can provide more assistance than standard DPAL (up to higher amounts under current guidelines) for down payment, closing costs, and related costs. Funding is limited and eligibility is stricter — ask Robert for the current status.",
+  "What is DPAL PLUS?": "DPAL PLUS is an enhanced, limited down-payment assistance option for certain lower-income buyers. In some cases it can provide more assistance than standard DPAL for down payment, closing costs, and related costs. Funding is limited and eligibility is stricter — ask Robert for current status.",
   "Am I a first-time buyer?": "For SONYMA, a first-time buyer generally means you haven’t had an ownership interest in a principal residence in the last 3 years. Exceptions can apply if you’re buying in a federally designated Target Area (and in some other limited cases under program rules).",
-  "What are current SONYMA rates?": "As a recent official snapshot: Achieving the Dream is about 5.700% without DPAL / 6.100% with DPAL. Low Interest Rate Program is about 6.100% without DPAL / 6.500% with DPAL. These are 30-year fixed rates with 0 points and can change. Always verify on the official SONYMA rate page.",
+  "What are current SONYMA rates?": "As a recent snapshot: Achieving the Dream is about 5.700% without DPAL / 6.100% with DPAL. Low Interest Rate Program is about 6.100% without DPAL / 6.500% with DPAL. These are 30-year fixed rates with 0 points and can change. Always verify on the official SONYMA rate page.",
+  "What is a Target Area?": "A Target Area is a federally designated geographic area where SONYMA can offer more flexible first-time buyer rules and, in many cases, higher income and purchase-price limits. Look up any address with the official SONYMA Target Area Locator, or call SONYMA at 1-800-382-HOME.",
   "What is recapture tax?": "Federal recapture tax can apply in limited situations when you sell a home financed with certain bond-backed loans (including many SONYMA loans) within nine years and meet specific income and gain tests. It does not automatically apply just because you used SONYMA. Most borrowers never owe it. See the Recapture Tax page for a plain-English breakdown.",
   "Do I need a homebuyer class?": "Often yes. Many SONYMA borrowers must complete an approved homebuyer education course before closing. It covers budgeting, credit, mortgage basics, and homeownership responsibilities. Your lender will confirm what applies to your file.",
-  "Can I buy a condo or co-op?": "Yes, in many cases. Single-family homes, condos, co-ops, and 2–4 family primary residences can be eligible under SONYMA guidelines. Limits and cash contribution rules can differ (for example, co-ops often require a higher minimum cash contribution)."
+  "Can I buy a condo or co-op?": "Yes, in many cases. Single-family homes, condos, co-ops, and 2–4 family primary residences can be eligible under SONYMA guidelines. Limits and cash contribution rules can differ (for example, co-ops often require a higher minimum cash contribution).",
+  "How do I apply?": "Start with the Eligibility Explorer on this site for an educational snapshot, then contact Robert to discuss your situation. If SONYMA looks like a fit, you’ll complete a full application with Movement Mortgage. Supporting documents (income, assets, credit, property) will be required."
 };
 
 const body = document.getElementById('chatBody');
-document.getElementById('chips').addEventListener('click', function(e){
+document.getElementById('chips').addEventListener('click', function (e) {
   const btn = e.target.closest('button[data-q]');
-  if(!btn) return;
+  if (!btn) return;
   const q = btn.getAttribute('data-q');
   const a = answers[q] || "That’s a great question for Robert to review with your specific numbers. Try the Eligibility Explorer, or call Robert directly.";
-  body.innerHTML += '<div class="bubble user">'+q+'</div>';
-  body.innerHTML += '<div class="bubble ai">'+a+'</div>';
+  btn.classList.add('used');
+  body.innerHTML += '<div class="bubble user">' + q + '</div>';
+  body.innerHTML += '<div class="bubble ai">' + a + '</div>';
   body.innerHTML += '<div class="bubble ai">Want to see how this might apply to your situation? <a href="/eligible.html"><b>Start the Eligibility Explorer →</b></a></div>';
   body.scrollTop = body.scrollHeight;
 });
