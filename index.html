@@ -7,7 +7,7 @@
 <title>SONYMA Eligibility Explorer | Robert A. Castro · Movement Mortgage</title>
 <meta name="description" content="See what SONYMA options may be available to you. Explore eligibility, programs, DPAL, and next steps with Robert A. Castro.">
 <meta property="og:title" content="SONYMA MADE SIMPLE | Robert A. Castro">
-<meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/IMG_8227.jpeg">
+<meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/hero_bg.jpg">
 <link rel="stylesheet" href="/styles.css">
 <style>
 :root {
@@ -277,16 +277,16 @@ img { max-width: 100%; display: block; }
 .hero-banner {
   position:relative; min-height:420px;
   display:grid; align-items:end;
-  background: linear-gradient(160deg, #0a1628 0%, #132337 40%, #1a3a5c 100%);
+  background: #0a1628;
 }
 .hero-banner-bg {
   position:absolute; inset:0;
-  background: url('/IMG_8227.jpeg') right center / cover no-repeat;
-  opacity: 0.35;
+  background: url('/hero_bg.jpg') center top / cover no-repeat;
+  opacity: 1;
 }
 .hero-banner-overlay {
   position:absolute; inset:0;
-  background:linear-gradient(100deg, rgba(10,22,40,.97) 0%, rgba(10,22,40,.88) 38%, rgba(10,22,40,.45) 70%, rgba(10,22,40,.25) 100%);
+  background:linear-gradient(100deg, rgba(10,22,40,.92) 0%, rgba(10,22,40,.78) 40%, rgba(10,22,40,.4) 70%, rgba(10,22,40,.2) 100%);
 }
 .hero-banner-content {
   position:relative; z-index:2;
@@ -312,7 +312,6 @@ img { max-width: 100%; display: block; }
 .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
 .hero-meta-line { font-size:13px; color:#c5d0dc; }
 .hero-meta-line strong { color:#fff; }
-.hero-portrait { display:none; }
 .video-slot-bar {
   display:flex; align-items:center; gap:12px;
   max-width:1080px; margin:0 auto; padding:10px 22px 14px; color:#fff;
@@ -329,15 +328,9 @@ img { max-width: 100%; display: block; }
   .hero-banner { min-height:480px; }
   .hero-banner-content h1 { font-size:64px; }
   .hero-banner-content { padding:52px 28px 48px; }
-  .hero-banner-bg { opacity: 0.55; background-position: 70% top; }
-  .hero-portrait {
-    display:block; position:absolute; right:4%; bottom:0; z-index:3;
-    width:min(38%, 340px); height:auto;
-    object-fit:contain; object-position:bottom center;
-    filter: drop-shadow(0 8px 24px rgba(0,0,0,.35));
-  }
+  .hero-banner-bg { opacity: 1; background-position: center top; }
   .hero-banner-overlay {
-    background:linear-gradient(100deg, rgba(10,22,40,.96) 0%, rgba(10,22,40,.85) 35%, rgba(10,22,40,.4) 65%, rgba(10,22,40,.15) 100%);
+    background:linear-gradient(100deg, rgba(10,22,40,.9) 0%, rgba(10,22,40,.75) 38%, rgba(10,22,40,.35) 68%, rgba(10,22,40,.15) 100%);
   }
 }
 </style>
@@ -389,7 +382,6 @@ img { max-width: 100%; display: block; }
         <span> · Sr. Loan Officer · Movement Mortgage · NMLS #66194</span>
       </div>
     </div>
-    <img class="hero-portrait" src="/IMG_8227.jpeg" alt="Robert A. Castro">
   </div>
   <div class="video-slot-bar" id="aiRobertSlot">
     <div class="play">▶</div>
