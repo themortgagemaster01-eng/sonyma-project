@@ -1,1 +1,548 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1628">
+<title>SONYMA Eligibility Explorer | Check Options | Robert A. Castro</title>
+<meta name="description" content="Answer a few questions for an initial SONYMA eligibility snapshot. Educational pre-screen only.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+:root {
+  --navy: #0a1628;
+  --red: #c91f32;
+  --red-dark: #a81828;
+  --ink: #1a2332;
+  --muted: #5b6b7c;
+  --paper: #f4f6f8;
+  --line: #e3e8ee;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--paper); color: var(--ink); line-height: 1.5; min-height: 100vh;
+}
+a { color: var(--red); text-decoration: none; }
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: 640px; margin: 0 auto; padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-weight: 800; font-size: 14px; color: var(--navy); }
+.logo span { color: var(--red); }
+.topbar a.back { font-size: 13px; font-weight: 600; color: var(--muted); }
+.wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+.progress-wrap { margin-bottom: 20px; }
+.progress-label {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 8px;
+}
+.progress-bar {
+  height: 6px; background: #e5e7eb; border-radius: 999px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--red); border-radius: 999px;
+  transition: width .25s ease; width: 0%;
+}
+.steps-dots {
+  display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap;
+}
+.steps-dots span {
+  font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+  background: #eef1f4; color: var(--muted);
+}
+.steps-dots span.on { background: var(--navy); color: #fff; }
+.steps-dots span.done { background: #fee2e2; color: var(--red); }
+.panel {
+  display: none;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 16px; padding: 22px 18px;
+  box-shadow: 0 1px 4px rgba(10,22,40,.04);
+}
+.panel.active { display: block; }
+.panel h1 {
+  font-size: 22px; font-weight: 900; color: var(--navy);
+  letter-spacing: -.02em; margin-bottom: 6px;
+}
+.panel .sub { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: 13px; font-weight: 700;
+  color: var(--navy); margin-bottom: 6px;
+}
+.field select, .field input {
+  width: 100%; padding: 14px 12px; font-size: 16px;
+  border: 1.5px solid var(--line); border-radius: 11px;
+  background: #fff; color: var(--ink); font-family: inherit;
+  -webkit-appearance: none; appearance: none;
+}
+.field select:focus, .field input:focus {
+  outline: none; border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(201,31,50,.12);
+}
+.choice-grid { display: grid; gap: 8px; }
+.choice {
+  display: block; width: 100%; text-align: left;
+  padding: 14px 14px; border-radius: 12px;
+  border: 1.5px solid var(--line); background: #fff;
+  font-size: 15px; font-weight: 600; color: var(--navy);
+  cursor: pointer; font-family: inherit;
+}
+.choice:hover { border-color: #c5cdd6; }
+.choice.selected {
+  border-color: var(--red); background: #fef2f2;
+  box-shadow: 0 0 0 2px rgba(201,31,50,.1);
+}
+.choice small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.nav-btns { display: flex; gap: 10px; margin-top: 20px; }
+.btn {
+  flex: 1; padding: 14px 16px; border-radius: 11px;
+  font-weight: 800; font-size: 15px; border: none; cursor: pointer;
+  font-family: inherit; text-align: center;
+}
+.btn-back {
+  background: #fff; color: var(--navy); border: 1.5px solid var(--line);
+}
+.btn-next {
+  background: var(--red); color: #fff;
+  box-shadow: 0 4px 14px rgba(201,31,50,.28);
+}
+.btn-next:hover { background: var(--red-dark); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+.pills span {
+  background: #f0f3f6; color: var(--navy);
+  font-size: 12px; font-weight: 700;
+  padding: 6px 12px; border-radius: 999px;
+}
+.rate-mini {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin: 14px 0;
+}
+.rate-mini div {
+  background: #f8f9fb; border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px;
+}
+.rate-mini strong { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.rate-mini .n { font-size: 22px; font-weight: 900; color: var(--red); margin: 2px 0; }
+.rate-mini small { font-size: 11px; color: var(--muted); }
+.result-card {
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px; margin-bottom: 10px; background: #f8f9fb;
+}
+.result-card.ok { border-color: #bbf7d0; background: #f0fdf4; }
+.result-card.warn { border-color: #fde68a; background: #fffbeb; }
+.result-card.no { border-color: #fecaca; background: #fef2f2; }
+.result-card h3 {
+  font-size: 15px; font-weight: 800; color: var(--navy);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-bottom: 4px;
+}
+.pill {
+  font-size: 10px; font-weight: 800; letter-spacing: .04em;
+  padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+  background: #166534; color: #fff;
+}
+.pill.review { background: #b45309; }
+.pill.needed { background: #b91c1c; }
+.result-card p { font-size: 13px; color: var(--ink); line-height: 1.45; margin: 0; }
+.dashboard-summary {
+  background: var(--navy); color: #fff; border-radius: 14px;
+  padding: 16px; margin-bottom: 14px;
+}
+.dashboard-summary h2 { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+.dashboard-summary p { font-size: 13px; color: #a8b8c8; margin: 0; }
+.cta-box {
+  background: var(--navy); color: #fff; border-radius: 14px;
+  padding: 20px; text-align: center; margin-top: 18px;
+}
+.cta-box h3 { font-size: 16px; margin-bottom: 6px; }
+.cta-box p { font-size: 13px; color: #a8b8c8; margin-bottom: 12px; }
+.cta-box .phone {
+  display: block; font-size: 22px; font-weight: 900;
+  color: #fff; margin-bottom: 12px;
+}
+.cta-box a.btn-call {
+  display: inline-block; background: var(--red); color: #fff;
+  padding: 12px 18px; border-radius: 10px; font-weight: 800; font-size: 14px;
+}
+.notice {
+  font-size: 11px; color: var(--muted); line-height: 1.45;
+  margin-top: 20px;
+}
+.link-row { font-size: 12px; margin-top: 8px; }
+.share-row { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+.btn-share {
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#fff; color:var(--navy); border:1.5px solid var(--line);
+  padding:12px 16px; border-radius:10px; font-weight:800; font-size:14px;
+  cursor:pointer; font-family:inherit;
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="/">SONYMA <span>Explorer</span></a>
+    <a class="back" href="/">← Home</a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="progress-wrap" id="progressWrap" hidden>
+    <div class="progress-label">
+      <span id="stepLabel">Step 1 of 4</span>
+      <span id="stepName">About you</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="steps-dots" id="stepsDots">
+      <span data-s="1">You</span>
+      <span data-s="2">Income</span>
+      <span data-s="3">Property</span>
+      <span data-s="4">Results</span>
+    </div>
+  </div>
+
+  <section class="panel active" id="panel0">
+    <h1>Could You Be Eligible for SONYMA?</h1>
+    <p class="sub">Answer a few questions and get an initial SONYMA options snapshot.</p>
+    <div class="pills">
+      <span>~2 minutes</span>
+      <span>Educational pre-screen</span>
+      <span>No obligation</span>
+    </div>
+    <div class="rate-mini" id="rates">
+      <div><strong>Achieving the Dream</strong><div class="n">5.700%</div><small>w/ DPAL: 6.100%</small></div>
+      <div><strong>Low Interest Rate</strong><div class="n">6.100%</div><small>w/ DPAL: 6.500%</small></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:16px">Rates are a recent snapshot and can change. Always verify with your lender.</p>
+    <button type="button" class="btn btn-next" style="width:100%" id="startBtn">Start Explorer →</button>
+    <p class="notice" style="margin-top:14px">This is educational guidance only — not a loan approval or final eligibility determination.</p>
+  </section>
+
+  <section class="panel" id="panel1">
+    <h1>About you</h1>
+    <p class="sub">A few basics to start the snapshot.</p>
+    <div class="field">
+      <label>First-time homebuyer?</label>
+      <div class="choice-grid" data-group="first">
+        <button type="button" class="choice selected" data-value="yes">Yes
+          <small>No ownership interest in a principal residence in the last 3 years</small>
+        </button>
+        <button type="button" class="choice" data-value="no">No
+          <small>I've owned a primary home in the last 3 years</small>
+        </button>
+      </div>
+      <input type="hidden" id="first" value="yes">
+    </div>
+    <div class="field">
+      <label>Is the property in a SONYMA Target Area?</label>
+      <div class="choice-grid" data-group="target">
+        <button type="button" class="choice selected" data-value="unknown">Not sure yet</button>
+        <button type="button" class="choice" data-value="yes">Yes — verified Target Area</button>
+        <button type="button" class="choice" data-value="no">No — verified non-Target Area</button>
+      </div>
+      <input type="hidden" id="target" value="unknown">
+      <p class="link-row">Look up any address: <a href="https://se.nyhomes.org/SONYMAUtilities/Index" target="_blank" rel="noopener">SONYMA Target Area Locator →</a></p>
+    </div>
+    <div class="nav-btns">
+      <button type="button" class="btn btn-back" data-go="0">Back</button>
+      <button type="button" class="btn btn-next" data-go="2">Continue →</button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel2">
+    <h1>Income & household</h1>
+    <p class="sub">Approximate numbers are fine for this educational snapshot.</p>
+    <div class="field">
+      <label for="county">County</label>
+      <select id="county"></select>
+    </div>
+    <div class="field">
+      <label>Household size</label>
+      <div class="choice-grid" data-group="hh">
+        <button type="button" class="choice selected" data-value="1">1–2 people</button>
+        <button type="button" class="choice" data-value="3">3+ people</button>
+      </div>
+      <input type="hidden" id="hh" value="1">
+    </div>
+    <div class="field">
+      <label for="income">Approximate annual household income ($)</label>
+      <input type="number" id="income" placeholder="e.g. 95000" inputmode="numeric" min="0" step="1000">
+    </div>
+    <div class="nav-btns">
+      <button type="button" class="btn btn-back" data-go="1">Back</button>
+      <button type="button" class="btn btn-next" data-go="3">Continue →</button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel3">
+    <h1>The home</h1>
+    <p class="sub">What you're looking to buy.</p>
+    <div class="field">
+      <label for="price">Expected purchase price ($)</label>
+      <input type="number" id="price" placeholder="e.g. 450000" inputmode="numeric" min="0" step="5000">
+    </div>
+    <div class="field">
+      <label>Property type</label>
+      <div class="choice-grid" data-group="property">
+        <button type="button" class="choice selected" data-value="1">1-unit
+          <small>Single-family, condo, or co-op</small>
+        </button>
+        <button type="button" class="choice" data-value="2">2-unit</button>
+        <button type="button" class="choice" data-value="3">3-unit</button>
+        <button type="button" class="choice" data-value="4">4-unit</button>
+      </div>
+      <input type="hidden" id="property" value="1">
+    </div>
+    <div class="nav-btns">
+      <button type="button" class="btn btn-back" data-go="2">Back</button>
+      <button type="button" class="btn btn-next" id="seeResults">See My Snapshot →</button>
+    </div>
+  </section>
+
+  <section class="panel" id="panel4">
+    <div class="dashboard-summary">
+      <h2>Your SONYMA Snapshot</h2>
+      <p>Initial educational assessment based on the information you entered — not a loan approval.</p>
+    </div>
+    <div id="resultsBody"></div>
+    <div class="share-row" id="shareRow" hidden>
+      <button type="button" class="btn-share" id="btnShare">Share this snapshot</button>
+      <button type="button" class="btn-share" id="btnCopy">Copy link</button>
+    </div>
+    <div class="cta-box">
+      <h3>Want a closer look?</h3>
+      <p>Talk with Robert about your situation. We can review the numbers together.</p>
+      <a class="phone" href="tel:19148049889">(914) 804-9889</a>
+      <a class="btn-call" href="tel:19148049889">Call Robert →</a>
+      <div style="margin-top:10px">
+        <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener" style="color:#fff;font-size:13px;font-weight:700;text-decoration:underline">Start Application →</a>
+      </div>
+    </div>
+    <div class="nav-btns" style="margin-top:14px">
+      <button type="button" class="btn btn-back" data-go="3">Back</button>
+      <button type="button" class="btn btn-next" data-go="0" id="restartBtn">Start over</button>
+    </div>
+    <p class="notice">
+      <b>Important:</b> This tool is educational only and is not affiliated with SONYMA or New York State.
+      Results do not constitute a loan approval, commitment to lend, or final eligibility determination.
+      Program guidelines, limits, and rates are subject to change.
+    </p>
+  </section>
+</main>
+
+<script src="/data.js"></script>
+<script>
+(function () {
+  const D = window.SONYMA_DATA || {};
+  const R = window.SONYMA_RATES || { atd: { noDpal: 5.7, withDpal: 6.1 }, lir: { noDpal: 6.1, withDpal: 6.5 } };
+
+  function money(n) {
+    return n ? n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }) : '—';
+  }
+
+  const ratesEl = document.getElementById('rates');
+  if (ratesEl) {
+    ratesEl.innerHTML =
+      '<div><strong>Achieving the Dream</strong><div class="n">' + (R.atd?.noDpal ?? 5.7).toFixed(3) + '%</div><small>w/ DPAL: ' + (R.atd?.withDpal ?? 6.1).toFixed(3) + '%</small></div>' +
+      '<div><strong>Low Interest Rate</strong><div class="n">' + (R.lir?.noDpal ?? 6.1).toFixed(3) + '%</div><small>w/ DPAL: ' + (R.lir?.withDpal ?? 6.5).toFixed(3) + '%</small></div>';
+  }
+
+  const sel = document.getElementById('county');
+  const counties = Object.keys(D).sort();
+  if (counties.length) {
+    counties.forEach(c => {
+      const o = document.createElement('option');
+      o.value = c; o.textContent = c; sel.appendChild(o);
+    });
+    if (D['Westchester']) sel.value = 'Westchester';
+    else if (D['Putnam']) sel.value = 'Putnam';
+    else sel.value = counties[0];
+  } else {
+    ['Westchester','Putnam','Dutchess','Orange','Rockland','Nassau','Suffolk','Albany'].forEach(c => {
+      const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o);
+    });
+    sel.value = 'Westchester';
+  }
+
+  document.querySelectorAll('.choice-grid').forEach(grid => {
+    const group = grid.getAttribute('data-group');
+    const hidden = document.getElementById(group);
+    grid.querySelectorAll('.choice').forEach(btn => {
+      btn.addEventListener('click', () => {
+        grid.querySelectorAll('.choice').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        if (hidden) hidden.value = btn.getAttribute('data-value');
+      });
+    });
+  });
+
+  let step = 0;
+  const names = ['Intro', 'About you', 'Income & household', 'The home', 'Your snapshot'];
+
+  function go(n) {
+    step = n;
+    document.querySelectorAll('.panel').forEach((p, i) => {
+      p.classList.toggle('active', i === step);
+    });
+    const wrap = document.getElementById('progressWrap');
+    if (step === 0) {
+      wrap.hidden = true;
+    } else {
+      wrap.hidden = false;
+      const pct = (step / 4) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('stepLabel').textContent = step < 4 ? ('Step ' + step + ' of 4') : 'Results';
+      document.getElementById('stepName').textContent = names[step] || '';
+      document.querySelectorAll('#stepsDots span').forEach(s => {
+        const v = Number(s.getAttribute('data-s'));
+        s.classList.remove('on', 'done');
+        if (v === step) s.classList.add('on');
+        else if (v < step) s.classList.add('done');
+      });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.getElementById('startBtn').addEventListener('click', () => go(1));
+  document.querySelectorAll('[data-go]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const n = Number(btn.getAttribute('data-go'));
+      if (btn.id === 'seeResults') {
+        checkEligibility();
+        go(4);
+      } else {
+        go(n);
+      }
+    });
+  });
+
+  function checkEligibility() {
+    const first = document.getElementById('first').value === 'yes';
+    const target = document.getElementById('target').value;
+    const isTarget = target === 'yes';
+    const targetUnknown = target === 'unknown';
+    const firstTimeOK = first || isTarget;
+    const c = sel.value;
+    const d = D[c] || null;
+    const income = Number(document.getElementById('income').value || 0);
+    const price = Number(document.getElementById('price').value || 0);
+    const hh = document.getElementById('hh').value;
+    const prop = document.getElementById('property').value;
+
+    const results = [];
+    function add(name, ok, notes, warn) {
+      results.push({ name, ok, notes, warn: !!warn });
+    }
+
+    let atdOk = true, atdNotes = [];
+    if (!firstTimeOK) {
+      atdOk = false;
+      atdNotes.push('First-time buyer requirement is not met based on the answers provided (Target Area can change this).');
+    }
+    if (d) {
+      const suffix = isTarget ? 'target' : 'non';
+      const atdInc = hh === '1' ? (d.atd['income1_' + suffix] || d.atd.income1_non) : (d.atd['income3_' + suffix] || d.atd.income3_non);
+      if (income && atdInc && income > atdInc) {
+        atdOk = false;
+        atdNotes.push('Income appears above the current county/program limit used for this screening.');
+      }
+      const ppKey = 'pp' + prop + '_' + suffix;
+      const atdPP = d.atd[ppKey];
+      if (price && atdPP && price > atdPP) {
+        atdOk = false;
+        atdNotes.push('Purchase price appears above the current limit for this property type/county.');
+      }
+    }
+    if (targetUnknown) atdNotes.push('Target Area status is not verified — limits may be higher in a Target Area.');
+    add('Achieving the Dream', atdOk, atdNotes.join(' ') || 'Basic screening criteria look favorable based on the information entered.', targetUnknown);
+
+    let lirOk = true, lirNotes = [];
+    if (!firstTimeOK) {
+      lirOk = false;
+      lirNotes.push('First-time buyer requirement is not met based on the answers provided.');
+    }
+    if (d) {
+      const suffix = isTarget ? 'target' : 'non';
+      const lirInc = hh === '1' ? (d.lir['income1_' + suffix] || d.lir.income1_non) : (d.lir['income3_' + suffix] || d.lir.income3_non);
+      if (income && lirInc && income > lirInc) {
+        lirOk = false;
+        lirNotes.push('Income appears above the current county/program limit used for this screening.');
+      }
+    }
+    if (targetUnknown) lirNotes.push('Target Area status is not verified.');
+    add('Low Interest Rate Program', lirOk, lirNotes.join(' ') || 'Basic screening criteria look favorable based on the information entered.', targetUnknown);
+
+    const dpalMax = price ? Math.max(3000, Math.min(price * 0.03, 15000)) : 0;
+    add(
+      'Standard DPAL',
+      firstTimeOK,
+      firstTimeOK
+        ? (price ? 'Potential assistance (illustrative): ' + money(dpalMax) + '. Actual amount and eligibility subject to program rules.' : 'Potential assistance available with an eligible SONYMA first mortgage.')
+        : 'Requires an eligible SONYMA first mortgage and meeting first-time/Target Area rules.'
+    );
+
+    let dpOk = firstTimeOK && price > 0 && price <= 500000;
+    let dpNotes = [];
+    if (!firstTimeOK) dpNotes.push('First-time/Target Area requirement not met from these inputs.');
+    if (price > 500000) dpNotes.push('Purchase price exceeds the illustrative $500,000 DPAL PLUS limit.');
+    if (d && d.dpalPlus) {
+      const suffix = isTarget ? 'target' : 'non';
+      const dpInc = hh === '1' ? d.dpalPlus['income1_' + suffix] : d.dpalPlus['income3_' + suffix];
+      if (income && dpInc && income > dpInc) {
+        dpOk = false;
+        dpNotes.push('Income appears above the current DPAL PLUS screening limit.');
+      }
+    }
+    add('DPAL PLUS (limited)', dpOk, dpNotes.join(' ') || 'Potential match based on current screening inputs. Funding is limited and first-come, first-served.');
+
+    let html = '';
+    results.forEach(x => {
+      const cls = x.ok ? (x.warn ? 'warn' : 'ok') : 'no';
+      const pill = x.ok
+        ? (x.warn ? '<span class="pill review">REVIEW</span>' : '<span class="pill">POTENTIAL MATCH</span>')
+        : '<span class="pill needed">REVIEW NEEDED</span>';
+      html += '<div class="result-card ' + cls + '"><h3>' + x.name + ' ' + pill + '</h3><p>' + x.notes + '</p></div>';
+    });
+    html += '<div class="notice" style="margin:12px 0"><b>County used:</b> ' + c + (d ? ' · Region ' + (d.region || '') : '') +
+      '. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify rates & limits on SONYMA’s site</a>.</div>';
+    html += '<p style="font-size:13px;line-height:1.5"><b>Next steps to discuss with a lender:</b> full income documentation, credit, property details, Target Area confirmation, and current program availability.</p>';
+
+    document.getElementById('resultsBody').innerHTML = html;
+    var shareRow = document.getElementById('shareRow');
+    if (shareRow) shareRow.hidden = false;
+  }
+
+  var btnShare = document.getElementById('btnShare');
+  if (btnShare) {
+    btnShare.addEventListener('click', function () {
+      var body = document.getElementById('resultsBody');
+      var text = body ? body.innerText.replace(/\s+/g, ' ').trim().slice(0, 500) : '';
+      var payload = { title: 'SONYMA Eligibility Snapshot', text: 'SONYMA Eligibility Snapshot (educational only)\n' + text, url: location.origin + '/eligible.html' };
+      if (navigator.share) navigator.share(payload).catch(function () {});
+      else if (navigator.clipboard) {
+        navigator.clipboard.writeText(payload.text + '\n' + payload.url);
+        btnShare.textContent = 'Copied!';
+        setTimeout(function () { btnShare.textContent = 'Share this snapshot'; }, 2000);
+      }
+    });
+  }
+  var btnCopy = document.getElementById('btnCopy');
+  if (btnCopy) {
+    btnCopy.addEventListener('click', function () {
+      var url = location.origin + '/eligible.html';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          btnCopy.textContent = 'Copied!';
+          setTimeout(function () { btnCopy.textContent = 'Copy link'; }, 2000);
+        });
+      } else prompt('Copy this link:', url);
+    });
+  }
+})();
+</script>
+</body>
+</html>
