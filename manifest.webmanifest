@@ -1,0 +1,19 @@
+{
+  "name": "SONYMA Eligibility Explorer",
+  "short_name": "SONYMA Explorer",
+  "description": "Educational SONYMA eligibility snapshot with Robert A. Castro · Movement Mortgage",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/IMG_8223.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
