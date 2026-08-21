@@ -25,7 +25,7 @@ body {
 a { color: var(--red); text-decoration: none; }
 .topbar {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.96); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
 .topbar-inner {
@@ -61,7 +61,7 @@ a { color: var(--red); text-decoration: none; }
   display: none;
   background: #fff; border: 1px solid var(--line);
   border-radius: 16px; padding: 22px 18px;
-  box-shadow: 0 1px 4px rgba(10,22,40,.04);
+  box-shadow: 0 2px 12px rgba(10,22,40,.05);
 }
 .panel.active { display: block; }
 .panel h1 {
@@ -90,7 +90,7 @@ a { color: var(--red); text-decoration: none; }
   padding: 14px 14px; border-radius: 12px;
   border: 1.5px solid var(--line); background: #fff;
   font-size: 15px; font-weight: 600; color: var(--navy);
-  cursor: pointer; font-family: inherit;
+  cursor: pointer; font-family: inherit; transition: border-color .15s ease, background .15s ease;
 }
 .choice:hover { border-color: #c5cdd6; }
 .choice.selected {
@@ -124,50 +124,67 @@ a { color: var(--red); text-decoration: none; }
 }
 .rate-mini div {
   background: #f8f9fb; border: 1px solid var(--line);
-  border-radius: 10px; padding: 12px;
+  border-radius: 12px; padding: 14px;
 }
 .rate-mini strong { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
-.rate-mini .n { font-size: 22px; font-weight: 900; color: var(--red); margin: 2px 0; }
+.rate-mini .n { font-size: 26px; font-weight: 900; color: var(--red); margin: 4px 0; letter-spacing: -.03em; }
 .rate-mini small { font-size: 11px; color: var(--muted); }
-.result-card {
-  border: 1px solid var(--line); border-radius: 12px;
-  padding: 14px; margin-bottom: 10px; background: #f8f9fb;
+
+/* Results redesign */
+.dashboard-summary {
+  background: linear-gradient(160deg, #0a1628, #132337); color: #fff; border-radius: 16px;
+  padding: 20px 18px; margin-bottom: 16px;
 }
-.result-card.ok { border-color: #bbf7d0; background: #f0fdf4; }
-.result-card.warn { border-color: #fde68a; background: #fffbeb; }
-.result-card.no { border-color: #fecaca; background: #fef2f2; }
+.dashboard-summary .eyebrow { color: #f87171; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+.dashboard-summary h2 { font-size: 20px; font-weight: 900; margin-bottom: 4px; letter-spacing: -.02em; }
+.dashboard-summary p { font-size: 13px; color: #a8b8c8; margin: 0; line-height: 1.45; }
+.result-card {
+  border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px; margin-bottom: 10px; background: #fff;
+  box-shadow: 0 2px 8px rgba(10,22,40,.04);
+}
+.result-card.ok { border-left: 4px solid #16a34a; }
+.result-card.warn { border-left: 4px solid #d97706; }
+.result-card.no { border-left: 4px solid #dc2626; }
 .result-card h3 {
   font-size: 15px; font-weight: 800; color: var(--navy);
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .pill {
   font-size: 10px; font-weight: 800; letter-spacing: .04em;
-  padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+  padding: 4px 9px; border-radius: 999px; white-space: nowrap;
   background: #166534; color: #fff;
 }
 .pill.review { background: #b45309; }
 .pill.needed { background: #b91c1c; }
-.result-card p { font-size: 13px; color: var(--ink); line-height: 1.45; margin: 0; }
-.dashboard-summary {
-  background: var(--navy); color: #fff; border-radius: 14px;
-  padding: 16px; margin-bottom: 14px;
+.result-card p { font-size: 13px; color: var(--ink); line-height: 1.5; margin: 0; }
+.next-steps {
+  background: #f8f9fb; border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px; margin: 14px 0;
 }
-.dashboard-summary h2 { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
-.dashboard-summary p { font-size: 13px; color: #a8b8c8; margin: 0; }
+.next-steps h4 { font-size: 13px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.next-steps ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink); line-height: 1.55; }
 .cta-box {
-  background: var(--navy); color: #fff; border-radius: 14px;
-  padding: 20px; text-align: center; margin-top: 18px;
+  background: linear-gradient(160deg, #0a1628, #132337); color: #fff; border-radius: 16px;
+  padding: 22px 18px; text-align: center; margin-top: 18px;
+  box-shadow: 0 8px 24px rgba(10,22,40,.15);
 }
-.cta-box h3 { font-size: 16px; margin-bottom: 6px; }
+.cta-box .avatar {
+  width: 56px; height: 56px; border-radius: 50%; overflow: hidden;
+  margin: 0 auto 12px; border: 2px solid rgba(255,255,255,.25);
+}
+.cta-box .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.cta-box h3 { font-size: 17px; font-weight: 900; margin-bottom: 4px; }
 .cta-box p { font-size: 13px; color: #a8b8c8; margin-bottom: 12px; }
 .cta-box .phone {
-  display: block; font-size: 22px; font-weight: 900;
+  display: block; font-size: 24px; font-weight: 900;
   color: #fff; margin-bottom: 12px;
 }
 .cta-box a.btn-call {
   display: inline-block; background: var(--red); color: #fff;
-  padding: 12px 18px; border-radius: 10px; font-weight: 800; font-size: 14px;
+  padding: 13px 20px; border-radius: 11px; font-weight: 800; font-size: 14px;
+  box-shadow: 0 4px 14px rgba(201,31,50,.35);
 }
 .notice {
   font-size: 11px; color: var(--muted); line-height: 1.45;
@@ -183,7 +200,7 @@ a { color: var(--red); text-decoration: none; }
 }
 </style>
 </head>
-<body>
+<body class="has-sticky-cta">
 <header class="topbar">
   <div class="topbar-inner">
     <a class="logo" href="/">SONYMA <span>Explorer</span></a>
@@ -305,8 +322,9 @@ a { color: var(--red); text-decoration: none; }
 
   <section class="panel" id="panel4">
     <div class="dashboard-summary">
+      <div class="eyebrow">Educational snapshot</div>
       <h2>Your SONYMA Snapshot</h2>
-      <p>Initial educational assessment based on the information you entered — not a loan approval.</p>
+      <p>Initial assessment based on the information you entered — not a loan approval.</p>
     </div>
     <div id="resultsBody"></div>
     <div class="share-row" id="shareRow" hidden>
@@ -314,11 +332,12 @@ a { color: var(--red); text-decoration: none; }
       <button type="button" class="btn-share" id="btnCopy">Copy link</button>
     </div>
     <div class="cta-box">
+      <div class="avatar"><img src="/IMG_8223.jpeg" alt="Robert A. Castro" width="56" height="56"></div>
       <h3>Want a closer look?</h3>
       <p>Talk with Robert about your situation. We can review the numbers together.</p>
       <a class="phone" href="tel:19148049889">(914) 804-9889</a>
       <a class="btn-call" href="tel:19148049889">Call Robert →</a>
-      <div style="margin-top:10px">
+      <div style="margin-top:12px">
         <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener" style="color:#fff;font-size:13px;font-weight:700;text-decoration:underline">Start Application →</a>
       </div>
     </div>
@@ -333,6 +352,11 @@ a { color: var(--red); text-decoration: none; }
     </p>
   </section>
 </main>
+
+<div class="sticky-cta">
+  <a class="sc-primary" href="tel:19148049889">Call Robert</a>
+  <a class="sc-secondary" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start App</a>
+</div>
 
 <script src="/data.js"></script>
 <script>
@@ -507,9 +531,13 @@ a { color: var(--red); text-decoration: none; }
         : '<span class="pill needed">REVIEW NEEDED</span>';
       html += '<div class="result-card ' + cls + '"><h3>' + x.name + ' ' + pill + '</h3><p>' + x.notes + '</p></div>';
     });
+    html += '<div class="next-steps"><h4>Next steps to discuss with a lender</h4><ul>' +
+      '<li>Full income documentation & credit review</li>' +
+      '<li>Property details & Target Area confirmation</li>' +
+      '<li>Current program availability & rate lock options</li>' +
+      '</ul></div>';
     html += '<div class="notice" style="margin:12px 0"><b>County used:</b> ' + c + (d ? ' · Region ' + (d.region || '') : '') +
       '. <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify rates & limits on SONYMA’s site</a>.</div>';
-    html += '<p style="font-size:13px;line-height:1.5"><b>Next steps to discuss with a lender:</b> full income documentation, credit, property details, Target Area confirmation, and current program availability.</p>';
 
     document.getElementById('resultsBody').innerHTML = html;
     var shareRow = document.getElementById('shareRow');
