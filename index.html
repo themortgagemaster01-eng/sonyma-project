@@ -188,11 +188,11 @@ img{max-width:100%;display:block}
     </div>
   </section>
   <section class="section">
-    <div class="section-head"><div class="eyebrow">Current snapshot</div><h2>SONYMA program rates</h2><p>30-year fixed · 0 points · subject to change.</p></div>
+    <div class="section-head"><div class="eyebrow">Current snapshot</div><h2>SONYMA program rates</h2><p>30-year fixed · 0 points · subject to change. <span data-rate-badge style="opacity:.7">Loading rates…</span></p></div>
     <div class="card">
       <div class="rate-grid">
-        <div class="rate"><strong>Achieving the Dream</strong><div class="num">5.700%</div><small>Without DPAL<br>With DPAL: <b>6.100%</b></small></div>
-        <div class="rate"><strong>Low Interest Rate</strong><div class="num">6.100%</div><small>Without DPAL<br>With DPAL: <b>6.500%</b></small></div>
+        <div class="rate"><strong>Achieving the Dream</strong><div class="num" data-rate="atd-no">5.700%</div><small>Without DPAL<br>With DPAL: <b data-rate="atd-with">6.100%</b></small></div>
+        <div class="rate"><strong>Low Interest Rate</strong><div class="num" data-rate="lir-no">6.100%</div><small>Without DPAL<br>With DPAL: <b data-rate="lir-with">6.500%</b></small></div>
       </div>
       <p style="font-size:12px;color:var(--muted);margin-top:12px"><a href="/why-sonyma.html">See full benefits →</a> · <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">SONYMA rates</a> · <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener">Compare market rates →</a></p>
     </div>
@@ -266,5 +266,7 @@ img{max-width:100%;display:block}
   </div>
 </footer>
 <script>document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navMobile').classList.toggle('open');});</script>
+<script src="/data.js"></script>
+<script src="/rates-loader.js"></script>
 </body>
 </html>
