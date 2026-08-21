@@ -5,139 +5,115 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a1628">
 <title>SONYMA Eligibility Explorer | Robert A. Castro · Movement Mortgage</title>
-<meta name="description" content="See what SONYMA options may be available to you. Instant educational snapshot with Robert A. Castro, Movement Mortgage.">
+<meta name="description" content="See what SONYMA options may be available to you. Explore eligibility, programs, DPAL, and next steps with Robert A. Castro.">
 <meta property="og:image" content="https://sonyma-eligibility-explorer.vercel.app/a_clean_professional_promotional_poster_hero_sc.png">
 <link rel="stylesheet" href="/styles.css">
 <style>
-/* —— Instant Estimator (hero) —— */
-.est-hero{
-  background:linear-gradient(165deg,#071526 0%,#0c1f38 55%,#132a45 100%);
-  color:#fff;padding:28px 16px 32px;position:relative;overflow:hidden;
-}
-.est-hero::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 50% at 70% -10%,rgba(201,31,50,.18),transparent 60%);
-  pointer-events:none;
-}
-.est-inner{max-width:720px;margin:0 auto;position:relative;z-index:1}
-.est-kicker{
-  font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-  color:#f87171;margin-bottom:8px;
-}
-.est-hero h1{
-  font-size:clamp(26px,6vw,36px);font-weight:900;letter-spacing:-.03em;
-  line-height:1.1;margin:0 0 8px;
-}
-.est-hero .lede{color:#a8b8c8;font-size:15px;line-height:1.5;margin:0 0 22px;max-width:520px}
-
-.est-card{
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:20px;padding:20px 18px;
-  box-shadow:0 12px 40px rgba(0,0,0,.25);
-}
-.est-row{display:grid;gap:14px;margin-bottom:14px}
-@media(min-width:560px){.est-row{grid-template-columns:1fr 1fr}}
-.est-field label{
-  display:block;font-size:11px;font-weight:800;letter-spacing:.04em;
-  text-transform:uppercase;color:#9aabbc;margin-bottom:6px;
-}
-.est-field select,.est-field input[type=number]{
-  width:100%;padding:13px 12px;font-size:16px;border-radius:12px;
-  border:1.5px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);
-  color:#fff;font-family:inherit;-webkit-appearance:none;appearance:none;
-}
-.est-field select:focus,.est-field input:focus{
-  outline:none;border-color:rgba(201,31,50,.6);
-  box-shadow:0 0 0 3px rgba(201,31,50,.2);
-}
-.est-field select option{background:#0c1f38;color:#fff}
-.est-slider-wrap{margin-top:6px}
-.est-slider-wrap input[type=range]{
-  width:100%;height:6px;border-radius:999px;background:rgba(255,255,255,.15);
-  -webkit-appearance:none;appearance:none;outline:none;
-}
-.est-slider-wrap input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;width:22px;height:22px;border-radius:50%;
-  background:#c91f32;border:3px solid #fff;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-}
-.est-val{
-  font-size:20px;font-weight:900;color:#fff;letter-spacing:-.02em;margin-top:4px;
-}
-
-/* Results strip */
-.est-results{
-  display:grid;gap:10px;margin-top:16px;
-  grid-template-columns:1fr;
-}
-@media(min-width:520px){.est-results{grid-template-columns:repeat(3,1fr)}}
-.est-metric{
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
-  border-radius:14px;padding:14px 12px;text-align:center;
-  transition:background .2s ease,border-color .2s ease;
-}
-.est-metric.hot{background:rgba(201,31,50,.18);border-color:rgba(201,31,50,.35)}
-.est-metric .m-label{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#9aabbc;margin-bottom:4px}
-.est-metric .m-val{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.1}
-.est-metric .m-sub{font-size:11px;color:#a8b8c8;margin-top:3px;line-height:1.3}
-
-.est-status{
-  margin-top:14px;padding:12px 14px;border-radius:12px;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  font-size:13px;color:#c5d2e0;line-height:1.45;
-}
-.est-status b{color:#fff}
-.est-status .pill{
-  display:inline-block;font-size:10px;font-weight:800;letter-spacing:.04em;
-  padding:3px 9px;border-radius:999px;margin-right:6px;vertical-align:middle;
-}
-.est-status .pill.ok{background:#166534;color:#fff}
-.est-status .pill.review{background:#b45309;color:#fff}
-.est-status .pill.needed{background:#991b1b;color:#fff}
-
-.est-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.est-actions .btn-primary{flex:1;min-width:160px;justify-content:center}
-.est-actions .btn-ghost{
-  display:inline-flex;align-items:center;justify-content:center;
-  background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);
-  padding:13px 18px;border-radius:11px;font-weight:700;font-size:14px;
-  flex:1;min-width:120px;transition:background .15s ease;
-}
-.est-actions .btn-ghost:hover{background:rgba(255,255,255,.08)}
-.est-note{font-size:11px;color:#7a8a9a;margin-top:14px;line-height:1.4}
-
-/* Slim nav overrides */
-.nav a,.nav-m a{font-size:13px}
-.nav .btn-cta{margin-left:4px}
-
-/* Program feature cards */
-.program-grid{display:grid;gap:12px}
-@media(min-width:700px){.program-grid{grid-template-columns:1fr 1fr}}
-.program-card{
-  background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;
-  box-shadow:0 2px 12px rgba(10,22,40,.05);transition:box-shadow .2s ease,transform .2s ease;
-  display:flex;flex-direction:column;gap:8px;
-}
-.program-card:hover{box-shadow:0 8px 24px rgba(10,22,40,.1);transform:translateY(-2px)}
-.program-card .pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.program-card .pc-badge{
-  font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-  background:#f0f3f6;color:var(--navy);padding:4px 9px;border-radius:999px;white-space:nowrap;
-}
-.program-card .pc-badge.hot{background:#fef2f2;color:var(--red)}
-.program-card h3{font-size:17px;font-weight:900;color:var(--navy);margin:0}
-.program-card .pc-rate{font-size:28px;font-weight:900;color:var(--red);letter-spacing:-.03em;line-height:1}
-.program-card p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
-.program-card ul{margin:4px 0 0;padding-left:16px;font-size:13px;color:var(--ink);line-height:1.55}
-
-/* Glass section cards */
-.glass-card{
-  background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.6);border-radius:18px;
-  box-shadow:0 4px 20px rgba(10,22,40,.06);
-}
+:root{--navy:#0a1628;--navy2:#132337;--red:#c91f32;--red-dark:#a81828;--ink:#1a2332;--muted:#5b6b7c;--paper:#f4f6f8;--card:#fff;--line:#e3e8ee}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;min-height:100vh}
+a{color:var(--red);text-decoration:none;transition:color .15s ease}
+img{max-width:100%;display:block}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(10,22,40,.04)}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;color:var(--navy);letter-spacing:.02em;white-space:nowrap}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:#c91f32;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px}
+.nav{display:none;align-items:center;gap:2px}
+.nav a{color:var(--muted);font-size:13px;font-weight:600;padding:8px 11px;border-radius:8px;transition:background .15s ease,color .15s ease}
+.nav a:hover{color:var(--navy);background:#f0f3f6}
+.btn-cta{background:var(--red)!important;color:#fff!important;padding:10px 14px!important;border-radius:9px!important;font-weight:700!important;font-size:13px!important;white-space:nowrap}
+.menu-btn{border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:9px 12px;font-weight:700;font-size:13px;color:var(--navy);cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.menu-btn:hover{border-color:var(--red);background:#fef2f2}
+.nav-m{display:none;background:#fff;border-top:1px solid var(--line);padding:8px 18px 14px}
+.nav-m.open{display:block}
+.nav-m a{display:block;padding:12px 6px;color:var(--ink);font-weight:600;font-size:14px;border-bottom:1px solid #f0f3f6}
+.trust-strip{background:#0a1628;color:#a8b8c8;font-size:11px;font-weight:600;text-align:center;padding:8px 12px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px}
+.trust-strip b{color:#fff;font-weight:800}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 48px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff!important;padding:14px 20px;border-radius:11px;font-weight:800;font-size:15px;box-shadow:0 6px 18px rgba(201,31,50,.35);transition:background .15s ease,transform .15s ease,box-shadow .15s ease}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,31,50,.4)}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.35);padding:13px 18px;border-radius:11px;font-weight:700;font-size:14px}
+.section{margin:28px 0}
+.section-head{margin-bottom:14px}
+.section-head .eyebrow{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.section-head h2{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-.02em}
+.section-head p{color:var(--muted);font-size:14px;margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(10,22,40,.05)}
+.elig-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 20px;text-align:center;box-shadow:0 4px 18px rgba(10,22,40,.06)}
+.elig-card h2{font-size:22px;font-weight:900;color:var(--navy);margin-bottom:8px}
+.elig-card p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.elig-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px}
+.elig-pills span{background:#f0f3f6;color:var(--navy);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:640px){.benefits{grid-template-columns:repeat(4,1fr)}}
+.benefit{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 14px;text-align:center;box-shadow:0 2px 8px rgba(10,22,40,.04);transition:box-shadow .2s ease,transform .2s ease}
+.benefit:hover{box-shadow:0 6px 16px rgba(10,22,40,.08);transform:translateY(-2px)}
+.benefit .num{font-size:13px;font-weight:800;color:var(--red);margin-bottom:6px}
+.benefit strong{display:block;font-size:14px;color:var(--navy);margin-bottom:4px}
+.benefit span{font-size:12px;color:var(--muted);line-height:1.35}
+.rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rate{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;box-shadow:0 2px 10px rgba(10,22,40,.05)}
+.rate strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700}
+.rate .num{font-size:34px;font-weight:900;color:var(--red);letter-spacing:-.04em;margin:6px 0 4px;line-height:1}
+.rate small{font-size:12px;color:var(--muted);line-height:1.35;display:block}
+.dpal{background:linear-gradient(135deg,#fef2f2,#fff);border:1px solid #fecaca;border-radius:16px;padding:22px 20px;display:grid;gap:12px;box-shadow:0 4px 16px rgba(201,31,50,.08)}
+@media(min-width:640px){.dpal{grid-template-columns:1fr auto;align-items:center}}
+.dpal .tag{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:999px;margin-bottom:6px}
+.dpal h3{font-size:22px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.dpal p{font-size:14px;color:var(--ink);line-height:1.5}
+.steps{display:grid;gap:10px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 14px;box-shadow:0 2px 8px rgba(10,22,40,.04)}
+.step .n{width:28px;height:28px;border-radius:8px;background:var(--navy);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.step strong{display:block;font-size:14px;color:var(--navy);margin-bottom:4px}
+.step span{font-size:12px;color:var(--muted);line-height:1.4}
+.why{background:var(--navy);color:#fff;border-radius:18px;padding:24px 20px;box-shadow:0 8px 24px rgba(10,22,40,.18)}
+.why h2{font-size:20px;font-weight:900;margin-bottom:6px}
+.why>p{color:#a8b8c8;font-size:14px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;text-align:center}
+.stat .v{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.stat .l{font-size:11px;color:#9aabbc;margin-top:2px}
+.ask{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;display:grid;gap:14px;box-shadow:0 2px 12px rgba(10,22,40,.05)}
+@media(min-width:640px){.ask{grid-template-columns:1fr auto;align-items:center}}
+.ask h2{font-size:18px;font-weight:900;color:var(--navy)}
+.ask p{font-size:14px;color:var(--muted);margin-top:4px}
+.final{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;border-radius:18px;padding:32px 22px;text-align:center;margin-top:32px;box-shadow:0 10px 28px rgba(10,22,40,.2)}
+.final h2{font-size:24px;font-weight:900;margin-bottom:8px;letter-spacing:-.02em}
+.final p{color:#a8b8c8;font-size:14px;margin-bottom:18px}
+.final-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.final .phone{display:block;font-size:22px;font-weight:900;color:#fff;margin:14px 0 4px}
+.explore-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+@media(min-width:640px){.explore-row{grid-template-columns:repeat(4,1fr)}}
+.explore-link{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;color:inherit;display:block;box-shadow:0 2px 8px rgba(10,22,40,.04);transition:box-shadow .2s ease,transform .2s ease}
+.explore-link:hover{box-shadow:0 6px 16px rgba(10,22,40,.08);transform:translateY(-2px)}
+.explore-link strong{display:block;font-size:13px;color:var(--navy);margin-bottom:2px}
+.explore-link span{font-size:12px;color:var(--muted)}
+.site-footer{background:#060e18;color:#8a9aab;font-size:12px;padding:28px 16px;margin-top:40px}
+.footer-inner{max-width:1080px;margin:0 auto}
+.footer-grid{display:grid;gap:18px;margin-bottom:16px}
+@media(min-width:700px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer-col strong{display:block;color:#fff;font-size:13px;margin-bottom:8px}
+.footer-col a{color:#8a9aab;display:block;padding:3px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:14px;text-align:center;font-size:11px;line-height:1.5}
+.notice{font-size:11px;color:var(--muted);line-height:1.5;margin:24px 0 0;padding:0 4px}
+.btn-block{width:100%;justify-content:center}
+@media(min-width:480px){.btn-block{width:auto}}
+@media(min-width:800px){.nav{display:flex}.menu-btn{display:none}}
+.hero-poster-section{background:#0a1628;margin-bottom:0;border-radius:0;overflow:hidden}
+.poster-frame{max-width:560px;margin:0 auto;background:#0a1628}
+.poster-img{width:100%;height:auto;display:block}
+@media(min-width:700px){.poster-frame{max-width:480px;padding-top:12px}}
+.poster-cta-bar{background:#0a1628;border-top:1px solid rgba(255,255,255,.08);padding:16px}
+.poster-cta-inner{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.poster-cta-copy strong{display:block;color:#fff;font-size:15px;font-weight:800;margin-bottom:2px}
+.poster-cta-copy span{color:#9aabbc;font-size:13px;line-height:1.4}
+.poster-cta-actions{display:flex;flex-wrap:wrap;gap:8px}
+.poster-cta-actions .btn-primary{flex:1;min-width:160px;text-align:center;justify-content:center}
+.btn-secondary-dark{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.35);padding:13px 18px;border-radius:11px;font-weight:700;font-size:14px;flex:1;min-width:120px;transition:background .15s ease}
+.btn-secondary-dark:hover{background:rgba(255,255,255,.08)}
+@media(min-width:700px){.poster-cta-inner{max-width:640px;flex-direction:row;align-items:center;justify-content:space-between}.poster-cta-actions{flex-shrink:0}}
 </style>
 </head>
 <body>
@@ -145,20 +121,24 @@
   <div class="topbar-inner">
     <a class="logo" href="/"><span class="logo-mark">⌂</span> SONYMA Explorer</a>
     <nav class="nav" aria-label="Main">
-      <a href="/">Explorer</a>
-      <a href="/why-sonyma.html">Programs & Rates</a>
-      <a href="/ask-robert.html">Ask Robert</a>
-      <a href="/meet-robert.html">About</a>
-      <a class="btn-cta" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a>
+      <a href="/">Home</a>
+      <a href="/what-is-sonyma.html">SONYMA</a>
+      <a href="/guidelines.html">Guidelines</a>
+      <a href="/eligible.html">Eligibility</a>
+      <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener">Compare Rates</a>
+      <a href="/meet-robert.html">About Robert</a>
+      <a class="btn-cta" href="/eligible.html">Check My Eligibility →</a>
     </nav>
     <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
   </div>
   <nav class="nav-m" id="navMobile">
-    <a href="/">Explorer</a>
-    <a href="/why-sonyma.html">Programs & Rates</a>
-    <a href="/ask-robert.html">Ask Robert</a>
-    <a href="/meet-robert.html">About</a>
+    <a href="/">Home</a>
+    <a href="/what-is-sonyma.html">SONYMA</a>
     <a href="/guidelines.html">Guidelines</a>
+    <a href="/eligible.html">Eligibility</a>
+    <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener">Compare Rates</a>
+    <a href="/ask-robert.html">Ask Robert</a>
+    <a href="/meet-robert.html">About Robert</a>
     <a href="/faq.html">FAQ</a>
     <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a>
   </nav>
@@ -171,142 +151,68 @@
   <span>Equal Housing Opportunity</span>
 </div>
 
-<!-- INSTANT ESTIMATOR HERO -->
-<section class="est-hero">
-  <div class="est-inner">
-    <div class="est-kicker">Instant educational snapshot</div>
-    <h1>Get a SONYMA snapshot in seconds</h1>
-    <p class="lede">Adjust the numbers below. See potential assistance, rate pathway, and estimated monthly impact — no contact info required.</p>
-
-    <div class="est-card">
-      <div class="est-row">
-        <div class="est-field">
-          <label for="estCounty">Where are you buying?</label>
-          <select id="estCounty"></select>
-        </div>
-        <div class="est-field">
-          <label>Household size</label>
-          <select id="estHH">
-            <option value="1">1–2 people</option>
-            <option value="3">3+ people</option>
-          </select>
-        </div>
+<section class="hero hero-poster-section">
+  <div class="poster-frame">
+    <img class="poster-img" src="/a_clean_professional_promotional_poster_hero_sc.png" alt="SONYMA First-Time Homebuyer Programs — Robert Castro, Movement Mortgage, NMLS #66194" width="640" height="960" decoding="async" fetchpriority="high">
+  </div>
+  <div class="poster-cta-bar">
+    <div class="poster-cta-inner">
+      <div class="poster-cta-copy">
+        <strong>Your Home. Your Future. Our Mission.</strong>
+        <span>See what SONYMA options may fit — educational pre-screen in about 2 minutes.</span>
       </div>
-
-      <div class="est-row">
-        <div class="est-field">
-          <label for="estIncome">Household income</label>
-          <div class="est-val" id="incomeDisplay">$95,000</div>
-          <div class="est-slider-wrap">
-            <input type="range" id="estIncome" min="30000" max="250000" step="1000" value="95000">
-          </div>
-        </div>
-        <div class="est-field">
-          <label for="estPrice">Target home price</label>
-          <div class="est-val" id="priceDisplay">$450,000</div>
-          <div class="est-slider-wrap">
-            <input type="range" id="estPrice" min="150000" max="1200000" step="5000" value="450000">
-          </div>
-        </div>
+      <div class="poster-cta-actions">
+        <a class="btn-primary" href="/eligible.html">Check My Eligibility →</a>
+        <a class="btn-secondary-dark" href="/ask-robert.html">Ask Robert →</a>
       </div>
-
-      <div class="est-results" id="estResults">
-        <div class="est-metric" id="mDpal">
-          <div class="m-label">Est. DPAL assistance</div>
-          <div class="m-val" id="valDpal">—</div>
-          <div class="m-sub" id="subDpal">Enter numbers to estimate</div>
-        </div>
-        <div class="est-metric" id="mRate">
-          <div class="m-label">Est. SONYMA rate</div>
-          <div class="m-val" id="valRate">—</div>
-          <div class="m-sub" id="subRate">Pathway appears below</div>
-        </div>
-        <div class="est-metric" id="mSave">
-          <div class="m-label">Est. monthly vs market</div>
-          <div class="m-val" id="valSave">—</div>
-          <div class="m-sub" id="subSave">Illustrative only</div>
-        </div>
-      </div>
-
-      <div class="est-status" id="estStatus">
-        Adjust the sliders to see a live educational snapshot.
-      </div>
-
-      <div class="est-actions">
-        <a class="btn-primary" href="/eligible.html">Full Pre-Screen →</a>
-        <a class="btn-ghost" href="/ask-robert.html">Ask Robert</a>
-      </div>
-      <p class="est-note">Educational estimate only. Not a loan approval or final eligibility determination. Limits & rates change — verify with your lender.</p>
     </div>
   </div>
 </section>
 
 <main class="wrap">
-  <section class="section" style="margin-top:28px">
-    <div class="section-head">
-      <div class="eyebrow">Programs at a glance</div>
-      <h2>What SONYMA can offer</h2>
-      <p>Current rate snapshot · 30-year fixed · 0 points · subject to change</p>
-    </div>
-    <div class="program-grid">
-      <div class="program-card">
-        <div class="pc-top">
-          <h3>Achieving the Dream</h3>
-          <span class="pc-badge hot">Most popular</span>
-        </div>
-        <div class="pc-rate">5.700%</div>
-        <p>Best rate pathway for lower-income buyers. With DPAL: 6.100%.</p>
-        <ul>
-          <li>Lower down payment options</li>
-          <li>Strong match for first-time buyers</li>
-          <li>Target Area can expand eligibility</li>
-        </ul>
-      </div>
-      <div class="program-card">
-        <div class="pc-top">
-          <h3>Low Interest Rate</h3>
-          <span class="pc-badge">Higher income band</span>
-        </div>
-        <div class="pc-rate">6.100%</div>
-        <p>Higher income limits. With DPAL: 6.500%.</p>
-        <ul>
-          <li>Still competitive vs many market rates</li>
-          <li>Pairs with DPAL assistance</li>
-          <li>120-day rate locks available</li>
-        </ul>
-      </div>
-      <div class="program-card" style="grid-column:1/-1">
-        <div class="pc-top">
-          <h3>DPAL PLUS 2026</h3>
-          <span class="pc-badge hot">Up to $30,000</span>
-        </div>
-        <p>Limited down-payment assistance for eligible buyers. Funding is first-come, first-served and not guaranteed.</p>
-        <ul>
-          <li>Can significantly reduce cash to close</li>
-          <li>Must pair with an eligible SONYMA first mortgage</li>
-          <li>Income & purchase-price limits apply by county</li>
-        </ul>
-      </div>
-    </div>
-    <p style="font-size:12px;color:var(--muted);margin-top:12px">
-      <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">Verify current rates on SONYMA’s site →</a>
-      · <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener">Compare market rates →</a>
-    </p>
-  </section>
-
   <section class="section">
-    <div class="section-head">
-      <div class="eyebrow">How it works</div>
-      <h2>From questions to clarity</h2>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><strong>Snapshot</strong><span>Use the estimator above for a quick read.</span></div>
-      <div class="step"><div class="n">02</div><strong>Full pre-screen</strong><span>Answer a few more questions for a clearer picture.</span></div>
-      <div class="step"><div class="n">03</div><strong>Talk it through</strong><span>Review numbers with Robert.</span></div>
-      <div class="step"><div class="n">04</div><strong>Move forward</strong><span>Pre-approval and next steps when you’re ready.</span></div>
+    <div class="elig-card">
+      <h2>Could You Be Eligible for SONYMA?</h2>
+      <p>Answer a few questions and get an initial SONYMA options snapshot.</p>
+      <div class="elig-pills"><span>~2 minutes</span><span>Educational pre-screen</span><span>No obligation</span></div>
+      <a class="btn-primary btn-block" href="/eligible.html">Start Explorer →</a>
     </div>
   </section>
-
+  <section class="section">
+    <div class="section-head"><div class="eyebrow">SONYMA in plain English</div><h2>What buyers come here for</h2></div>
+    <div class="benefits">
+      <div class="benefit"><div class="num">01</div><strong>Lower down payment</strong><span>As low as 3% on many programs</span></div>
+      <div class="benefit"><div class="num">02</div><strong>Potential assistance</strong><span>DPAL / DPAL PLUS for eligible buyers</span></div>
+      <div class="benefit"><div class="num">03</div><strong>Competitive financing</strong><span>Fixed rates · 120-day locks available</span></div>
+      <div class="benefit"><div class="num">04</div><strong>Eligible NY buyers</strong><span>First-time & Target Area pathways</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head"><div class="eyebrow">Current snapshot</div><h2>SONYMA program rates</h2><p>30-year fixed · 0 points · subject to change.</p></div>
+    <div class="card">
+      <div class="rate-grid">
+        <div class="rate"><strong>Achieving the Dream</strong><div class="num">5.700%</div><small>Without DPAL<br>With DPAL: <b>6.100%</b></small></div>
+        <div class="rate"><strong>Low Interest Rate</strong><div class="num">6.100%</div><small>Without DPAL<br>With DPAL: <b>6.500%</b></small></div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px"><a href="/why-sonyma.html">See full benefits →</a> · <a href="https://hcr.ny.gov/current-rates" target="_blank" rel="noopener">SONYMA rates</a> · <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener">Compare market rates →</a></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="dpal">
+      <div><span class="tag">NEW · DPAL PLUS 2026</span><h3>Up to $30,000 in DPAL PLUS</h3><p>For eligible buyers. Funding is limited — not every buyer qualifies.</p></div>
+      <div><a class="btn-primary" href="/eligible.html">See If You May Qualify →</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head"><div class="eyebrow">How it works</div><h2>From questions to clarity</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><strong>Explore</strong><span>See whether SONYMA may fit.</span></div>
+      <div class="step"><div class="n">02</div><strong>Understand</strong><span>Learn which programs may apply.</span></div>
+      <div class="step"><div class="n">03</div><strong>Get pre-approved</strong><span>Determine what you can qualify for.</span></div>
+      <div class="step"><div class="n">04</div><strong>Buy your home</strong><span>Move forward with clearer next steps.</span></div>
+    </div>
+    <div style="margin-top:16px;text-align:center"><a class="btn-primary" href="/eligible.html">Start My SONYMA Explorer →</a></div>
+  </section>
   <section class="section">
     <div class="why">
       <h2>Why work with Robert</h2>
@@ -317,27 +223,17 @@
         <div class="stat"><div class="v">66194</div><div class="l">NMLS ID</div></div>
         <div class="stat"><div class="v">SONYMA</div><div class="l">Specialized guidance</div></div>
       </div>
-      <div style="margin-top:18px">
-        <a class="btn-secondary" href="/meet-robert.html" style="border-color:rgba(255,255,255,.3)">Meet Robert →</a>
-      </div>
+      <div style="margin-top:18px"><a class="btn-secondary" href="/meet-robert.html" style="border-color:rgba(255,255,255,.3)">Meet Robert →</a></div>
     </div>
   </section>
-
   <section class="section">
     <div class="ask">
-      <div>
-        <h2>Ask Robert</h2>
-        <p>Questions about DPAL, Target Areas, or rates? Plain-English answers.</p>
-      </div>
+      <div><h2>Ask Robert</h2><p>SONYMA questions? Plain-English answers on DPAL, rates, and more.</p></div>
       <a class="btn-primary" href="/ask-robert.html">Open Ask Robert →</a>
     </div>
   </section>
-
   <section class="section">
-    <div class="section-head">
-      <div class="eyebrow">Learn more</div>
-      <h2>Education & clarity</h2>
-    </div>
+    <div class="section-head"><div class="eyebrow">Learn more</div><h2>Education & clarity</h2></div>
     <div class="explore-row">
       <a class="explore-link" href="/guidelines.html"><strong>Guidelines</strong><span>Program rules overview</span></a>
       <a class="explore-link" href="/faq.html"><strong>FAQ</strong><span>Common questions</span></a>
@@ -345,237 +241,30 @@
       <a class="explore-link" href="/recapture.html"><strong>Recapture tax</strong><span>Plain-English explanation</span></a>
     </div>
   </section>
-
   <section class="final">
     <h2>Let’s see if SONYMA can help you get home.</h2>
-    <p>Start with the quick snapshot above — or go deeper with the full pre-screen.</p>
+    <p>Start with a quick educational snapshot — then talk with Robert.</p>
     <div class="final-actions">
-      <a class="btn-primary" href="/eligible.html">Full Pre-Screen →</a>
+      <a class="btn-primary" href="/eligible.html">Check My Options →</a>
       <a class="btn-secondary" href="tel:19148049889">Talk to Robert →</a>
       <a class="btn-secondary" href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application →</a>
     </div>
     <a class="phone" href="tel:19148049889">(914) 804-9889</a>
     <p style="font-size:12px;color:#8a9aab;margin:0">robert.castro@movement.com · Valhalla, NY</p>
   </section>
-
   <p class="notice"><b>Important:</b> Educational resource only — not affiliated with SONYMA or NYS. Not a loan approval. NMLS #66194 · Movement Mortgage NMLS #39179.</p>
 </main>
-
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-col">
-        <strong>Robert A. Castro</strong>
-        Sr. Loan Officer · Movement Mortgage<br>NMLS #66194<br>
-        <a href="tel:19148049889">(914) 804-9889</a>
-        <a href="mailto:robert.castro@movement.com">robert.castro@movement.com</a>
-      </div>
-      <div class="footer-col">
-        <strong>Explore</strong>
-        <a href="/">Explorer</a>
-        <a href="/eligible.html">Full Pre-Screen</a>
-        <a href="/why-sonyma.html">Programs & Rates</a>
-        <a href="/guidelines.html">Guidelines</a>
-      </div>
-      <div class="footer-col">
-        <strong>Tools</strong>
-        <a href="/ask-robert.html">Ask Robert</a>
-        <a href="/meet-robert.html">About Robert</a>
-        <a href="/faq.html">FAQ</a>
-      </div>
-      <div class="footer-col">
-        <strong>Apply</strong>
-        <a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a>
-        <a href="tel:19148049889">Call Robert</a>
-      </div>
+      <div class="footer-col"><strong>Robert A. Castro</strong>Sr. Loan Officer · Movement Mortgage<br>NMLS #66194<br><a href="tel:19148049889">(914) 804-9889</a><a href="mailto:robert.castro@movement.com">robert.castro@movement.com</a></div>
+      <div class="footer-col"><strong>Explore</strong><a href="/eligible.html">Eligibility</a><a href="/guidelines.html">Guidelines</a><a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener">Compare Rates</a><a href="/faq.html">FAQ</a></div>
+      <div class="footer-col"><strong>Tools</strong><a href="/ask-robert.html">Ask Robert</a><a href="/meet-robert.html">Meet Robert</a></div>
+      <div class="footer-col"><strong>Apply</strong><a href="https://easyapp.movement.com/apply/create_profile?userid=10105455" target="_blank" rel="noopener">Start Application</a><a href="tel:19148049889">Call Robert</a></div>
     </div>
     <div class="footer-bottom">Equal Housing Opportunity · Licensed in NY, CT, NJ, FL<br>Educational tool only</div>
   </div>
 </footer>
-
-<script src="/data.js"></script>
-<script>
-(function () {
-  // Mobile menu
-  document.getElementById('menuBtn').addEventListener('click', function () {
-    document.getElementById('navMobile').classList.toggle('open');
-  });
-
-  const D = window.SONYMA_DATA || {};
-  const R = window.SONYMA_RATES || {
-    atd: { noDpal: 5.7, withDpal: 6.1 },
-    lir: { noDpal: 6.1, withDpal: 6.5 }
-  };
-
-  // Market comparison rate (illustrative)
-  const MARKET = 6.75;
-
-  function money(n) {
-    if (!n && n !== 0) return '—';
-    return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-  }
-  function moneyK(n) {
-    if (!n && n !== 0) return '—';
-    if (n >= 1000) return '$' + Math.round(n / 1000) + 'k';
-    return money(n);
-  }
-  function fmtIncome(n) {
-    return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-  }
-
-  // Populate counties
-  const sel = document.getElementById('estCounty');
-  const counties = Object.keys(D).sort();
-  counties.forEach(c => {
-    const o = document.createElement('option');
-    o.value = c; o.textContent = c;
-    sel.appendChild(o);
-  });
-  if (D['Westchester']) sel.value = 'Westchester';
-  else if (D['Putnam']) sel.value = 'Putnam';
-  else if (counties.length) sel.value = counties[0];
-
-  const incomeEl = document.getElementById('estIncome');
-  const priceEl = document.getElementById('estPrice');
-  const hhEl = document.getElementById('estHH');
-  const incomeDisplay = document.getElementById('incomeDisplay');
-  const priceDisplay = document.getElementById('priceDisplay');
-
-  function monthlyPmt(principal, annualRate, years) {
-    if (!principal || !annualRate) return 0;
-    const r = annualRate / 100 / 12;
-    const n = years * 12;
-    if (r === 0) return principal / n;
-    return principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-  }
-
-  function recalc() {
-    const county = sel.value;
-    const d = D[county];
-    const income = Number(incomeEl.value) || 0;
-    const price = Number(priceEl.value) || 0;
-    const hh = hhEl.value; // "1" or "3"
-
-    incomeDisplay.textContent = fmtIncome(income);
-    priceDisplay.textContent = fmtIncome(price);
-
-    // Defaults
-    let dpalEst = 0;
-    let dpalLabel = 'Illustrative only';
-    let rate = null;
-    let rateLabel = '—';
-    let pathway = '';
-    let statusHtml = '';
-    let matchLevel = 'needed'; // ok | review | needed
-
-    if (!d || !income || !price) {
-      document.getElementById('valDpal').textContent = '—';
-      document.getElementById('subDpal').textContent = 'Enter numbers to estimate';
-      document.getElementById('valRate').textContent = '—';
-      document.getElementById('subRate').textContent = 'Pathway appears below';
-      document.getElementById('valSave').textContent = '—';
-      document.getElementById('subSave').textContent = 'Illustrative only';
-      document.getElementById('estStatus').innerHTML = 'Adjust the sliders to see a live educational snapshot.';
-      return;
-    }
-
-    // Use non-target limits by default (conservative)
-    const suffix = 'non';
-    const atdInc = hh === '1' ? (d.atd['income1_' + suffix] || d.atd.income1_non) : (d.atd['income3_' + suffix] || d.atd.income3_non);
-    const lirInc = hh === '1' ? (d.lir['income1_' + suffix] || d.lir.income1_non) : (d.lir['income3_' + suffix] || d.lir.income3_non);
-    const dpalInc = d.dpalPlus
-      ? (hh === '1' ? d.dpalPlus['income1_' + suffix] : d.dpalPlus['income3_' + suffix])
-      : null;
-
-    // Purchase price limit check (1-unit assumed for quick estimator)
-    const atdPP = d.atd.pp1_non;
-    const priceOk = !atdPP || price <= atdPP;
-
-    // Pathway selection
-    let atdOk = income <= atdInc && priceOk;
-    let lirOk = income <= lirInc && priceOk;
-
-    if (atdOk) {
-      rate = R.atd.noDpal;
-      rateLabel = 'Achieving the Dream';
-      pathway = 'ATD pathway looks favorable on these inputs';
-      matchLevel = 'ok';
-    } else if (lirOk) {
-      rate = R.lir.noDpal;
-      rateLabel = 'Low Interest Rate';
-      pathway = 'LIR pathway looks more realistic on these inputs';
-      matchLevel = 'review';
-    } else {
-      rate = null;
-      rateLabel = 'Review needed';
-      pathway = 'Income or price appears above current screening limits for this county';
-      matchLevel = 'needed';
-    }
-
-    // DPAL estimate (illustrative)
-    // Standard DPAL often ~3% up to a cap; DPAL PLUS up to $30k when eligible
-    const stdDpal = Math.max(0, Math.min(price * 0.03, 15000));
-    let dpalPlusOk = false;
-    if (dpalInc && income <= dpalInc && price <= 500000 && (atdOk || lirOk)) {
-      dpalPlusOk = true;
-      dpalEst = Math.min(30000, Math.max(stdDpal, price * 0.05)); // illustrative
-      dpalLabel = 'DPAL PLUS potential (limited funding)';
-    } else if (atdOk || lirOk) {
-      dpalEst = stdDpal;
-      dpalLabel = 'Standard DPAL (illustrative)';
-    } else {
-      dpalEst = 0;
-      dpalLabel = 'Assistance requires eligible first mortgage';
-    }
-
-    // Monthly savings vs market (assume 3% down for comparison principal)
-    let saveTxt = '—';
-    let saveSub = 'Illustrative only';
-    if (rate && price > 0) {
-      const down = Math.max(price * 0.03, dpalEst); // rough cash reduction
-      const loanAmt = Math.max(0, price - Math.min(down, price * 0.2));
-      const sonymaPmt = monthlyPmt(loanAmt, rate, 30);
-      const marketPmt = monthlyPmt(loanAmt, MARKET, 30);
-      const diff = Math.round(marketPmt - sonymaPmt);
-      if (diff > 0) {
-        saveTxt = '$' + diff;
-        saveSub = 'vs ~' + MARKET.toFixed(2) + '% market rate';
-      } else {
-        saveTxt = 'Similar';
-        saveSub = 'vs ~' + MARKET.toFixed(2) + '% market';
-      }
-    }
-
-    // Update UI
-    document.getElementById('valDpal').textContent = dpalEst ? moneyK(dpalEst) : '—';
-    document.getElementById('subDpal').textContent = dpalLabel;
-    document.getElementById('mDpal').classList.toggle('hot', dpalEst >= 15000);
-
-    document.getElementById('valRate').textContent = rate ? rate.toFixed(3) + '%' : '—';
-    document.getElementById('subRate').textContent = rateLabel;
-    document.getElementById('mRate').classList.toggle('hot', matchLevel === 'ok');
-
-    document.getElementById('valSave').textContent = saveTxt;
-    document.getElementById('subSave').textContent = saveSub;
-    document.getElementById('mSave').classList.toggle('hot', typeof saveTxt === 'string' && saveTxt.startsWith('$'));
-
-    const pillClass = matchLevel === 'ok' ? 'ok' : (matchLevel === 'review' ? 'review' : 'needed');
-    const pillText = matchLevel === 'ok' ? 'POTENTIAL MATCH' : (matchLevel === 'review' ? 'REVIEW' : 'REVIEW NEEDED');
-    statusHtml = '<span class="pill ' + pillClass + '">' + pillText + '</span> ' +
-      '<b>' + county + '</b> · ' + pathway +
-      '. Target Area status can change limits. This is educational only.';
-    document.getElementById('estStatus').innerHTML = statusHtml;
-  }
-
-  // Bind events
-  [sel, incomeEl, priceEl, hhEl].forEach(el => {
-    el.addEventListener('input', recalc);
-    el.addEventListener('change', recalc);
-  });
-
-  // Initial calc
-  recalc();
-})();
-</script>
+<script>document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('navMobile').classList.toggle('open');});</script>
 </body>
 </html>
