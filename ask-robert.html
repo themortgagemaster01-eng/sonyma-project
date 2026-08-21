@@ -100,7 +100,7 @@
 }
 .chat-note { font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
 .quick-cta {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; margin-bottom: 8px;
 }
 .quick-cta a {
   display: block; text-align: center; padding: 12px;
@@ -112,7 +112,7 @@
 .quick-cta .secondary { background: #fff; color: var(--navy); border: 1.5px solid var(--line); }
 </style>
 </head>
-<body>
+<body class="has-sticky-cta">
 <header class="site-header">
   <div class="header-inner">
     <div class="brand-block">
@@ -198,6 +198,11 @@
   </div>
 </footer>
 
+<div class="sticky-cta">
+  <a class="sc-primary" href="/eligible.html">Check Eligibility</a>
+  <a class="sc-secondary" href="tel:19148049889">Call Robert</a>
+</div>
+
 <script>
 document.getElementById('menuBtn').addEventListener('click', function () {
   document.getElementById('navMobile').classList.toggle('open');
@@ -229,14 +234,12 @@ document.getElementById('chips').addEventListener('click', function (e) {
     b.classList.toggle('active', b === btn);
   });
 
-  // Show user question + typing indicator first
   body.innerHTML =
     '<div class="bubble user">' + q + '</div>' +
     '<div class="typing" id="typing"><span></span><span></span><span></span></div>';
   body.scrollTop = 0;
   shell.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  // After short delay, replace typing with answer
   setTimeout(function () {
     body.innerHTML =
       '<div class="bubble user">' + q + '</div>' +
