@@ -11,37 +11,34 @@ const FALLBACK = {
   lir: { label: 'Low Interest Rate', noDpal: 6.1, withDpal: 6.5, term: '30-year fixed', points: 0 }
 };
 
-function parsePercent(str) {
-  if (!str) return null;
-  const m = String(str).match(/(\d+\.\d{1,3})\s*%/);
-  return m ? parseFloat(m[1]) : null;
-}
-
 function extractRates(html) {
-  // Normalize whitespace for easier matching
   const text = html.replace(/\s+/g, ' ');
 
-  // Find Achieving the Dream block — look for rate numbers near the program name
-  // Table order: Without DPAL | With DPAL
   let atdNo = null, atdWith = null, lirNo = null, lirWith = null;
 
-  // Strategy: find sections by program name, then grab the first two percentage values that look like rates
-  const atdMatch = text.match(/Achieving the Dream[\s\S]{0,800}?(\d+\.\d{3})\s*%[\s\S]{0,200}?(\d+\.\d{3})\s*%/i);
+  // Achieving the Dream Mortgage Program section
+  const atdMatch = text.match(/Achieving the Dream Mortgage Program[\s\S]{0,600}?(\d+\.\d{3})\s*%[\s\S]{0,200}?(\d+\.\d{3})\s*%/i)
+    || text.match(/Achieving the Dream(?![\s\S]{0,40}Programs)[\s\S]{0,400}?(\d+\.\d{3})\s*%[\s\S]{0,120}?(\d+\.\d{3})\s*%/i);
   if (atdMatch) {
     atdNo = parseFloat(atdMatch[1]);
     atdWith = parseFloat(atdMatch[2]);
   }
 
-  const lirMatch = text.match(/Low Interest Rate Program[\s\S]{0,800}?(\d+\.\d{3})\s*%[\s\S]{0,200}?(\d+\.\d{3})\s*%/i);
+  // Low Interest Rate Program (singular) — do NOT match "Low Interest Rate Programs" header
+  const lirMatch = text.match(/Low Interest Rate Program(?!s)[\s\S]{0,500}?(\d+\.\d{3})\s*%[\s\S]{0,200}?(\d+\.\d{3})\s*%/i);
   if (lirMatch) {
     lirNo = parseFloat(lirMatch[1]);
     lirWith = parseFloat(lirMatch[2]);
   }
 
-  // Sanity bounds (SONYMA rates historically 3%–9%)
-  function ok(n) { return typeof n === 'number' && n >= 3 && n <= 12; }
+  function ok(n) { return typeof n === 'number' && !isNaN(n) && n >= 3 && n <= 12; }
 
   if (!ok(atdNo) || !ok(atdWith) || !ok(lirNo) || !ok(lirWith)) {
+    return null;
+  }
+
+  // Sanity: LIR should not be lower than ATD
+  if (lirNo + 0.01 < atdNo) {
     return null;
   }
 
@@ -56,10 +53,9 @@ function extractRates(html) {
 }
 
 module.exports = async function handler(req, res) {
-  // Allow browser calls from the same origin / Vercel domain
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400'); // 1h cache, 24h stale
+  res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
 
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
@@ -82,7 +78,6 @@ module.exports = async function handler(req, res) {
     const rates = extractRates(html);
 
     if (!rates) {
-      // Parse failed — return fallback but mark not live
       return res.status(200).json({ ...FALLBACK, fetchedAt: new Date().toISOString(), parseError: true });
     }
 
